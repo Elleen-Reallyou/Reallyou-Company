@@ -16,28 +16,34 @@ color: #222;
 }
 
 /* ===== 顶部背景图 HERO ===== */
-header {
+.hero {
 height: 80vh;
+
 background:
 linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
 url("images/office-building.jpg");
+
 background-size: cover;
 background-position: center;
+background-repeat: no-repeat;
+
 color: white;
+
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 text-align: center;
+
 padding: 20px;
 }
 
-header h1 {
+.hero h1 {
 font-size: 42px;
 margin: 0;
 }
 
-header p {
+.hero p {
 font-size: 18px;
 max-width: 800px;
 line-height: 1.6;
@@ -91,7 +97,8 @@ padding: 30px;
 <body>
 
 <!-- ================= HERO ================= -->
-<header>
+<header class="hero">
+
 <h1>Quanzhou Reallyou Import & Export Co., Ltd.</h1>
 
 <p>
@@ -101,6 +108,7 @@ Footwear Sourcing · Development · Production Management · Global Supply Chain
 <p>
 Based in Jinjiang, China – The Footwear Capital | 6+ Years Experience
 </p>
+
 </header>
 
 <!-- ================= ABOUT ================= -->
