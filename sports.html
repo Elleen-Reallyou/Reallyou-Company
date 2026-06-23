@@ -173,12 +173,10 @@ style="display:block">
 <p><strong>Colors:</strong></p>
 
 <!-- 颜色按钮 -->
-<div class="color-options">
 
-<span class="color black" onclick="changeImg('img1','black')"></span>
-<span class="color white" onclick="changeImg('img1','yellow')"></span>
-<span class="color grey" onclick="changeImg('img1','white')"></span>
-
+<span onclick="changeImg('sneaker1','M/sneaker1','black')">Black</span>
+<span onclick="changeImg('sneaker1','M/sneaker1','white')">Yellow</span>
+<span onclick="changeImg('sneaker1','M/sneaker1','white')">White</span>
 </div>
 <div class="content">
 <p><strong>MOQ:</strong> 600 pairs/color</p>
@@ -290,11 +288,10 @@ window.onload = ()=> showTab("sneakers");
 </script>
 <script>
 
-function changeImg(imgId, color){
+function changeImg(imgId, product, color){
 
-let img = document.getElementById(imgId);
-
-img.src = "images/sports/sneaker-" + color + ".jpg";
+document.getElementById(imgId).src =
+"images/sports/" + product + "-" + color + ".jpg";
 
 }
 
