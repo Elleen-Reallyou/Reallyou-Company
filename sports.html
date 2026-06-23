@@ -94,6 +94,7 @@ transform:translateY(-6px);
 box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
+/* ===== IMAGE (关键修复) ===== */
 .card img{
 width:100%;
 height:180px;
@@ -142,6 +143,8 @@ transform:scale(1.2);
 .white{background:#fff;border:1px solid #ccc;}
 .red{background:#c0392b;}
 .blue{background:#2980b9;}
+.yellow{background:#f1c40f;}
+.pink{background:#ff69b4;}
 
 /* ===== BUTTON ===== */
 .wa-btn{
@@ -201,9 +204,18 @@ background:#1ebe5d;
 
 <script>
 
-/* ======================
-   1. PRODUCT DATABASE
-====================== */
+/* ===== COLOR MAP ===== */
+const COLOR_MAP = {
+black:"#000000",
+white:"#ffffff",
+grey:"#888888",
+red:"#c0392b",
+blue:"#2980b9",
+yellow:"#f1c40f",
+pink:"#ff69b4"
+};
+
+/* ===== PRODUCTS ===== */
 const products = [
 {
 id:"sneaker1",
@@ -214,14 +226,13 @@ season:"summer",
 moq:"600 pairs/color",
 material:"Mesh + EVA Sole",
 colors:[
-{color:"black",img:"images/sports/M/sneaker1-black.jpg",class:"black"},
-{color:"yellow",img:"images/sports/M/sneaker1-yellow.jpg",class:"yellow"},
-{color:"white",img:"images/sports/M/sneaker1-white.jpg",class:"white"}
+{color:"black",img:"images/sports/M/sneaker1-black.jpg"},
+{color:"yellow",img:"images/sports/M/sneaker1-yellow.jpg"},
+{color:"white",img:"images/sports/M/sneaker1-white.jpg"}
 ]
 },
-
 {
-id:"s2",
+id:"sneaker2",
 name:"Women Casual Sneaker",
 tab:"sneakers",
 gender:"women",
@@ -229,13 +240,12 @@ season:"summer",
 moq:"600 pairs/color",
 material:"Mesh + EVA Sole",
 colors:[
-{color:"pink",img:"images/sports/W/s2-pink.jpg",class:"red"},
-{color:"blue",img:"images/sports/W/s2-blue.jpg",class:"blue"}
+{color:"pink",img:"images/sports/W/s2-pink.jpg"},
+{color:"blue",img:"images/sports/W/s2-blue.jpg"}
 ]
 },
-
 {
-id:"f1",
+id:"football1",
 name:"FG Football Boot",
 tab:"football",
 gender:"men",
@@ -243,13 +253,12 @@ season:"summer",
 moq:"600 pairs/color",
 material:"PU + Rubber Sole",
 colors:[
-{color:"black",img:"images/football/f1-black.jpg",class:"black"},
-{color:"white",img:"images/football/f1-white.jpg",class:"white"}
+{color:"black",img:"images/football/f1-black.jpg"},
+{color:"white",img:"images/football/f1-white.jpg"}
 ]
 },
-
 {
-id:"b1",
+id:"basket1",
 name:"Basketball Shoe",
 tab:"basketball",
 gender:"men",
@@ -257,15 +266,13 @@ season:"winter",
 moq:"600 pairs/color",
 material:"Breathable Mesh",
 colors:[
-{color:"black",img:"images/basketball/b1-black.jpg",class:"black"},
-{color:"blue",img:"images/basketball/b1-blue.jpg",class:"blue"}
+{color:"black",img:"images/basketball/b1-black.jpg"},
+{color:"blue",img:"images/basketball/b1-blue.jpg"}
 ]
 }
 ];
 
-/* ======================
-   2. RENDER PRODUCTS
-====================== */
+/* ===== RENDER ===== */
 function renderProducts(){
 
 const grid = document.getElementById("productGrid");
@@ -273,10 +280,9 @@ grid.innerHTML = "";
 
 products.forEach(p=>{
 
-let colorsHTML = "";   // ✅ 必须初始化
+let colorsHTML = "";
 
 p.colors.forEach(c=>{
-
 colorsHTML += `
 <span class="color"
 style="background:${COLOR_MAP[c.color]}"
@@ -297,8 +303,8 @@ src="${p.colors[0].img}">
 <div class="product-info">
 
 <h3>${p.name}</h3>
-<p>MOQ: ${p.moq}</p>
-<p>Material: ${p.material}</p>
+<p><strong>MOQ:</strong> ${p.moq}</p>
+<p><strong>Material:</strong> ${p.material}</p>
 
 <div class="color-options">
 ${colorsHTML}
@@ -318,16 +324,13 @@ target="_blank">
 
 applyFilter();
 }
-/* ======================
-   3. CHANGE COLOR
-====================== */
+
+/* ===== COLOR CHANGE ===== */
 function changeColor(id,img){
 document.getElementById(id).src = img;
 }
 
-/* ======================
-   4. FILTER SYSTEM
-====================== */
+/* ===== FILTER ===== */
 let currentTab = "sneakers";
 
 function setTab(tab){
@@ -350,36 +353,28 @@ document.getElementById("season").addEventListener("change",applyFilter);
 
 function applyFilter(){
 
-const gender = document.getElementById("gender").value;
-const season = document.getElementById("season").value;
-
 document.querySelectorAll(".card").forEach(card=>{
 
 const matchTab = card.dataset.tab === currentTab;
-const matchGender = gender==="all" || card.dataset.gender===gender;
-const matchSeason = season==="all" || card.dataset.season===season;
+const matchGender = document.getElementById("gender").value === "all"
+|| card.dataset.gender === document.getElementById("gender").value;
 
-card.style.display =
-(matchTab && matchGender && matchSeason) ? "block" : "none";
+const matchSeason = document.getElementById("season").value === "all"
+|| card.dataset.season === document.getElementById("season").value;
+
+card.style.display = (matchTab && matchGender && matchSeason)
+? "block"
+: "none";
 
 });
 
 }
-const COLOR_MAP = {
-black: "#000000",
-white: "#ffffff",
-grey: "#888888",
-red: "#c0392b",
-blue: "#2980b9",
-pink: "#ff69b4"
-};
 
-/* ======================
-   INIT
-====================== */
+/* ===== INIT ===== */
 window.onload = renderProducts;
 
 </script>
 
 </body>
 </html>
+
