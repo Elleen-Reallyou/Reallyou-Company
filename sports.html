@@ -273,12 +273,17 @@ grid.innerHTML = "";
 
 products.forEach(p=>{
 
+let colorsHTML = "";   // ✅ 必须初始化
+
+p.colors.forEach(c=>{
+
 colorsHTML += `
 <span class="color"
 style="background:${COLOR_MAP[c.color]}"
 onclick="changeColor('${p.id}','${c.img}')">
 </span>
 `;
+});
 
 grid.innerHTML += `
 <div class="card"
@@ -308,11 +313,11 @@ target="_blank">
 </div>
 </div>
 `;
+
 });
 
 applyFilter();
 }
-
 /* ======================
    3. CHANGE COLOR
 ====================== */
