@@ -5,27 +5,13 @@
 <title>Sports Shoes | Reallyou</title>
 
 <style>
-.color-options{
-display:flex;
-gap:10px;
-margin:10px;
-}
 
-.color{
-width:18px;
-height:18px;
-border-radius:50%;
-cursor:pointer;
-border:2px solid #ddd;
-}
-
-.black{ background:black; }
-.white{ background:white; }
-.grey{ background:grey; }
+/* ===== BASE ===== */
 body{
 font-family:Arial;
 margin:0;
 background:#f5f5f5;
+color:#222;
 }
 
 header{
@@ -81,7 +67,7 @@ padding:8px;
 border-radius:5px;
 }
 
-/* ===== PRODUCTS ===== */
+/* ===== GRID ===== */
 .container{
 max-width:1200px;
 margin:auto;
@@ -90,32 +76,82 @@ padding:20px;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
-margin-top:20px;
 }
 
+/* ===== CARD ===== */
 .card{
 background:white;
-border-radius:10px;
+border-radius:16px;
 overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-display:none;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
 .card img{
 width:100%;
-height:200px;
-object-fit:cover;
+height:260px;
+object-fit:contain;
+background:#fff;
+padding:15px;
 }
 
-.card h3{
-margin:10px;
+.product-info{
+padding:15px;
 }
 
-.card p{
-margin:10px;
-color:#666;
+.product-info h3{
+margin:5px 0 10px;
+color:#0b1f3a;
+}
+
+/* ===== COLORS ===== */
+.color-options{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.color{
+width:22px;
+height:22px;
+border-radius:50%;
+cursor:pointer;
+border:2px solid #ddd;
+transition:0.2s;
+}
+
+.color:hover{
+transform:scale(1.2);
+}
+
+.black{background:#000;}
+.grey{background:#888;}
+.white{background:#fff;border:1px solid #ccc;}
+.red{background:#c0392b;}
+.blue{background:#2980b9;}
+
+/* ===== BUTTON ===== */
+.wa-btn{
+display:block;
+margin-top:12px;
+background:#25D366;
+color:white;
+text-align:center;
+padding:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.wa-btn:hover{
+background:#1ebe5d;
 }
 
 </style>
@@ -129,18 +165,15 @@ color:#666;
 <a href="index.html" class="back">Back to Home</a>
 </header>
 
-<!-- ===== TABS (二级分类) ===== -->
+<!-- ===== TABS ===== -->
 <div class="tabs">
-
-<div class="tab active" onclick="showTab('sneakers')">Sneakers</div>
-<div class="tab" onclick="showTab('football')">Football Shoes</div>
-<div class="tab" onclick="showTab('basketball')">Basketball Shoes</div>
-
+<div class="tab active" onclick="setTab('sneakers')">Sneakers</div>
+<div class="tab" onclick="setTab('football')">Football Shoes</div>
+<div class="tab" onclick="setTab('basketball')">Basketball Shoes</div>
 </div>
 
-<!-- ===== FILTER (三级筛选) ===== -->
+<!-- ===== FILTER ===== -->
 <div class="filter-bar">
-
 <select id="gender">
 <option value="all">Gender: All</option>
 <option value="men">Men</option>
@@ -153,173 +186,183 @@ color:#666;
 <option value="summer">Summer</option>
 <option value="winter">Winter</option>
 </select>
-
 </div>
 
 <!-- ===== PRODUCTS ===== -->
 <div class="container">
-
-<!-- SNEAKERS -->
-<div class="grid tab-content" data-tab="sneakers">
-
-    <!-- Product 1 -->
-    <div class="card"
-         data-gender="men"
-         data-season="summer">
-
-        <img id="sneaker1"
-             src="images/sports/M/sneaker1-black.jpg">
-
-        <div class="product-info">
-
-            <h3>Men Running Sneaker</h3>
-
-            <p><strong>MOQ:</strong> 600 Pairs / Color</p>
-            <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
-
-            <p><strong>Colors:</strong></p>
-
-            <div class="color-options">
-
-                <span class="color black"
-                      onclick="changeImg('sneaker1','M/sneaker1','black')"></span>
-
-                <span class="color yellow"
-                      onclick="changeImg('sneaker1','M/sneaker1','yellow')"></span>
-
-                <span class="color white"
-                      onclick="changeImg('sneaker1','M/sneaker1','white')"></span>
-
-            </div>
-
-            <a class="wa-btn"
-               href="https://wa.me/8618659004495?text=Hello%20I%20am%20interested%20in%20Men%20Running%20Sneaker"
-               target="_blank">
-               💬 Send Inquiry
-            </a>
-
-        </div>
-    </div>
-
-    <!-- Product 2 -->
-    <div class="card"
-         data-gender="women"
-         data-season="summer">
-
-        <img src="images/sports/W/sneaker2-pink.jpg">
-
-        <div class="product-info">
-
-            <h3>Women Casual Sneaker</h3>
-
-            <p><strong>MOQ:</strong> 600 Pairs / Color</p>
-            <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
-
-            <a class="wa-btn"
-               href="https://wa.me/8618659004495"
-               target="_blank">
-               💬 Send Inquiry
-            </a>
-
-        </div>
-    </div>
-
-</div>
-
-<!-- FOOTBALL -->
-<div class="grid tab-content" data-tab="football" style="display:none">
-
-<div class="card" data-gender="men" data-season="summer" style="display:block">
-<img src="football1.jpg">
-<h3>FG Football Shoe</h3>
-<p>Firm ground professional boot</p>
-</div>
-
-</div>
-
-<!-- BASKETBALL -->
-<div class="grid tab-content" data-tab="basketball" style="display:none">
-
-<div class="card" data-gender="men" data-season="winter" style="display:block">
-<img src="basketball1.jpg">
-<h3>High Top Basketball Shoe</h3>
-<p>Indoor & outdoor performance</p>
-</div>
-
-</div>
-
+<div class="grid" id="productGrid"></div>
 </div>
 
 <script>
 
+/* ======================
+   1. PRODUCT DATABASE
+====================== */
+const products = [
+{
+id:"sneaker1",
+name:"Men Running Sneaker",
+tab:"sneakers",
+gender:"men",
+season:"summer",
+moq:"600 pairs/color",
+material:"Mesh + EVA Sole",
+colors:[
+{color:"black",img:"images/sports/M/sneaker1-black.jpg",class:"black"},
+{color:"yellow",img:"images/sports/M/sneaker1-yellow.jpg",class:"yellow"},
+{color:"white",img:"images/sports/M/sneaker1-white.jpg",class:"white"}
+]
+},
+
+{
+id:"s2",
+name:"Women Casual Sneaker",
+tab:"sneakers",
+gender:"women",
+season:"summer",
+moq:"600 pairs/color",
+material:"Mesh + EVA Sole",
+colors:[
+{color:"pink",img:"images/sports/W/s2-pink.jpg",class:"red"},
+{color:"blue",img:"images/sports/W/s2-blue.jpg",class:"blue"}
+]
+},
+
+{
+id:"f1",
+name:"FG Football Boot",
+tab:"football",
+gender:"men",
+season:"summer",
+moq:"600 pairs/color",
+material:"PU + Rubber Sole",
+colors:[
+{color:"black",img:"images/football/f1-black.jpg",class:"black"},
+{color:"white",img:"images/football/f1-white.jpg",class:"white"}
+]
+},
+
+{
+id:"b1",
+name:"Basketball Shoe",
+tab:"basketball",
+gender:"men",
+season:"winter",
+moq:"600 pairs/color",
+material:"Breathable Mesh",
+colors:[
+{color:"black",img:"images/basketball/b1-black.jpg",class:"black"},
+{color:"blue",img:"images/basketball/b1-blue.jpg",class:"blue"}
+]
+}
+];
+
+/* ======================
+   2. RENDER PRODUCTS
+====================== */
+function renderProducts(){
+
+const grid = document.getElementById("productGrid");
+grid.innerHTML = "";
+
+products.forEach(p=>{
+
+let colorsHTML = "";
+
+p.colors.forEach(c=>{
+colorsHTML += `
+<span class="color ${c.class}"
+onclick="changeColor('${p.id}','${c.img}')"></span>
+`;
+});
+
+grid.innerHTML += `
+<div class="card"
+data-tab="${p.tab}"
+data-gender="${p.gender}"
+data-season="${p.season}">
+
+<img id="${p.id}"
+src="${p.colors[0].img}">
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+<p>MOQ: ${p.moq}</p>
+<p>Material: ${p.material}</p>
+
+<div class="color-options">
+${colorsHTML}
+</div>
+
+<a class="wa-btn"
+href="https://wa.me/8618659004495?text=Inquiry%20for%20${p.name}"
+target="_blank">
+💬 Send Inquiry
+</a>
+
+</div>
+</div>
+`;
+});
+
+applyFilter();
+}
+
+/* ======================
+   3. CHANGE COLOR
+====================== */
+function changeColor(id,img){
+document.getElementById(id).src = img;
+}
+
+/* ======================
+   4. FILTER SYSTEM
+====================== */
 let currentTab = "sneakers";
 
-function showTab(tab){
-
+function setTab(tab){
 currentTab = tab;
+applyFilter();
+updateTabUI(tab);
+}
 
-/* tab样式 */
+function updateTabUI(tab){
 document.querySelectorAll(".tab").forEach(t=>{
 t.classList.remove("active");
 if(t.innerText.toLowerCase().includes(tab)){
 t.classList.add("active");
 }
 });
-
-/* 切换内容 */
-document.querySelectorAll(".tab-content").forEach(c=>{
-if(c.getAttribute("data-tab") === tab){
-c.style.display = "grid";
-}else{
-c.style.display = "none";
-}
-});
-
-applyFilter();
 }
 
-/* ===== FILTER ===== */
 document.getElementById("gender").addEventListener("change",applyFilter);
 document.getElementById("season").addEventListener("change",applyFilter);
 
 function applyFilter(){
 
-let gender = document.getElementById("gender").value;
-let season = document.getElementById("season").value;
+const gender = document.getElementById("gender").value;
+const season = document.getElementById("season").value;
 
-let cards = document.querySelectorAll(`.tab-content[data-tab="${currentTab}"] .card`);
+document.querySelectorAll(".card").forEach(card=>{
 
-cards.forEach(card=>{
+const matchTab = card.dataset.tab === currentTab;
+const matchGender = gender==="all" || card.dataset.gender===gender;
+const matchSeason = season==="all" || card.dataset.season===season;
 
-let g = card.getAttribute("data-gender");
-let s = card.getAttribute("data-season");
-
-let okG = (gender === "all" || gender === g);
-let okS = (season === "all" || season === s);
-
-if(okG && okS){
-card.style.display = "block";
-}else{
-card.style.display = "none";
-}
+card.style.display =
+(matchTab && matchGender && matchSeason) ? "block" : "none";
 
 });
 
 }
 
-/* 默认加载 */
-window.onload = ()=> showTab("sneakers");
+/* ======================
+   INIT
+====================== */
+window.onload = renderProducts;
 
 </script>
-<script>
 
-function changeImg(imgId, product, color){
-
-    document.getElementById(imgId).src =
-    "images/sports/" + product + "-" + color + ".jpg";
-
-}
-
-</script>
 </body>
 </html>
