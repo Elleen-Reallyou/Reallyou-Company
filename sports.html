@@ -160,42 +160,86 @@ color:#666;
 <div class="container">
 
 <!-- SNEAKERS -->
-<div class="card">
-data-gender="men"
-data-season="summer"
-data-tab="sneakers"
-style="display:block">
-<!-- 主图 -->
-<img id="img1" src="images/sports/M/sneaker1-black.jpg">
 
-<div class="content">
-<p><strong>MOQ:</strong> 600 pairs/color</p>
-<p><strong>Material:</strong> Mesh + EVA sole</p>
+<div class="grid tab-content" data-tab="sneakers">
 
-<p><strong>Colors:</strong></p>
+```
+<!-- Product 1 -->
+<div class="card"
+     data-gender="men"
+     data-season="summer">
 
-<!-- 颜色按钮 -->
+    <img id="sneaker1"
+         src="images/sports/M/sneaker1-black.jpg"
+         alt="Men Running Sneaker">
 
-<span onclick="changeImg('sneaker1','M/sneaker1','black')">Black</span>
-<span onclick="changeImg('sneaker1','M/sneaker1','white')">Yellow</span>
-<span onclick="changeImg('sneaker1','M/sneaker1','white')">White</span>
+    <div class="product-info">
+
+        <h3>Men Running Sneaker</h3>
+
+        <p><strong>MOQ:</strong> 600 Pairs / Color</p>
+
+        <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
+
+        <p><strong>Colors:</strong></p>
+
+        <div class="color-options">
+
+            <span class="color black"
+                  onclick="changeImg('sneaker1','M/sneaker1','black')">
+            </span>
+
+            <span class="color grey"
+                  onclick="changeImg('sneaker1','M/sneaker1','grey')">
+            </span>
+
+            <span class="color white"
+                  onclick="changeImg('sneaker1','M/sneaker1','white')">
+            </span>
+
+        </div>
+
+        <a class="wa-btn"
+           href="https://wa.me/8618659004495?text=Hello%20I%20am%20interested%20in%20Men%20Running%20Sneaker"
+           target="_blank">
+
+           💬 Send Inquiry
+
+        </a>
+
+    </div>
+
 </div>
-<!-- 询盘 -->
-<a class="wa-btn"
-href="https://wa.me/8618659004495?text=Hello%2C%20I%20am%20interested%20in%20Men%20Running%20Sneaker%20(Sports%20Shoes)"
-target="_blank">
 
-💬 Send Inquiry
 
-</a>
+<!-- Product 2 -->
+<div class="card"
+     data-gender="women"
+     data-season="summer">
+
+    <img src="images/sports/W/sneaker2-pink.jpg"
+         alt="Women Casual Sneaker">
+
+    <div class="product-info">
+
+        <h3>Women Casual Sneaker</h3>
+
+        <p><strong>MOQ:</strong> 600 Pairs / Color</p>
+
+        <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
+
+        <a class="wa-btn"
+           href="https://wa.me/8618659004495?text=Hello%20I%20am%20interested%20in%20Women%20Casual%20Sneaker"
+           target="_blank">
+
+           💬 Send Inquiry
+
+        </a>
+
+    </div>
 
 </div>
-
-
-<div class="card" data-gender="women" data-season="summer" style="display:block">
-<img src="sneakers2.jpg">
-
-</div>
+```
 
 </div>
 
