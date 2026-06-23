@@ -267,14 +267,12 @@ grid.innerHTML = "";
 
 products.forEach(p=>{
 
-let colorsHTML = "";
-
-p.colors.forEach(c=>{
 colorsHTML += `
-<span class="color ${c.class}"
-onclick="changeColor('${p.id}','${c.img}')"></span>
+<span class="color"
+style="background:${COLOR_MAP[c.color]}"
+onclick="changeColor('${p.id}','${c.img}')">
+</span>
 `;
-});
 
 grid.innerHTML += `
 <div class="card"
@@ -356,6 +354,14 @@ card.style.display =
 });
 
 }
+const COLOR_MAP = {
+black: "#000000",
+white: "#ffffff",
+grey: "#888888",
+red: "#c0392b",
+blue: "#2980b9",
+pink: "#ff69b4"
+};
 
 /* ======================
    INIT
