@@ -130,10 +130,14 @@ width:22px;
 height:22px;
 border-radius:50%;
 cursor:pointer;
-border:2px solid #ddd;
-transition:0.2s;
+border:2px solid #ccc;   /* 关键：让白色也看得见 */
+display:inline-block;
+box-shadow:0 1px 3px rgba(0,0,0,0.15);
 }
-
+.white{
+background:#fff;
+border:2px solid #aaa;
+}
 .color:hover{
 transform:scale(1.2);
 }
@@ -285,7 +289,7 @@ let colorsHTML = "";
 p.colors.forEach(c=>{
 colorsHTML += `
 <span class="color"
-style="background:${COLOR_MAP[c.color]}"
+style="background:${COLOR_MAP[c.color] || c.color}"
 onclick="changeColor('${p.id}','${c.img}')">
 </span>
 `;
