@@ -160,86 +160,69 @@ color:#666;
 <div class="container">
 
 <!-- SNEAKERS -->
-
 <div class="grid tab-content" data-tab="sneakers">
 
-```
-<!-- Product 1 -->
-<div class="card"
-     data-gender="men"
-     data-season="summer">
+    <!-- Product 1 -->
+    <div class="card"
+         data-gender="men"
+         data-season="summer">
 
-    <img id="sneaker1"
-         src="images/sports/M/sneaker1-black.jpg"
-         alt="Men Running Sneaker">
+        <img id="sneaker1"
+             src="images/sports/M/sneaker1-black.jpg">
 
-    <div class="product-info">
+        <div class="product-info">
 
-        <h3>Men Running Sneaker</h3>
+            <h3>Men Running Sneaker</h3>
 
-        <p><strong>MOQ:</strong> 600 Pairs / Color</p>
+            <p><strong>MOQ:</strong> 600 Pairs / Color</p>
+            <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
 
-        <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
+            <p><strong>Colors:</strong></p>
 
-        <p><strong>Colors:</strong></p>
+            <div class="color-options">
 
-        <div class="color-options">
+                <span class="color black"
+                      onclick="changeImg('sneaker1','M/sneaker1','black')"></span>
 
-            <span class="color black"
-                  onclick="changeImg('sneaker1','M/sneaker1','black')">
-            </span>
+                <span class="color yellow"
+                      onclick="changeImg('sneaker1','M/sneaker1','yellow')"></span>
 
-            <span class="color grey"
-                  onclick="changeImg('sneaker1','M/sneaker1','yellow')">
-            </span>
+                <span class="color white"
+                      onclick="changeImg('sneaker1','M/sneaker1','white')"></span>
 
-            <span class="color white"
-                  onclick="changeImg('sneaker1','M/sneaker1','white')">
-            </span>
+            </div>
+
+            <a class="wa-btn"
+               href="https://wa.me/8618659004495?text=Hello%20I%20am%20interested%20in%20Men%20Running%20Sneaker"
+               target="_blank">
+               💬 Send Inquiry
+            </a>
 
         </div>
-
-        <a class="wa-btn"
-           href="https://wa.me/8618659004495?text=Hello%20I%20am%20interested%20in%20Men%20Running%20Sneaker"
-           target="_blank">
-
-           💬 Send Inquiry
-
-        </a>
-
     </div>
 
-</div>
+    <!-- Product 2 -->
+    <div class="card"
+         data-gender="women"
+         data-season="summer">
 
+        <img src="images/sports/W/sneaker2-pink.jpg">
 
-<!-- Product 2 -->
-<div class="card"
-     data-gender="women"
-     data-season="summer">
+        <div class="product-info">
 
-    <img src="images/sports/W/sneaker2-pink.jpg"
-         alt="Women Casual Sneaker">
+            <h3>Women Casual Sneaker</h3>
 
-    <div class="product-info">
+            <p><strong>MOQ:</strong> 600 Pairs / Color</p>
+            <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
 
-        <h3>Women Casual Sneaker</h3>
+            <a class="wa-btn"
+               href="https://wa.me/8618659004495"
+               target="_blank">
+               💬 Send Inquiry
+            </a>
 
-        <p><strong>MOQ:</strong> 600 Pairs / Color</p>
-
-        <p><strong>Material:</strong> Mesh Upper + EVA Sole</p>
-
-        <a class="wa-btn"
-           href="https://wa.me/8618659004495?text=Hello%20I%20am%20interested%20in%20Women%20Casual%20Sneaker"
-           target="_blank">
-
-           💬 Send Inquiry
-
-        </a>
-
+        </div>
     </div>
-
-</div>
-```
 
 </div>
 
@@ -332,8 +315,8 @@ window.onload = ()=> showTab("sneakers");
 
 function changeImg(imgId, product, color){
 
-document.getElementById(imgId).src =
-"images/sports/" + product + "-" + color + ".jpg";
+    document.getElementById(imgId).src =
+    "images/sports/" + product + "-" + color + ".jpg";
 
 }
 
