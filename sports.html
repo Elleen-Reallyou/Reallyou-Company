@@ -194,12 +194,6 @@ background:#1ebe5d;
 <option value="kids">Kids</option>
 </select>
 
-<select id="season">
-<option value="all">Season: All</option>
-<option value="summer">Summer</option>
-<option value="winter">Winter</option>
-</select>
-</div>
 
 <!-- ===== PRODUCTS ===== -->
 <div class="container">
@@ -223,10 +217,9 @@ pink:"#ff69b4"
 const products = [
 {
 id:"sneaker1",
-name:"Men Type1",
+name:"Men Sneaker Type1",
 tab:"sneakers",
 gender:"men",
-season:"summer",
 moq:"600 pairs/color",
 material:"Mesh + EVA Sole",
 colors:[
@@ -237,10 +230,9 @@ colors:[
 },
 {
 id:"sneaker2",
-name:"Women Type1",
+name:"Women Sneaker Type1",
 tab:"sneakers",
 gender:"women",
-season:"summer",
 moq:"600 pairs/color",
 material:"Mesh + EVA Sole",
 colors:[
@@ -250,11 +242,22 @@ colors:[
 ]
 },
 {
+id:"sneaker3",
+name:"Men Sneaker Type2",
+tab:"sneakers",
+gender:"men",
+moq:"600 pairs/color",
+material:"Mesh + EVA Sole",
+colors:[
+{color:"black",img:"images/sports/W/sneaker3-black.jpg"},
+{color:"blue",img:"images/sports/W/sneaker3-blue.jpg"},
+]
+},
+{
 id:"football1",
 name:"FG Football Boot",
 tab:"football",
 gender:"men",
-season:"summer",
 moq:"600 pairs/color",
 material:"PU + Rubber Sole",
 colors:[
@@ -267,7 +270,6 @@ id:"basket1",
 name:"Basketball Shoe",
 tab:"basketball",
 gender:"men",
-season:"winter",
 moq:"600 pairs/color",
 material:"Breathable Mesh",
 colors:[
