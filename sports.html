@@ -121,15 +121,32 @@ color:#0b1f3a;
 /* ===== COLORS ===== */
 .color-options{
 display:flex;
-gap:10px;
-margin-top:10px;
+gap:8px;
+margin-top:12px;
+flex-wrap:wrap;
 }
 
-.color{
-width:22px;
-height:22px;
-border-radius:50%;
+.thumb{
+width:60px;
+height:45px;
+object-fit:contain;
+background:#fff;
+border:2px solid #ddd;
+border-radius:8px;
 cursor:pointer;
+padding:3px;
+transition:.3s;
+}
+
+.thumb:hover{
+border-color:#0b1f3a;
+transform:scale(1.08);
+}
+
+.thumb.active{
+border-color:#0b1f3a;
+box-shadow:0 0 0 2px rgba(11,31,58,.15);
+}
 border:2px solid #ccc;   /* 关键：让白色也看得见 */
 display:inline-block;
 box-shadow:0 1px 3px rgba(0,0,0,0.15);
@@ -308,10 +325,16 @@ let colorsHTML = "";
 
 p.colors.forEach(c=>{
 colorsHTML += `
-<span class="color"
-style="background:${COLOR_MAP[c.color] || c.color}"
-onclick="changeColor('${p.id}','${c.img}')">
-</span>
+p.colors.forEach((c,index)=>{
+
+colorsHTML += `
+<img
+class="thumb ${index===0?'active':''}"
+src="${c.img}"
+onclick="changeColor('${p.id}','${c.img}',this)">
+`;
+
+});
 `;
 });
 
@@ -349,8 +372,19 @@ applyFilter();
 }
 
 /* ===== COLOR CHANGE ===== */
-function changeColor(id,img){
+function changeColor(id,img,thumb){
+
 document.getElementById(id).src = img;
+
+const thumbs =
+thumb.parentElement.querySelectorAll(".thumb");
+
+thumbs.forEach(t=>{
+t.classList.remove("active");
+});
+
+thumb.classList.add("active");
+
 }
 
 /* ===== FILTER ===== */
