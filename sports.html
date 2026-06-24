@@ -19,7 +19,22 @@ color:white;
 text-align:center;
 padding:40px 20px;
 }
+/* gender filter */
+.filter-bar{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+}
 
+#gender{
+padding:10px 14px;
+border:1px solid #ddd;
+border-radius:8px;
+background:white;
+font-family:'Inter',sans-serif;
+font-size:14px;
+cursor:pointer;
+}
 .back{
 color:white;
 text-decoration:none;
@@ -51,7 +66,13 @@ border-radius:6px;
 background:#0b1f3a;
 color:white;
 }
-
+<div class="filter-bar">
+<select id="gender">
+<option value="all">Gender: All</option>
+<option value="men">Men</option>
+<option value="women">Women</option>
+</select>
+</div>
 /* layout */
 .container{
 max-width:1200px;
@@ -212,11 +233,52 @@ colors:[
 "images/sports/M/sneaker3-black.jpg",
 "images/sports/M/sneaker3-blue.jpg"
 ]
+},
+{ 
+id:"sneaker4", 
+name:"Men Sneaker Type3", 
+tab:"sneakers", 
+gender:"men", 
+moq:"600 pairs/color", 
+material:"Mesh&Rubber Printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/M/sneaker4-yellow.jpg", 
+"images/sports/M/sneaker4-green.jpg", 
+"images/sports/M/sneaker4-beige.jpg" 
+] 
+}, 
+{ 
+id:"sneaker5", 
+name:"Women Sneaker Type2", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh&PU&Rubber Printing + TPR&Phylon&TPU Sole", 
+colors:[
+"images/sports/W/sneaker5-black.jpg", 
+"images/sports/W/sneaker5-beige.jpg", 
+"images/sports/W/sneaker5-white.jpg" 
+] 
+}, 
+{ 
+id:"sneaker6", 
+name:"Women Sneaker Type3", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh&Rubber Printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker6-blue.jpg", 
+"images/sports/W/sneaker6-pink.jpg", 
+"images/sports/W/sneaker6-beige.jpg", 
+"images/sports/W/sneaker6-black.jpg" 
+] 
 }
 ];
 
 let currentTab = "sneakers";
-
+document.getElementById("gender")
+.addEventListener("change", applyFilter);
 function renderProducts(){
 
 const grid = document.getElementById("productGrid");
@@ -280,10 +342,25 @@ applyFilter();
 
 function applyFilter(){
 
+const gender =
+document.getElementById("gender").value;
+
 document.querySelectorAll(".card").forEach(card=>{
+
+const matchTab =
+card.dataset.tab === currentTab;
+
+const matchGender =
+gender === "all" ||
+card.dataset.gender === gender;
+
 card.style.display =
-(card.dataset.tab === currentTab) ? "block" : "none";
+(matchTab && matchGender)
+? "block"
+: "none";
+
 });
+
 }
 
 window.onload = renderProducts;
