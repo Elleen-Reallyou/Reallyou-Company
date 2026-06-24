@@ -302,7 +302,6 @@ grid.innerHTML += `
 <div class="card"
 data-tab="${p.tab}"
 data-gender="${p.gender}"
-data-season="${p.season}">
 
 <img id="${p.id}"
 src="${p.colors[0].img}">
@@ -356,7 +355,6 @@ t.classList.add("active");
 }
 
 document.getElementById("gender").addEventListener("change",applyFilter);
-document.getElementById("season").addEventListener("change",applyFilter);
 
 function applyFilter(){
 
@@ -366,10 +364,8 @@ const matchTab = card.dataset.tab === currentTab;
 const matchGender = document.getElementById("gender").value === "all"
 || card.dataset.gender === document.getElementById("gender").value;
 
-const matchSeason = document.getElementById("season").value === "all"
-|| card.dataset.season === document.getElementById("season").value;
 
-card.style.display = (matchTab && matchGender && matchSeason)
+card.style.display = (matchTab && matchGender )
 ? "block"
 : "none";
 
