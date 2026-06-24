@@ -95,14 +95,14 @@ box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
 /* ===== IMAGE (关键修复) ===== */
-.card img{
+.card > img{
 width:100%;
 height:180px;
 object-fit:contain;
 background:#fff;
 padding:12px;
 border-bottom:1px solid #eee;
-transition:0.3s;
+transition:.3s;
 }
 
 .card:hover img{
@@ -147,25 +147,7 @@ transform:scale(1.08);
 border-color:#0b1f3a;
 box-shadow:0 0 0 2px rgba(11,31,58,.15);
 }
-border:2px solid #ccc;   /* 关键：让白色也看得见 */
-display:inline-block;
-box-shadow:0 1px 3px rgba(0,0,0,0.15);
-}
-.white{
-background:#fff;
-border:2px solid #aaa;
-}
-.color:hover{
-transform:scale(1.2);
-}
 
-.black{background:#000;}
-.grey{background:#888;}
-.white{background:#fff;border:1px solid #ccc;}
-.red{background:#c0392b;}
-.blue{background:#2980b9;}
-.yellow{background:#f1c40f;}
-.pink{background:#ff69b4;}
 
 /* ===== BUTTON ===== */
 .wa-btn{
@@ -323,19 +305,17 @@ products.forEach(p=>{
 
 let colorsHTML = "";
 
-p.colors.forEach(c=>{
-colorsHTML += `
+let colorsHTML = "";
+
 p.colors.forEach((c,index)=>{
 
 colorsHTML += `
 <img
-class="thumb ${index===0?'active':''}"
+class="thumb ${index===0 ? 'active' : ''}"
 src="${c.img}"
 onclick="changeColor('${p.id}','${c.img}',this)">
 `;
 
-});
-`;
 });
 
 grid.innerHTML += `
