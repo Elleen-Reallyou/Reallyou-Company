@@ -105,10 +105,12 @@ border-bottom:1px solid #eee;
 transition:.3s;
 }
 
-.card:hover img{
+.card:hover > img{
 transform:scale(1.03);
 }
-
+.card:hover .thumb{
+transform:none;
+}
 .product-info{
 padding:15px;
 }
@@ -145,7 +147,8 @@ transform:scale(1.08);
 
 .thumb.active{
 border-color:#0b1f3a;
-box-shadow:0 0 0 2px rgba(11,31,58,.15);
+box-shadow:0 0 0 2px rgba(11,31,58,.25);
+transform:scale(1.05);
 }
 
 
@@ -302,8 +305,6 @@ const grid = document.getElementById("productGrid");
 grid.innerHTML = "";
 
 products.forEach(p=>{
-
-let colorsHTML = "";
 
 let colorsHTML = "";
 
