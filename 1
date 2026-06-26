@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>SPORTS SHOES | Reallyou</title>
+
+<style>
+
+body{
+font-family:'Inter',system-ui,Arial;
+margin:0;
+background:#f5f5f5;
+color:#222;
+}
+
+/* ================= NAV ================= */
+
+.main-nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 20px;
+background:#fff;
+border-bottom:1px solid #eee;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+font-size:12px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#111;
+}
+
+/* ================= LIST VIEW ================= */
+
+.view{
+display:none;
+}
+
+.view.active{
+display:block;
+}
+
+/* GRID */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:contain;
+background:#fff;
+padding:10px;
+}
+
+/* INFO */
+
+.product-info{
+padding:12px;
+}
+
+.product-info h3{
+margin:5px 0;
+font-size:14px;
+}
+
+/* ================= DETAIL VIEW ================= */
+
+.detail{
+max-width:1100px;
+margin:auto;
+padding:30px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.detail img{
+width:100%;
+background:#fff;
+padding:20px;
+cursor:pointer;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+background:#000;
+color:#fff;
+padding:10px 14px;
+text-decoration:none;
+}
+
+/* BACK */
+
+.back{
+margin-bottom:20px;
+cursor:pointer;
+font-size:13px;
+color:#555;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+}
+
+.lightbox img{
+max-width:85%;
+max-height:80%;
+}
+
+.download{
+margin-top:10px;
+background:#fff;
+padding:10px;
+text-decoration:none;
+color:#000;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="main-nav">
+
+<div><b>REALLYOU</b></div>
+
+<div class="nav-links">
+<a href="#">SPORTS</a>
+<a href="#">CASUAL</a>
+<a href="#">OUTDOOR</a>
+<a href="#">SANDALS</a>
+<a href="#">KIDS</a>
+</div>
+
+</div>
+
+<!-- ================= LIST VIEW ================= -->
+<div id="listView" class="view active">
+
+<div class="container">
+<div class="grid" id="grid"></div>
+</div>
+
+</div>
+
+<!-- ================= DETAIL VIEW ================= -->
+<div id="detailView" class="view">
+
+<div class="container">
+
+<div class="back" onclick="back()">← Back to Products</div>
+
+<div class="detail" id="detail"></div>
+
+</div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+<img id="lbImg">
+<a id="dl" class="download" download>Download</a>
+</div>
+
+<script>
+const products = [
+{
+id:"sneaker1",
+name:"Men Sneaker Type1",
+tab:"sneakers",
+gender:"men",
+moq:"600 pairs/color",
+material:"Mesh & Rubber Printing + TPR & Phylon Sole",
+colors:[
+"images/sports/M/sneaker1-black.jpg",
+"images/sports/M/sneaker1-yellow.jpg",
+"images/sports/M/sneaker1-white.jpg"
+]
+},
+{
+id:"sneaker2",
+name:"Women Sneaker Type1",
+tab:"sneakers",
+gender:"women",
+moq:"600 pairs/color",
+material:"Flyknit + TPR & Phylon Sole",
+colors:[
+"images/sports/W/sneaker2-pink.jpg",
+"images/sports/W/sneaker2-blue.jpg",
+"images/sports/W/sneaker2-yellow.jpg"
+]
+},
+{
+id:"sneaker3",
+name:"Men Sneaker Type2",
+tab:"sneakers",
+gender:"men",
+moq:"600 pairs/color",
+material:"Mesh + Rubber + Phylon Sole",
+colors:[
+"images/sports/M/sneaker3-black.jpg",
+"images/sports/M/sneaker3-blue.jpg"
+]
+},
+{ 
+id:"sneaker4", 
+name:"Men Sneaker Type3", 
+tab:"sneakers", 
+gender:"men", 
+moq:"600 pairs/color", 
+material:"Mesh&Rubber Printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/M/sneaker4-yellow.jpg", 
+"images/sports/M/sneaker4-green.jpg", 
+"images/sports/M/sneaker4-beige.jpg" 
+] 
+}, 
+{ 
+id:"sneaker5", 
+name:"Women Sneaker Type2", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh&PU&Rubber Printing + TPR&Phylon&TPU Sole", 
+colors:[
+"images/sports/W/sneaker5-black.jpg", 
+"images/sports/W/sneaker5-beige.jpg", 
+"images/sports/W/sneaker5-white.jpg" 
+] 
+}, 
+{ 
+id:"sneaker6", 
+name:"Women Sneaker Type3", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh&Rubber Printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker6-blue.jpg", 
+"images/sports/W/sneaker6-pink.jpg", 
+"images/sports/W/sneaker6-beige.jpg", 
+"images/sports/W/sneaker6-black.jpg" 
+] 
+},
+{ 
+id:"sneaker7", 
+name:"Women Sneaker Type4", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Jacquard+Flyknitting+TPU welding + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker7-white.jpg", 
+"images/sports/W/sneaker7-green.jpg", 
+"images/sports/W/sneaker7-dark green.jpg"
+] 
+},
+{ 
+id:"sneaker8", 
+name:"Women Sneaker Type5", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh+Rubber printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker8-pink.jpg", 
+"images/sports/W/sneaker8-white.jpg", 
+"images/sports/W/sneaker8-black.jpg"
+] 
+},
+{ 
+id:"sneaker9", 
+name:"Women Sneaker Type6", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"PU+Nylon + Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker9-beige.jpg", 
+"images/sports/W/sneaker9-white.jpg"
+] 
+},
+{ 
+id:"sneaker10", 
+name:"Women Sneaker Type7", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Cow suede&Nylon&PU + EVA&TPR Sole", 
+colors:[ 
+"images/sports/W/sneaker10-green.jpg", 
+"images/sports/W/sneaker10-white.jpg",
+"images/sports/W/sneaker10-yellow.jpg", 
+"images/sports/W/sneaker10-black.jpg", 
+] 
+},
+{ 
+id:"sneaker11", 
+name:"Women Sneaker Type8", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Cow suede&Nylon&PU + TPR&Phylon&TPU Sole", 
+colors:[ 
+"images/sports/W/sneaker11-pink.jpg", 
+"images/sports/W/sneaker11-grey.jpg",
+"images/sports/W/sneaker11-yellow.jpg", 
+"images/sports/W/sneaker11-black.jpg", 
+] 
+},
+{ 
+id:"sneaker12", 
+name:"Women Sneaker Type8", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Cow suede&PU + EVA&TPR Sole", 
+colors:[ 
+"images/sports/W/sneaker12-pink.jpg", 
+"images/sports/W/sneaker12-gold.jpg",
+"images/sports/W/sneaker12-blue.jpg", 
+"images/sports/W/sneaker12-beige.jpg", 
+] 
+},
+];
+/* ================= RENDER LIST ================= */
+
+function renderList(){
+
+const grid=document.getElementById("grid");
+grid.innerHTML="";
+
+products.forEach(p=>{
+
+grid.innerHTML+=`
+<div class="card" onclick="openDetail('${p.id}')">
+
+<img src="${p.img}">
+
+<div class="product-info">
+<h3>${p.name}</h3>
+<p>${p.moq}</p>
+</div>
+
+</div>
+`;
+});
+
+}
+
+/* ================= DETAIL ================= */
+
+function openDetail(id){
+
+const p=products.find(x=>x.id===id);
+
+document.getElementById("detail").innerHTML=`
+
+<div>
+<img src="${p.img}" onclick="openLB('${p.img}')">
+</div>
+
+<div>
+
+<h1>${p.name}</h1>
+<p>${p.material}</p>
+<p>MOQ: ${p.moq}</p>
+
+<a class="btn" href="https://wa.me/8618659004495">
+SEND INQUIRY
+</a>
+
+</div>
+
+`;
+
+document.getElementById("listView").classList.remove("active");
+document.getElementById("detailView").classList.add("active");
+
+}
+
+/* ================= BACK ================= */
+
+function back(){
+document.getElementById("detailView").classList.remove("active");
+document.getElementById("listView").classList.add("active");
+}
+
+/* ================= LIGHTBOX ================= */
+
+function openLB(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lbImg").src=src;
+document.getElementById("dl").href=src;
+}
+
+function closeLB(){
+document.getElementById("lightbox").style.display="none";
+}
+
+/* INIT */
+
+window.onload=renderList;
+
+</script>
+
+</body>
+</html>
