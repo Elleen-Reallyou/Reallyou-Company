@@ -209,7 +209,9 @@ color:#000;
 <img id="lbImg">
 <a id="dl" class="download" download>Download</a>
 </div>
-
+  
+let currentTab = "sneakers";
+  
 <script>
 const products = [
 {
@@ -379,6 +381,9 @@ grid.innerHTML="";
 
 products.forEach(p=>{
 
+// ⭐关键：分类过滤
+if(p.tab !== currentTab) return;
+
 let thumbs="";
 
 p.colors.forEach((img,i)=>{
@@ -408,6 +413,16 @@ ${thumbs}
 </div>
 `;
 });
+}
+function setTab(tab,el){
+currentTab = tab;
+
+document.querySelectorAll(".tab")
+.forEach(t=>t.classList.remove("active"));
+
+el.classList.add("active");
+
+renderList(); // ⭐必须重新渲染
 }
 /* ================= DETAIL ================= */
   function changeMain(id,img){
