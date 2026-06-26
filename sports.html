@@ -372,7 +372,6 @@ colors:[
 },
 ];
 /* ================= RENDER LIST ================= */
-
 function renderList(){
 
 const grid=document.getElementById("grid");
@@ -380,23 +379,40 @@ grid.innerHTML="";
 
 products.forEach(p=>{
 
+let thumbs="";
+
+p.colors.forEach((img,i)=>{
+thumbs+=`
+<img src="${img}"
+class="thumb"
+style="width:40px;height:40px;object-fit:contain;border:1px solid #ddd;cursor:pointer"
+onclick="changeMain('${p.id}','${img}')">
+`;
+});
+
 grid.innerHTML+=`
 <div class="card" onclick="openDetail('${p.id}')">
 
-<img src="${p.img}">
+<img id="main-${p.id}" src="${p.colors[0]}">
 
 <div class="product-info">
 <h3>${p.name}</h3>
 <p>${p.moq}</p>
+
+<div style="display:flex;gap:5px;margin-top:8px">
+${thumbs}
+</div>
+
 </div>
 
 </div>
 `;
 });
-
 }
-
 /* ================= DETAIL ================= */
+  function changeMain(id,img){
+document.getElementById("main-"+id).src=img;
+}
 
 function openDetail(id){
 
