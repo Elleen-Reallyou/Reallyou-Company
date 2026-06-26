@@ -435,12 +435,25 @@ document.getElementById("main-"+id).src=img;
 
 function openDetail(id){
 
-const p=products.find(x=>x.id===id);
+const p = products.find(x => x.id === id);
 
-document.getElementById("detail").innerHTML=`
+let thumbs = "";
+
+p.colors.forEach(img => {
+thumbs += `
+<img src="${img}"
+style="width:60px;height:60px;object-fit:contain;border:1px solid #ddd;cursor:pointer"
+onclick="openLB('${img}')">
+`;
+});
+
+document.getElementById("detail").innerHTML = `
 
 <div>
-<img src="${p.colors[0]}" onclick="openLB('${p.colors[0]}')">
+<img id="detailMain-${p.id}"
+src="${p.colors[0]}"
+onclick="openLB('${p.colors[0]}')"
+style="width:100%;background:#fff;padding:20px;">
 </div>
 
 <div>
@@ -449,6 +462,11 @@ document.getElementById("detail").innerHTML=`
 <p>${p.material}</p>
 <p>MOQ: ${p.moq}</p>
 
+<!-- ⭐详情缩略图 -->
+<div style="display:flex;gap:8px;margin:10px 0">
+${thumbs}
+</div>
+
 <a class="btn" href="https://wa.me/8618659004495">
 SEND INQUIRY
 </a>
@@ -456,6 +474,8 @@ SEND INQUIRY
 </div>
 
 `;
+
+
 
 document.getElementById("listView").classList.remove("active");
 document.getElementById("detailView").classList.add("active");
