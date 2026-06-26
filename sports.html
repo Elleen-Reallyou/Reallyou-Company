@@ -15,7 +15,11 @@ color:#222;
 }
 
 /* ================= NAV ================= */
-
+ <div class="tabs">
+  <div class="tab active" onclick="setTab('sneakers',this)">Sneakers</div>
+  <div class="tab" onclick="setTab('football',this)">Football</div>
+  <div class="tab" onclick="setTab('basketball',this)">Basketball</div>
+</div> 
 .main-nav{
 display:flex;
 justify-content:space-between;
@@ -210,9 +214,9 @@ color:#000;
 <a id="dl" class="download" download>Download</a>
 </div>
   
-let currentTab = "sneakers";
   
 <script>
+let currentTab = "sneakers";
 const products = [
 {
 id:"sneaker1",
@@ -436,7 +440,7 @@ const p=products.find(x=>x.id===id);
 document.getElementById("detail").innerHTML=`
 
 <div>
-<img src="${p.img}" onclick="openLB('${p.img}')">
+<img src="${p.colors[0]}" onclick="openLB('${p.colors[0]}')">
 </div>
 
 <div>
