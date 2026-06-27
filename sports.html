@@ -656,7 +656,7 @@ thumbs += `
 <img
 src="${img}"
 class="thumb"
-onclick="event.stopPropagation();changeMain('${p.id}',''${img}')">
+onclick="event.stopPropagation();changeMain('${p.id}','${img}')"
 `;
 });   // ← 少了这一句
 
@@ -712,10 +712,7 @@ renderList(); // ⭐必须重新渲染
 document.getElementById("main-"+id).src=img;
 }
 function changeDetailMain(img){
-
 document.getElementById("detailMain").src = img;
-
-}
 }
 
 function openDetail(id){
@@ -770,35 +767,6 @@ document.getElementById("detailView").classList.add("active");
 }
 function zoom(e){
 
-const img=e.target;
-
-const rect=img.getBoundingClientRect();
-
-const x=((e.clientX-rect.left)/rect.width)*100;
-
-const y=((e.clientY-rect.top)/rect.height)*100;
-
-img.style.transformOrigin=`${x}% ${y}%`;
-
-img.style.transform="scale(2)";
-
-}
-
-function resetZoom(){
-
-document.querySelector("#detailMain").style.transform="scale(1)";
-
-}
-/* ================= BACK ================= */
-
-function back(){
-document.getElementById("detailView").classList.remove("active");
-document.getElementById("listView").classList.add("active");
-}
-
-/* ================= LIGHTBOX ================= */
-function zoom(e){
-
 const img = e.target;
 
 const rect = img.getBoundingClientRect();
@@ -808,14 +776,20 @@ const y = (e.clientY - rect.top) / rect.height * 100;
 
 img.style.transformOrigin = `${x}% ${y}%`;
 img.style.transform = "scale(2)";
-
 }
 
 function resetZoom(){
-
 document.getElementById("detailMain").style.transform = "scale(1)";
-
 }
+/* ================= BACK ================= */
+
+function back(){
+document.getElementById("detailView").classList.remove("active");
+document.getElementById("listView").classList.add("active");
+}
+
+/* ================= LIGHTBOX ================= */
+
 
 function openLB(src){
 document.getElementById("lightbox").style.display="flex";
@@ -826,7 +800,25 @@ document.getElementById("dl").href=src;
 function closeLB(){
 document.getElementById("lightbox").style.display="none";
 }
+.detail-image{
+width:100%;
+height:520px;
+background:#fff;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+cursor:zoom-in;
+}
 
+.detail-image img{
+width:100%;
+height:100%;
+object-fit:contain;
+transition:transform .12s ease;
+transform-origin:center;
+}
 /* INIT */
 
 window.onload=renderList;
