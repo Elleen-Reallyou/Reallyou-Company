@@ -167,35 +167,82 @@ opacity:1;
 /* ================= DETAIL ================= */
 
 .detail{
-max-width:1100px;
-margin:auto;
-padding:30px;
+max-width:900px;
+margin:30px auto;
+padding:20px;
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
+grid-template-columns:1.1fr 1fr;
+gap:30px;
+background:#fff;
+border-radius:16px;
 }
 
+/* 左侧图片区 */
 .detail-image{
 width:100%;
-height:520px;
-background:#fff;
-border-radius:18px;
+height:480px;
+background:#fafafa;
+border-radius:14px;
 display:flex;
 justify-content:center;
 align-items:center;
 overflow:hidden;
 cursor:zoom-in;
+position:relative;
 }
 
+/* 主图 */
 .detail-image img{
 width:100%;
 height:100%;
 object-fit:contain;
-transition:transform .2s;
+transition:transform .3s ease;
 }
 
-.detail-image img:hover{
-transform:scale(1.08);
+/* 👉 鼠标放大（核心） */
+.detail-image:hover img{
+transform:scale(1.12);
+}
+
+/* 缩略图 */
+.detail-thumbs{
+display:flex;
+gap:8px;
+margin-top:12px;
+flex-wrap:wrap;
+}
+
+.detail-thumbs img{
+width:48px;
+height:48px;
+object-fit:contain;
+border:1px solid #ddd;
+border-radius:6px;
+cursor:pointer;
+background:#fff;
+opacity:.6;
+transition:.2s;
+}
+
+.detail-thumbs img:hover{
+opacity:1;
+}
+
+.detail-thumbs img.active{
+border:1px solid #111;
+opacity:1;
+}
+
+/* 右侧信息 */
+.detail-info h1{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.detail-info p{
+font-size:13px;
+color:#666;
+line-height:1.5;
 }
 
 .btn{
@@ -206,13 +253,7 @@ color:#fff;
 padding:10px 14px;
 text-decoration:none;
 border-radius:6px;
-}
-
-.back{
-margin-bottom:20px;
-cursor:pointer;
 font-size:13px;
-color:#555;
 }
 
 /* ================= LIGHTBOX ================= */
@@ -532,27 +573,46 @@ function openDetail(p){
 document.getElementById("listView").style.display="none";
 document.getElementById("detailView").style.display="block";
 
-let thumbs="";
-
-p.colors.forEach(img=>{
-thumbs+=`<img src="${img}" onclick="changeDetail(this.src)">`;
-});
-
 document.getElementById("detail").innerHTML=`
+<div>
+
 <div class="detail-image">
 <img id="detailImg" src="${p.colors[0]}" onclick="openLB(this.src)">
 </div>
 
-<div>
+<div class="detail-thumbs" id="detailThumbs"></div>
+
+</div>
+
+<div class="detail-info">
 <h1>${p.name}</h1>
 <p>${p.material}</p>
 <p>MOQ: ${p.moq}</p>
 
-<div style="display:flex;gap:8px">${thumbs}</div>
-
 <a class="btn" href="#">SEND INQUIRY</a>
 </div>
 `;
+
+/* thumbnails */
+const box=document.getElementById("detailThumbs");
+
+p.colors.forEach((img,i)=>{
+
+const t=document.createElement("img");
+t.src=img;
+
+if(i===0) t.classList.add("active");
+
+t.onclick=()=>{
+document.getElementById("detailImg").src=img;
+
+box.querySelectorAll("img").forEach(x=>x.classList.remove("active"));
+t.classList.add("active");
+};
+
+box.appendChild(t);
+
+});
 }
 
 function changeDetail(src){
