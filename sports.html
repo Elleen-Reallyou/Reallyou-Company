@@ -248,9 +248,10 @@ padding:20px;
 }
 
 .grid{
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:28px;
 }
 
 /* CARD */
@@ -394,11 +395,12 @@ color:#000;
 <div><b>REALLYOU</b></div>
 
 <div class="nav-links">
-<a href="#">SPORTS</a>
-<a href="#">CASUAL</a>
-<a href="#">OUTDOOR</a>
-<a href="#">SANDALS</a>
-<a href="#">KIDS</a>
+<a href="sports.html">SPORTS</a>
+<a href="casual.html">CASUAL</a>
+<a href="outdoor.html">OUTDOOR</a>
+<a href="sandals.html">SANDALS</a>
+<a href="kids.html">KIDS</a>
+</div>
 </div>
 <!-- Gender -->
 <div class="filter-wrapper">
@@ -662,15 +664,18 @@ p.colors.forEach((img,i)=>{
 thumbs+=`
 <img src="${img}"
 class="thumb"
-style="width:40px;height:40px;object-fit:contain;border:1px solid #ddd;cursor:pointer"
-onclick="changeMain('${p.id}','${img}')">
+style="width:46px;height:46px;object-fit:contain;border:1px solid #ddd;border-radius:8px;cursor:pointer"
+onclick="event.stopPropagation();changeMain('${p.id}','${img}')">
 `;
-});
 
 grid.innerHTML+=`
-<div class="card" onclick="openDetail('${p.id}')">
+<div class="card">
 
-<img id="main-${p.id}" src="${p.colors[0]}">
+<img
+id="main-${p.id}"
+src="${p.colors[0]}"
+onclick="openDetail('${p.id}')"
+style="cursor:pointer">
 
 <div class="product-info">
 <h3>${p.name}</h3>
@@ -712,6 +717,9 @@ renderList(); // ⭐必须重新渲染
   function changeMain(id,img){
 document.getElementById("main-"+id).src=img;
 }
+  function changeDetailMain(id,img){
+    document.getElementById("detailMain-"+id).src = img;
+}
 
 function openDetail(id){
 
@@ -726,10 +734,6 @@ style="width:60px;height:60px;object-fit:contain;border:1px solid #ddd;cursor:po
 onclick="changeDetailMain('${p.id}','${img}')"
 `;
 });
-function changeDetailMain(id,img){
-    document.getElementById("detailMain-"+id).src = img;
-}
-
 document.getElementById("detail").innerHTML = `
 
 <div>
