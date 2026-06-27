@@ -15,12 +15,6 @@ color:#222;
 }
 
 /* ================= NAV ================= */
- <div class="tabs">
-  <div class="tab active" onclick="setTab('sneakers',this)">Sneakers</div>
-  <div class="tab" onclick="setTab('football',this)">Football</div>
-  <div class="tab" onclick="setTab('basketball',this)">Basketball</div>
-</div> 
-.main-nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -183,9 +177,19 @@ color:#000;
 <a href="#">SANDALS</a>
 <a href="#">KIDS</a>
 </div>
-
+<!-- Gender -->
+<div class="gender-tabs">
+    <div class="gender active" onclick="setGender('all',this)">All</div>
+    <div class="gender" onclick="setGender('men',this)">Men</div>
+    <div class="gender" onclick="setGender('women',this)">Women</div>
 </div>
 
+<!-- Shoe Category -->
+<div class="tabs">
+    <div class="tab active" onclick="setTab('sneakers',this)">Sneakers</div>
+    <div class="tab" onclick="setTab('football',this)">Football Shoes</div>
+    <div class="tab" onclick="setTab('basketball',this)">Basketball Shoes</div>
+</div>
 <!-- ================= LIST VIEW ================= -->
 <div id="listView" class="view active">
 
@@ -216,6 +220,7 @@ color:#000;
   
   
 <script>
+let currentGender = "all";
 let currentTab = "sneakers";
 const products = [
 {
@@ -385,8 +390,11 @@ grid.innerHTML="";
 
 products.forEach(p=>{
 
-// ⭐关键：分类过滤
-if(p.tab !== currentTab) return;
+if(currentGender!="all" && p.gender!=currentGender)
+return;
+
+if(currentTab!="all" && p.tab!=currentTab)
+return;
 
 let thumbs="";
 
@@ -418,6 +426,18 @@ ${thumbs}
 `;
 });
 }
+function setGender(gender,el){
+
+currentGender = gender;
+
+document.querySelectorAll(".gender")
+.forEach(g=>g.classList.remove("active"));
+
+el.classList.add("active");
+
+renderList();
+
+}
 function setTab(tab,el){
 currentTab = tab;
 
@@ -443,9 +463,12 @@ p.colors.forEach(img => {
 thumbs += `
 <img src="${img}"
 style="width:60px;height:60px;object-fit:contain;border:1px solid #ddd;cursor:pointer"
-onclick="openLB('${img}')">
+onclick="changeDetailMain('${p.id}','${img}')"
 `;
 });
+function changeDetailMain(id,img){
+    document.getElementById("detailMain-"+id).src = img;
+}
 
 document.getElementById("detail").innerHTML = `
 
