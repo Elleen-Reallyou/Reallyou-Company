@@ -7,77 +7,6 @@
 
 <style>
 
-/* ================= FILTER BAR ================= */
-
-.filter-bar{
-max-width:1200px;
-margin:22px auto;
-padding:0 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:18px;
-}
-
-/* ================= NAV ================= */
-
-.main-nav{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px 20px;
-background:#fff;
-border-bottom:1px solid #eee;
-position:sticky;
-top:0;
-z-index:1000;
-
-}
-
-.gender,
-.tab{
-
-padding:10px 22px;
-
-background:#fff;
-
-border:1px solid #ddd;
-
-border-radius:999px;
-
-font-size:14px;
-
-font-weight:500;
-
-cursor:pointer;
-
-transition:all .25s ease;
-
-user-select:none;
-
-}
-
-.gender:hover,
-.tab:hover{
-
-background:#111;
-color:white;
-border-color:#111;
-
-}
-
-.gender.active,
-.tab.active{
-
-background:#111;
-color:white;
-border-color:#111;
-
-box-shadow:0 6px 16px rgba(0,0,0,.12);
-
-}
 body{
 font-family:'Inter',system-ui,Arial;
 margin:0;
@@ -85,7 +14,6 @@ background:#f5f5f5;
 color:#222;
 }
 
-/* ================= NAV ================= */
 /* ================= NAV ================= */
 
 .main-nav{
@@ -107,23 +35,6 @@ letter-spacing:2px;
 
 .nav-links{
 display:flex;
-gap:35px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#111;
-font-size:14px;
-font-weight:500;
-letter-spacing:.5px;
-transition:.25s;
-}
-
-.nav-links a:hover{
-color:#666;
-}
-.nav-links{
-display:flex;
 gap:18px;
 font-size:12px;
 }
@@ -131,115 +42,57 @@ font-size:12px;
 .nav-links a{
 text-decoration:none;
 color:#111;
+font-size:14px;
+font-weight:500;
 }
+
 /* ================= FILTER ================= */
 
 .filter-wrapper{
-
 max-width:1200px;
-
 margin:40px auto;
-
 padding:0 20px;
-
 }
 
 .page-title{
-
 font-size:34px;
-
 font-weight:700;
-
-letter-spacing:1px;
-
 margin-bottom:35px;
-
 }
 
 .filter-row{
-
 display:flex;
-
 justify-content:space-between;
-
-align-items:center;
-
+flex-wrap:wrap;
 gap:20px;
-
 margin-bottom:25px;
-
-flex-wrap:wrap;
-
 }
 
-.gender-tabs,
-.tabs{
-
+.gender-tabs,.tabs{
 display:flex;
-
 gap:12px;
-
 flex-wrap:wrap;
-
 }
 
-.gender,
-.tab{
-
+.gender,.tab{
 padding:12px 26px;
-
 border:1px solid #ddd;
-
 border-radius:999px;
-
 background:#fff;
-
 font-size:14px;
-
 font-weight:600;
-
 cursor:pointer;
-
 transition:.25s;
-
 user-select:none;
-
 }
 
-.gender:hover,
-.tab:hover{
-
+.gender.active,.tab.active{
 background:#111;
-
 color:#fff;
-
 border-color:#111;
-
 }
 
-.gender.active,
-.tab.active{
-
-background:#111;
-
-color:#fff;
-
-border-color:#111;
-
-box-shadow:0 8px 20px rgba(0,0,0,.12);
-
-}
-/* ================= LIST VIEW ================= */
-
-.view{
-display:none;
-}
-
-.view.active{
-display:block;
-}
-
-/* GRID */
+/* ================= GRID ================= */
 
 .container{
 max-width:1200px;
@@ -253,72 +106,46 @@ grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
 gap:28px;
 }
 
-/* CARD */
-
 .card{
-
 background:#fff;
-
 border-radius:20px;
-
 overflow:hidden;
-
 border:1px solid #ededed;
-
-box-shadow:none;
-
 cursor:pointer;
-
 transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 18px 35px rgba(0,0,0,.10);
-
 }
 
 .card:hover{
 transform:translateY(-5px);
+box-shadow:0 18px 35px rgba(0,0,0,.10);
 }
 
 .card img{
-
 width:100%;
-
 height:260px;
-
 object-fit:contain;
-
 background:#fafafa;
-
 padding:24px;
-
-transition:.35s;
-
 }
 
-.card:hover img{
-
-transform:scale(1.04);
-
+/* thumbnails */
+.thumbs{
+display:flex;
+gap:6px;
+margin-top:8px;
+flex-wrap:wrap;
 }
 
-/* INFO */
-
-.product-info{
-padding:12px;
+.thumbs img{
+width:40px;
+height:40px;
+object-fit:contain;
+border:1px solid #ddd;
+cursor:pointer;
+background:#fff;
 }
 
-.product-info h3{
-margin:5px 0;
-font-size:14px;
-}
-
-/* ================= DETAIL VIEW ================= */
+/* ================= DETAIL ================= */
 
 .detail{
 max-width:1100px;
@@ -329,7 +156,25 @@ grid-template-columns:1fr 1fr;
 gap:40px;
 }
 
+.detail-image{
+width:100%;
+height:520px;
 background:#fff;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+cursor:zoom-in;
+}
+
+.detail-image img{
+width:100%;
+height:100%;
+object-fit:contain;
+transition:transform .12s ease;
+transform-origin:center;
+}
 
 .btn{
 display:inline-block;
@@ -339,8 +184,6 @@ color:#fff;
 padding:10px 14px;
 text-decoration:none;
 }
-
-/* BACK */
 
 .back{
 margin-bottom:20px;
@@ -385,7 +228,6 @@ color:#000;
 
 <!-- NAV -->
 <div class="main-nav">
-
 <div><b>REALLYOU</b></div>
 
 <div class="nav-links">
@@ -396,76 +238,39 @@ color:#000;
 <a href="kids.html">KIDS</a>
 </div>
 </div>
-<!-- Gender -->
-<div class="filter-wrapper">
 
-<h1 class="page-title">
-SPORTS SHOES
-</h1>
+<!-- FILTER -->
+<div class="filter-wrapper">
+<h1 class="page-title">SPORTS SHOES</h1>
 
 <div class="filter-row">
-
 <div class="gender-tabs">
-
-<div class="gender active"
-onclick="setGender('all',this)">
-All
-</div>
-
-<div class="gender"
-onclick="setGender('men',this)">
-Men
-</div>
-
-<div class="gender"
-onclick="setGender('women',this)">
-Women
-</div>
-
+<div class="gender active" onclick="setGender('all',this)">All</div>
+<div class="gender" onclick="setGender('men',this)">Men</div>
+<div class="gender" onclick="setGender('women',this)">Women</div>
 </div>
 
 <div class="tabs">
-
-<div class="tab active"
-onclick="setTab('sneakers',this)">
-Sneakers
+<div class="tab active" onclick="setTab('sneakers',this)">Sneakers</div>
+<div class="tab" onclick="setTab('football',this)">Football Shoes</div>
+<div class="tab" onclick="setTab('basketball',this)">Basketball Shoes</div>
+</div>
+</div>
 </div>
 
-<div class="tab"
-onclick="setTab('football',this)">
-Football Shoes
-</div>
-
-<div class="tab"
-onclick="setTab('basketball',this)">
-Basketball Shoes
-</div>
-
-</div>
-
-</div>
-
-</div>
-<!-- ================= LIST VIEW ================= -->
+<!-- LIST -->
 <div id="listView" class="view active">
-
 <div class="container">
 <div class="grid" id="grid"></div>
 </div>
-
 </div>
 
-<!-- ================= DETAIL VIEW ================= -->
+<!-- DETAIL -->
 <div id="detailView" class="view">
-
 <div class="container">
-
-<div class="back" onclick="back()">← Back to Products</div>
-
+<div class="back" onclick="back()">← Back</div>
 <div class="detail" id="detail"></div>
-
 </div>
-
 </div>
 
 <!-- LIGHTBOX -->
@@ -473,12 +278,16 @@ Basketball Shoes
 <img id="lbImg">
 <a id="dl" class="download" download>Download</a>
 </div>
-  
-  
+
 <script>
-let currentGender = "all";
-let currentTab = "sneakers";
-const products = [
+
+let currentGender="all";
+let currentTab="sneakers";
+
+/* ================= PRODUCTS ================= */
+
+const products=[
+
 {
 id:"sneaker1",
 name:"Men Sneaker Type1",
@@ -638,7 +447,9 @@ colors:[
 ] 
 },
 ];
-/* ================= RENDER LIST ================= */
+
+/* ================= RENDER ================= */
+
 function renderList(){
 
 const grid=document.getElementById("grid");
@@ -649,30 +460,24 @@ products.forEach(p=>{
 if(currentGender!="all" && p.gender!=currentGender) return;
 if(currentTab!="all" && p.tab!=currentTab) return;
 
+/* thumbnails */
 let thumbs="";
 
 p.colors.forEach(img=>{
-thumbs += `
-<img
-src="${img}"
-class="thumb"
-onclick="event.stopPropagation();changeMain('${p.id}','${img}')"
+thumbs+=`
+<img src="${img}"
+onclick="event.stopPropagation();changeMain('${p.id}','${img}')">
 `;
-});   // ← 少了这一句
+});
 
-grid.innerHTML += `
+grid.innerHTML+=`
 <div class="card">
-
-<img
-id="main-${p.id}"
+<img id="main-${p.id}"
 src="${p.colors[0]}"
-class="main-image"
 onclick="openDetail('${p.id}')">
 
 <div class="product-info">
-
 <h3>${p.name}</h3>
-
 <p>${p.moq}</p>
 
 <div class="thumbs">
@@ -680,107 +485,76 @@ ${thumbs}
 </div>
 
 </div>
-
 </div>
 `;
 });
 }
-function setGender(gender,el){
 
-currentGender = gender;
+/* ================= CHANGE MAIN ================= */
 
-document.querySelectorAll(".gender")
-.forEach(g=>g.classList.remove("active"));
-
-el.classList.add("active");
-
-renderList();
-
-}
-function setTab(tab,el){
-currentTab = tab;
-
-document.querySelectorAll(".tab")
-.forEach(t=>t.classList.remove("active"));
-
-el.classList.add("active");
-
-renderList(); // ⭐必须重新渲染
-}
-/* ================= DETAIL ================= */
-  function changeMain(id,img){
+function changeMain(id,img){
 document.getElementById("main-"+id).src=img;
 }
-function changeDetailMain(img){
-document.getElementById("detailMain").src = img;
-}
+
+/* ================= DETAIL ================= */
 
 function openDetail(id){
 
-const p = products.find(x => x.id === id);
+const p=products.find(x=>x.id===id);
 
-let thumbs = "";
+let thumbs="";
 
-p.colors.forEach(img => {
-thumbs += `
+p.colors.forEach(img=>{
+thumbs+=`
 <img src="${img}"
-style="width:60px;height:60px;object-fit:contain;border:1px solid #ddd;cursor:pointer"
-onclick="changeDetailMain('${img}')"
+onclick="changeDetailMain('${img}')">
 `;
 });
-document.getElementById("detail").innerHTML = `
+
+document.getElementById("detail").innerHTML=`
 <div class="detail-image">
-
-<img
-id="detailMain"
+<img id="detailMain"
 src="${p.colors[0]}"
-onclick="openLB(document.getElementById('detailMain').src)"
-onmousemove="zoom(event)"
-onmouseleave="resetZoom()">
-
+onclick="openLB(this.src)">
 </div>
 
 <div>
-
 <h1>${p.name}</h1>
 <p>${p.material}</p>
 <p>MOQ: ${p.moq}</p>
 
-<!-- ⭐详情缩略图 -->
 <div style="display:flex;gap:8px;margin:10px 0">
 ${thumbs}
 </div>
 
-<a class="btn" href="https://wa.me/8618659004495">
-SEND INQUIRY
-</a>
-
+<a class="btn" href="https://wa.me/8618659004495">SEND INQUIRY</a>
 </div>
-
 `;
-
-
 
 document.getElementById("listView").classList.remove("active");
 document.getElementById("detailView").classList.add("active");
-
-}
-function zoom(e){
-
-const img = e.target;
-
-const rect = img.getBoundingClientRect();
-
-const x = (e.clientX - rect.left) / rect.width * 100;
-const y = (e.clientY - rect.top) / rect.height * 100;
-
-img.style.transformOrigin = `${x}% ${y}%`;
-img.style.transform = "scale(2)";
 }
 
-function resetZoom(){
-document.getElementById("detailMain").style.transform = "scale(1)";
+function changeDetailMain(img){
+document.getElementById("detailMain").src=img;
 }
+
+/* ================= FILTER ================= */
+
+function setGender(g,el){
+currentGender=g;
+document.querySelectorAll(".gender").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+renderList();
+}
+
+function setTab(t,el){
+currentTab=t;
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+renderList();
+}
+
 /* ================= BACK ================= */
 
 function back(){
@@ -789,7 +563,6 @@ document.getElementById("listView").classList.add("active");
 }
 
 /* ================= LIGHTBOX ================= */
-
 
 function openLB(src){
 document.getElementById("lightbox").style.display="flex";
@@ -800,25 +573,7 @@ document.getElementById("dl").href=src;
 function closeLB(){
 document.getElementById("lightbox").style.display="none";
 }
-.detail-image{
-width:100%;
-height:520px;
-background:#fff;
-border-radius:18px;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-cursor:zoom-in;
-}
 
-.detail-image img{
-width:100%;
-height:100%;
-object-fit:contain;
-transition:transform .12s ease;
-transform-origin:center;
-}
 /* INIT */
 
 window.onload=renderList;
