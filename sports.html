@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<title>SPORTS SHOES | Reallyou</title>
+
+<title>REALLYOU | SPORTS SHOES</title>
 
 <style>
 
@@ -36,7 +39,6 @@ letter-spacing:2px;
 .nav-links{
 display:flex;
 gap:18px;
-font-size:12px;
 }
 
 .nav-links a{
@@ -126,6 +128,11 @@ height:260px;
 object-fit:contain;
 background:#fafafa;
 padding:24px;
+transition:transform .3s;
+}
+
+.card:hover img{
+transform:scale(1.05);
 }
 
 /* thumbnails */
@@ -134,6 +141,7 @@ display:flex;
 gap:6px;
 margin-top:8px;
 flex-wrap:wrap;
+padding:0 12px 12px;
 }
 
 .thumbs img{
@@ -143,6 +151,17 @@ object-fit:contain;
 border:1px solid #ddd;
 cursor:pointer;
 background:#fff;
+opacity:.7;
+transition:.2s;
+}
+
+.thumbs img:hover{
+opacity:1;
+}
+
+.thumbs img.active{
+border:1px solid #111;
+opacity:1;
 }
 
 /* ================= DETAIL ================= */
@@ -172,8 +191,11 @@ cursor:zoom-in;
 width:100%;
 height:100%;
 object-fit:contain;
-transition:transform .12s ease;
-transform-origin:center;
+transition:transform .2s;
+}
+
+.detail-image img:hover{
+transform:scale(1.08);
 }
 
 .btn{
@@ -183,6 +205,7 @@ background:#000;
 color:#fff;
 padding:10px 14px;
 text-decoration:none;
+border-radius:6px;
 }
 
 .back{
@@ -200,7 +223,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.9);
+background:rgba(0,0,0,.92);
 display:none;
 justify-content:center;
 align-items:center;
@@ -231,12 +254,12 @@ color:#000;
 <div><b>REALLYOU</b></div>
 
 <div class="nav-links">
-<a href="index.html">HOME</a>
-<a href="sports.html">SPORTS</a>
-<a href="casual.html">CASUAL</a>
-<a href="outdoor.html">OUTDOOR</a>
-<a href="sandals.html">SANDALS</a>
-<a href="kids.html">KIDS</a>
+<a href="#">HOME</a>
+<a href="#">SPORTS</a>
+<a href="#">CASUAL</a>
+<a href="#">OUTDOOR</a>
+<a href="#">SANDALS</a>
+<a href="#">KIDS</a>
 </div>
 </div>
 
@@ -245,6 +268,7 @@ color:#000;
 <h1 class="page-title">SPORTS SHOES</h1>
 
 <div class="filter-row">
+
 <div class="gender-tabs">
 <div class="gender active" onclick="setGender('all',this)">All</div>
 <div class="gender" onclick="setGender('men',this)">Men</div>
@@ -256,18 +280,19 @@ color:#000;
 <div class="tab" onclick="setTab('football',this)">Football Shoes</div>
 <div class="tab" onclick="setTab('basketball',this)">Basketball Shoes</div>
 </div>
+
 </div>
 </div>
 
 <!-- LIST -->
-<div id="listView" class="view active">
+<div id="listView">
 <div class="container">
 <div class="grid" id="grid"></div>
 </div>
 </div>
 
 <!-- DETAIL -->
-<div id="detailView" class="view">
+<div id="detailView" style="display:none;">
 <div class="container">
 <div class="back" onclick="back()">← Back</div>
 <div class="detail" id="detail"></div>
@@ -282,8 +307,300 @@ color:#000;
 
 <script>
 
+/* ================= PRODUCTS ================= */
+
+const products=[
+
+{
+id:"sneaker1",
+name:"Men Sneaker Type1",
+tab:"sneakers",
+gender:"men",
+moq:"600 pairs/color",
+material:"Mesh & Rubber Printing + TPR & Phylon Sole",
+colors:[
+"images/sports/M/sneaker1-black.jpg",
+"images/sports/M/sneaker1-yellow.jpg",
+"images/sports/M/sneaker1-white.jpg"
+]
+},
+{
+id:"sneaker2",
+name:"Women Sneaker Type1",
+tab:"sneakers",
+gender:"women",
+moq:"600 pairs/color",
+material:"Flyknit + TPR & Phylon Sole",
+colors:[
+"images/sports/W/sneaker2-pink.jpg",
+"images/sports/W/sneaker2-blue.jpg",
+"images/sports/W/sneaker2-yellow.jpg"
+]
+},
+{
+id:"sneaker3",
+name:"Men Sneaker Type2",
+tab:"sneakers",
+gender:"men",
+moq:"600 pairs/color",
+material:"Mesh + Rubber + Phylon Sole",
+colors:[
+"images/sports/M/sneaker3-black.jpg",
+"images/sports/M/sneaker3-blue.jpg"
+]
+},
+{ 
+id:"sneaker4", 
+name:"Men Sneaker Type3", 
+tab:"sneakers", 
+gender:"men", 
+moq:"600 pairs/color", 
+material:"Mesh&Rubber Printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/M/sneaker4-yellow.jpg", 
+"images/sports/M/sneaker4-green.jpg", 
+"images/sports/M/sneaker4-beige.jpg" 
+] 
+}, 
+{ 
+id:"sneaker5", 
+name:"Women Sneaker Type2", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh&PU&Rubber Printing + TPR&Phylon&TPU Sole", 
+colors:[
+"images/sports/W/sneaker5-black.jpg", 
+"images/sports/W/sneaker5-beige.jpg", 
+"images/sports/W/sneaker5-white.jpg" 
+] 
+}, 
+{ 
+id:"sneaker6", 
+name:"Women Sneaker Type3", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh&Rubber Printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker6-blue.jpg", 
+"images/sports/W/sneaker6-pink.jpg", 
+"images/sports/W/sneaker6-beige.jpg", 
+"images/sports/W/sneaker6-black.jpg" 
+] 
+},
+{ 
+id:"sneaker7", 
+name:"Women Sneaker Type4", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Jacquard+Flyknitting+TPU welding + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker7-white.jpg", 
+"images/sports/W/sneaker7-green.jpg", 
+"images/sports/W/sneaker7-dark green.jpg"
+] 
+},
+{ 
+id:"sneaker8", 
+name:"Women Sneaker Type5", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Mesh+Rubber printing + TPR&Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker8-pink.jpg", 
+"images/sports/W/sneaker8-white.jpg", 
+"images/sports/W/sneaker8-black.jpg"
+] 
+},
+{ 
+id:"sneaker9", 
+name:"Women Sneaker Type6", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"PU+Nylon + Phylon Sole", 
+colors:[ 
+"images/sports/W/sneaker9-beige.jpg", 
+"images/sports/W/sneaker9-white.jpg"
+] 
+},
+{ 
+id:"sneaker10", 
+name:"Women Sneaker Type7", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Cow suede&Nylon&PU + EVA&TPR Sole", 
+colors:[ 
+"images/sports/W/sneaker10-green.jpg", 
+"images/sports/W/sneaker10-white.jpg",
+"images/sports/W/sneaker10-yellow.jpg", 
+"images/sports/W/sneaker10-black.jpg", 
+] 
+},
+{ 
+id:"sneaker11", 
+name:"Women Sneaker Type8", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Cow suede&Nylon&PU + TPR&Phylon&TPU Sole", 
+colors:[ 
+"images/sports/W/sneaker11-pink.jpg", 
+"images/sports/W/sneaker11-grey.jpg",
+"images/sports/W/sneaker11-yellow.jpg", 
+"images/sports/W/sneaker11-black.jpg", 
+] 
+},
+{ 
+id:"sneaker12", 
+name:"Women Sneaker Type9", 
+tab:"sneakers", 
+gender:"women", 
+moq:"600 pairs/color", 
+material:"Cow suede&PU + EVA&TPR Sole", 
+colors:[ 
+"images/sports/W/sneaker12-pink.jpg", 
+"images/sports/W/sneaker12-gold.jpg",
+"images/sports/W/sneaker12-blue.jpg", 
+"images/sports/W/sneaker12-beige.jpg", 
+"images/sports/W/sneaker12-black.jpg", 
+] 
+},
+];
+
 let currentGender="all";
 let currentTab="sneakers";
+
+/* ================= RENDER (OPTIMIZED) ================= */
+
+function renderList(){
+
+const grid=document.getElementById("grid");
+grid.innerHTML="";
+
+const frag=document.createDocumentFragment();
+
+products.forEach(p=>{
+
+if(currentGender!=="all" && p.gender!==currentGender) return;
+if(currentTab && p.tab!==currentTab) return;
+
+const card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<img loading="lazy" src="${p.colors[0]}">
+<div style="padding:10px 12px 0;font-weight:600">${p.name}</div>
+<div style="padding:4px 12px 10px;font-size:12px;color:#777">${p.moq}</div>
+<div class="thumbs"></div>
+`;
+
+const thumbs=card.querySelector(".thumbs");
+
+p.colors.forEach((img,i)=>{
+const t=document.createElement("img");
+t.src=img;
+t.loading="lazy";
+if(i===0) t.classList.add("active");
+
+t.onclick=(e)=>{
+e.stopPropagation();
+card.querySelector("img").src=img;
+thumbs.querySelectorAll("img").forEach(x=>x.classList.remove("active"));
+t.classList.add("active");
+};
+
+thumbs.appendChild(t);
+});
+
+card.onclick=()=>openDetail(p);
+
+frag.appendChild(card);
+});
+
+grid.appendChild(frag);
+}
+
+/* ================= DETAIL ================= */
+
+function openDetail(p){
+
+document.getElementById("listView").style.display="none";
+document.getElementById("detailView").style.display="block";
+
+let thumbs="";
+
+p.colors.forEach(img=>{
+thumbs+=`<img src="${img}" onclick="changeDetail(this.src)">`;
+});
+
+document.getElementById("detail").innerHTML=`
+<div class="detail-image">
+<img id="detailImg" src="${p.colors[0]}" onclick="openLB(this.src)">
+</div>
+
+<div>
+<h1>${p.name}</h1>
+<p>${p.material}</p>
+<p>MOQ: ${p.moq}</p>
+
+<div style="display:flex;gap:8px">${thumbs}</div>
+
+<a class="btn" href="#">SEND INQUIRY</a>
+</div>
+`;
+}
+
+function changeDetail(src){
+document.getElementById("detailImg").src=src;
+}
+
+/* ================= FILTER ================= */
+
+function setGender(g,el){
+currentGender=g;
+document.querySelectorAll(".gender").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+renderList();
+}
+
+function setTab(t,el){
+currentTab=t;
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+renderList();
+}
+
+/* ================= BACK ================= */
+
+function back(){
+document.getElementById("detailView").style.display="none";
+document.getElementById("listView").style.display="block";
+}
+
+/* ================= LIGHTBOX ================= */
+
+function openLB(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lbImg").src=src;
+document.getElementById("dl").href=src;
+}
+
+function closeLB(){
+document.getElementById("lightbox").style.display="none";
+}
+
+/* INIT */
+renderList();
+
+</script>
+
+</body>
+</html>
 
 /* ================= PRODUCTS ================= */
 
