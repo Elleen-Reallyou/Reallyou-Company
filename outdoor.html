@@ -316,7 +316,7 @@ color:#000;
 </div>
 
 <div class="tabs">
-<div class="tab active" onclick="setTab('all',this)">All</div>
+<div class="tab active" onclick="setTab('alle',this)">All</div>
 <div class="tab" onclick="setTab('hiking',this)">Hiking Shoes & Boots</div>
 <div class="tab" onclick="setTab('water',this)">Water Shoes</div>
 <div class="tab" onclick="setTab('winter',this)">Winter & Snow Boots</div>
@@ -384,7 +384,7 @@ colors:[
 ];
 
 let currentGender="all";
-let currentTab="all";
+let currentTab="alle";
 
 /* ================= RENDER (OPTIMIZED) ================= */
 
@@ -398,7 +398,7 @@ const frag=document.createDocumentFragment();
 products.forEach(p=>{
 
 if(currentGender!=="all" && p.gender!==currentGender) return;
-if(currentTab && p.tab!==currentTab) return;
+if(currentTab!=="alle" && p.tab!==currentTab) return;
 
 const card=document.createElement("div");
 card.className="card";
