@@ -316,10 +316,10 @@ color:#000;
 </div>
 
 <div class="tabs">
-<div class="tab active" onclick="setTab('alle',this)">All</div>
-<div class="tab" onclick="setTab('water',this)">Water Shoes</div>
-<div class="tab" onclick="setTab('hiking',this)">Hiking Shoes & Boots</div>
-<div class="tab" onclick="setTab('winter',this)">Winter & Snow Boots</div>
+<div class="tab" data-tab="water">Water Shoes</div>
+<div class="tab" data-tab="hiking">Hiking Shoes & Boots</div>
+<div class="tab" data-tab="winter">Winter & Snow Boots</div>
+<div class="tab active" data-tab="alle">All</div>
 </div>
 
 </div>
@@ -529,6 +529,13 @@ document.getElementById("lightbox").style.display="none";
 /* INIT */
 renderList();
 
+/* ================= TAB EVENT BINDING ================= */
+document.querySelectorAll(".tab").forEach(el=>{
+    el.addEventListener("click",()=>{
+        const t = el.dataset.tab;
+        setTab(t, el);
+    });
+});
 </script>
 
 </body>
