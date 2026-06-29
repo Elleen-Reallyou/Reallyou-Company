@@ -316,7 +316,7 @@ color:#000;
 </div>
 
 <div class="tabs">
-<div class="tab active" onclick="setTab('all',this)">All</div>
+<div class="tab active" onclick="setTab('alle',this)">All</div>
 <div class="tab" onclick="setTab('skate',this)">Skate</div>
 <div class="tab" onclick="setTab('vulcanized',this)">Vulcanized</div>
 <div class="tab" onclick="setTab('slip-on',this)">Slip-on</div>
@@ -434,7 +434,7 @@ const frag=document.createDocumentFragment();
 products.forEach(p=>{
 
 if(currentGender!=="all" && p.gender!==currentGender) return;
-if(currentTab && p.tab!==currentTab) return;
+if(currentTab!=="alle" && p.tab!==currentTab) return;
 
 const card=document.createElement("div");
 card.className="card";
@@ -538,7 +538,7 @@ renderList();
 
 function setTab(t,el){
 currentTab=t;
-document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+document.querySelectorAlle(".tab").forEach(x=>x.classList.remove("active"));
 el.classList.add("active");
 renderList();
 }
