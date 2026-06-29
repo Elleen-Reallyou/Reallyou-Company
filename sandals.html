@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<title>REALLYOU | SANDALS SHOES</title>
+
+<style>
+
+body{
+font-family:'Inter',system-ui,Arial;
+margin:0;
+background:#f5f5f5;
+color:#222;
+}
+
+/* ================= NAV ================= */
+
+.main-nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:#fff;
+border-bottom:1px solid #e8e8e8;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.main-nav b{
+font-size:24px;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#111;
+font-size:14px;
+font-weight:500;
+}
+
+/* ================= FILTER ================= */
+
+.filter-wrapper{
+max-width:1200px;
+margin:40px auto;
+padding:0 20px;
+}
+
+.page-title{
+font-size:34px;
+font-weight:700;
+margin-bottom:35px;
+}
+
+.filter-row{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+margin-bottom:25px;
+}
+
+.gender-tabs,.tabs{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.gender,.tab{
+padding:12px 26px;
+border:1px solid #ddd;
+border-radius:999px;
+background:#fff;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+transition:.25s;
+user-select:none;
+}
+
+.gender.active,.tab.active{
+background:#111;
+color:#fff;
+border-color:#111;
+}
+
+/* ================= GRID ================= */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:28px;
+}
+
+.card{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #ededed;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 18px 35px rgba(0,0,0,.10);
+}
+
+.card img{
+width:95%;
+height:260px;
+object-fit:contain;
+background:#fafafa;
+padding:24px;
+transition:transform .3s;
+}
+
+.card:hover img{
+transform:scale(1.05);
+}
+
+/* thumbnails */
+.thumbs{
+display:flex;
+gap:6px;
+margin-top:8px;
+flex-wrap:wrap;
+padding:0 12px 12px;
+}
+
+.thumbs img{
+width:40px;
+height:40px;
+object-fit:contain;
+border:1px solid #ddd;
+cursor:pointer;
+background:#fff;
+opacity:.7;
+transition:.2s;
+}
+
+.thumbs img:hover{
+opacity:1;
+}
+
+.thumbs img.active{
+border:1px solid #111;
+opacity:1;
+}
+
+/* ================= DETAIL ================= */
+
+.detail{
+max-width:900px;
+margin:30px auto;
+padding:20px;
+display:grid;
+grid-template-columns:1.1fr 1fr;
+gap:30px;
+background:#fff;
+border-radius:16px;
+}
+
+/* 左侧图片区 */
+.detail-image{
+width:100%;
+height:480px;
+background:#fafafa;
+border-radius:14px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+cursor:zoom-in;
+position:relative;
+}
+
+/* 主图 */
+.detail-image img{
+width:100%;
+height:100%;
+object-fit:contain;
+transition:transform .3s ease;
+}
+
+/* 👉 鼠标放大（核心） */
+.detail-image:hover img{
+transform:scale(1.12);
+}
+
+/* 缩略图 */
+.detail-thumbs{
+display:flex;
+gap:8px;
+margin-top:12px;
+flex-wrap:wrap;
+}
+
+.detail-thumbs img{
+width:48px;
+height:48px;
+object-fit:contain;
+border:1px solid #ddd;
+border-radius:6px;
+cursor:pointer;
+background:#fff;
+opacity:.6;
+transition:.2s;
+}
+
+.detail-thumbs img:hover{
+opacity:1;
+}
+
+.detail-thumbs img.active{
+border:1px solid #111;
+opacity:1;
+}
+
+/* 右侧信息 */
+.detail-info h1{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.detail-info p{
+font-size:13px;
+color:#666;
+line-height:1.5;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+background:#000;
+color:#fff;
+padding:10px 14px;
+text-decoration:none;
+border-radius:6px;
+font-size:13px;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+}
+
+.lightbox img{
+max-width:85%;
+max-height:80%;
+}
+
+.download{
+margin-top:10px;
+background:#fff;
+padding:10px;
+text-decoration:none;
+color:#000;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="main-nav">
+<div><b>REALLYOU</b></div>
+
+<div class="nav-links">
+<a href="index.html">HOME</a>
+<a href="sports.html">SPORTS</a>
+<a href="casual.html">CASUAL</a>
+<a href="outdoor.html">OUTDOOR</a>
+<a href="sandals.html">SANDALS</a>
+<a href="kids.html">KIDS</a>
+</div>
+</div> 
+<!-- FILTER -->
+<div class="filter-wrapper">
+<h1 class="page-title">SANDALS & SLIPPERS</h1>
+
+<div class="filter-row">
+
+<div class="gender-tabs">
+<div class="gender active" onclick="setGender('all',this)">All</div>
+<div class="gender" onclick="setGender('men',this)">Men</div>
+<div class="gender" onclick="setGender('women',this)">Women</div>
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="setTab('sandal',this)">Sandals</div>
+<div class="tab" onclick="setTab('slipper',this)">Slippers</div>
+</div>
+
+</div>
+</div>
+
+<!-- LIST -->
+<div id="listView">
+<div class="container">
+<div class="grid" id="grid"></div>
+</div>
+</div>
+
+<!-- DETAIL -->
+<div id="detailView" style="display:none;">
+<div class="container">
+<div class="back" onclick="back()">← Back</div>
+<div class="detail" id="detail"></div>
+</div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+<img id="lbImg">
+<a id="dl" class="download" download>Download</a>
+</div>
+
+<script>
+
+/* ================= PRODUCTS ================= */
+
+const products=[
+
+{
+id:"sandal1",
+name:"Men Sandal Type1",
+tab:"sandal",
+gender:"men",
+moq:"600 pairs/color",
+material:"待定",
+colors:[
+"images/sandals/M/sandal1-black.jpg",
+"images/sandals/M/sandal1-green.jpg",
+]
+},
+];
+
+let currentGender="all";
+let currentTab="sandal";
+
+/* ================= RENDER (OPTIMIZED) ================= */
+
+function renderList(){
+
+const grid=document.getElementById("grid");
+grid.innerHTML="";
+
+const frag=document.createDocumentFragment();
+
+products.forEach(p=>{
+
+if(currentGender!=="all" && p.gender!==currentGender) return;
+if(currentTab && p.tab!==currentTab) return;
+
+const card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<img loading="lazy" src="${p.colors[0]}">
+<div style="padding:10px 12px 0;font-weight:600">${p.name}</div>
+<div style="padding:4px 12px 10px;font-size:12px;color:#777">${p.moq}</div>
+<div class="thumbs"></div>
+`;
+
+const thumbs=card.querySelector(".thumbs");
+
+p.colors.forEach((img,i)=>{
+const t=document.createElement("img");
+t.src=img;
+t.loading="lazy";
+if(i===0) t.classList.add("active");
+
+t.onclick=(e)=>{
+e.stopPropagation();
+card.querySelector("img").src=img;
+thumbs.querySelectorAll("img").forEach(x=>x.classList.remove("active"));
+t.classList.add("active");
+};
+
+thumbs.appendChild(t);
+});
+
+card.onclick=()=>openDetail(p);
+
+frag.appendChild(card);
+});
+
+grid.appendChild(frag);
+}
+
+/* ================= DETAIL ================= */
+
+function openDetail(p){
+
+document.getElementById("listView").style.display="none";
+document.getElementById("detailView").style.display="block";
+
+document.getElementById("detail").innerHTML=`
+<div>
+
+<div class="detail-image">
+<img id="detailImg" src="${p.colors[0]}" onclick="openLB(this.src)">
+</div>
+
+<div class="detail-thumbs" id="detailThumbs"></div>
+
+</div>
+
+<div class="detail-info">
+<h1>${p.name}</h1>
+<p>${p.material}</p>
+<p>MOQ: ${p.moq}</p>
+
+<a class="btn" href="https://wa.me/8618659004495" target="_blank">
+SEND INQUIRY
+</a>
+</div>
+`;
+
+/* thumbnails */
+const box=document.getElementById("detailThumbs");
+
+p.colors.forEach((img,i)=>{
+
+const t=document.createElement("img");
+t.src=img;
+
+if(i===0) t.classList.add("active");
+
+t.onclick=()=>{
+document.getElementById("detailImg").src=img;
+
+box.querySelectorAll("img").forEach(x=>x.classList.remove("active"));
+t.classList.add("active");
+};
+
+box.appendChild(t);
+
+});
+}
+
+function changeDetail(src){
+document.getElementById("detailImg").src=src;
+}
+
+/* ================= FILTER ================= */
+
+function setGender(g,el){
+currentGender=g;
+document.querySelectorAll(".gender").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+renderList();
+}
+
+function setTab(t,el){
+currentTab=t;
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+renderList();
+}
+
+/* ================= BACK ================= */
+
+function back(){
+document.getElementById("detailView").style.display="none";
+document.getElementById("listView").style.display="block";
+}
+
+/* ================= LIGHTBOX ================= */
+
+function openLB(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lbImg").src=src;
+document.getElementById("dl").href=src;
+}
+
+function closeLB(){
+document.getElementById("lightbox").style.display="none";
+}
+
+/* INIT */
+renderList();
+
+</script>
+
+</body>
+</html>
