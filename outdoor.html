@@ -317,8 +317,8 @@ color:#000;
 
 <div class="tabs">
 <div class="tab active" onclick="setTab('alle',this)">All</div>
-<div class="tab" onclick="setTab('hiking',this)">Hiking Shoes & Boots</div>
 <div class="tab" onclick="setTab('water',this)">Water Shoes</div>
+<div class="tab" onclick="setTab('hiking',this)">Hiking Shoes & Boots</div>
 <div class="tab" onclick="setTab('winter',this)">Winter & Snow Boots</div>
 </div>
 
@@ -502,7 +502,7 @@ renderList();
 
 function setTab(t,el){
 currentTab=t;
-document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+document.querySelectorAlle(".tab").forEach(x=>x.classList.remove("active"));
 el.classList.add("active");
 renderList();
 }
