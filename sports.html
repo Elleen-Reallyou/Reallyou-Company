@@ -316,6 +316,7 @@ color:#000;
 </div>
 
 <div class="tabs">
+<div class="tab active" onclick="setTab('alle',this)">All</div>
 <div class="tab active" onclick="setTab('sneakers',this)">Sneakers</div>
 <div class="tab" onclick="setTab('football',this)">Football Shoes</div>
 <div class="tab" onclick="setTab('basketball',this)">Basketball Shoes</div>
@@ -726,10 +727,34 @@ colors:[
 "images/sports/M/sneaker29-blackw.jpg", 
 ] 
 },
+{ 
+id:"sneaker30", 
+name:"Men Sneaker Type15", 
+tab:"sneakers", 
+gender:"men", 
+moq:"600 pairs/color", 
+material:"待定", 
+colors:[ 
+"images/sports/M/sneaker30-black.jpg", 
+] 
+},
+{ 
+id:"sneaker31", 
+name:"Men Sneaker Type16", 
+tab:"sneakers", 
+gender:"men", 
+moq:"600 pairs/color", 
+material:"待定", 
+colors:[ 
+"images/sports/M/sneaker29-white.jpg", 
+"images/sports/M/sneaker29-black.jpg", 
+"images/sports/M/sneaker29-grey.jpg", 
+] 
+},
 ];
 
 let currentGender="all";
-let currentTab="sneakers";
+let currentTab="alle";
 
 /* ================= RENDER (OPTIMIZED) ================= */
 
@@ -743,7 +768,7 @@ const frag=document.createDocumentFragment();
 products.forEach(p=>{
 
 if(currentGender!=="all" && p.gender!==currentGender) return;
-if(currentTab && p.tab!==currentTab) return;
+if(currentTab !=="alle" && p.tab!==currentTab) return;
 
 const card=document.createElement("div");
 card.className="card";
