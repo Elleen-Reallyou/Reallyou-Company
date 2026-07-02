@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ================= RESET ================= */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, sans-serif;
+background: #fff;
+color: #111;
+overflow-x: hidden;
+scroll-behavior: smooth;
+}
+
+/* ================= NAV ================= */
+.nav {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 999;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 18px 60px;
+background: rgba(255,255,255,0.75);
+backdrop-filter: blur(14px);
+transition: 0.3s;
+}
+
+.nav h1 {
+font-size: 14px;
+letter-spacing: 2px;
+}
+
+.nav a {
+margin-left: 18px;
+text-decoration: none;
+font-size: 12px;
+color: #111;
+letter-spacing: 1px;
+}
+
+.nav a:hover {
+opacity: 0.5;
+}
+
+/* ================= HERO (PARALLAX) ================= */
+.hero {
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: white;
+position: relative;
+
+background:
+linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+url("images/office-building.jpg");
+
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+
+.hero h1 {
+font-size: 64px;
+letter-spacing: 3px;
+opacity: 0;
+transform: translateY(30px);
+animation: fadeUp 1s ease forwards;
+}
+
+.hero p {
+font-size: 18px;
+max-width: 700px;
+margin-top: 15px;
+opacity: 0;
+animation: fadeUp 1s ease forwards 0.3s;
+}
+
+/* ================= SECTION ================= */
+section {
+max-width: 1200px;
+margin: auto;
+padding: 120px 20px;
+}
+
+h2 {
+font-size: 30px;
+margin-bottom: 50px;
+letter-spacing: 1px;
+}
+
+/* ================= TEXT REVEAL ================= */
+.reveal {
+opacity: 0;
+transform: translateY(60px);
+transition: 1s ease;
+}
+
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ================= ABOUT ================= */
+.about p {
+max-width: 900px;
+line-height: 1.9;
+color: #444;
+font-size: 16px;
+}
+
+/* ================= GRID ================= */
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 25px;
+}
+
+.card {
+background: #f7f7f7;
+padding: 25px;
+border-radius: 14px;
+transition: 0.4s;
+}
+
+.card:hover {
+transform: translateY(-8px);
+}
+
+/* ================= WHY ================= */
+.why-card {
+background: #fafafa;
+border: 1px solid #eee;
+padding: 22px;
+border-radius: 14px;
+transition: 0.4s;
+}
+
+.why-card:hover {
+transform: translateY(-8px);
+}
+
+/* ================= PRODUCTS ================= */
+.products-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 25px;
+}
+
+.product {
+display: block;
+text-decoration: none;
+color: #111;
+background: #fff;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+transition: 0.4s;
+}
+
+.product img {
+width: 100%;
+height: 190px;
+object-fit: cover;
+transition: 0.6s;
+}
+
+.product:hover img {
+transform: scale(1.08);
+filter: contrast(1.05);
+}
+
+.product:hover {
+transform: translateY(-10px);
+}
+
+/* ================= BLOG ================= */
+.blog-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+}
+
+.blog-card {
+border: 1px solid #eee;
+padding: 22px;
+border-radius: 14px;
+transition: 0.4s;
+}
+
+.blog-card:hover {
+transform: translateY(-8px);
+border-color: #ddd;
+}
+
+/* ================= CONTACT ================= */
+.contact p {
+margin-bottom: 10px;
+color: #444;
+}
+
+/* ================= FOOTER ================= */
+footer {
+text-align: center;
+padding: 50px;
+background: #0f0f0f;
+color: white;
+margin-top: 100px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* ================= SECTION TITLE LINE ================= */
+h2::after {
+content: "";
+display: block;
+width: 60px;
+height: 2px;
+background: #111;
+margin-top: 12px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+.nav {
+padding: 15px 20px;
+}
+
+.hero h1 {
+font-size: 36px;
+}
+
+.hero p {
+font-size: 14px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+<div class="nav">
+<h1>REALLYOU</h1>
+<div>
+<a href="#about">ABOUT</a>
+<a href="#products">PRODUCTS</a>
+<a href="#blog">BLOG</a>
+<a href="#contact">CONTACT</a>
+</div>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+<h1>FOOTWEAR SOURCING</h1>
+<p>Development · Manufacturing · Quality Control · Global Supply Chain Solutions</p>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="reveal">
+<h2>About Us</h2>
+<p class="about">
+Quanzhou Reallyou Import & Export Co., Ltd. is a professional footwear sourcing company based in Jinjiang, China.
+We connect global brands with factories across China and Southeast Asia, delivering end-to-end solutions from product development to shipment.
+</p>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="reveal">
+<h2>Why Choose Us</h2>
+
+<div class="grid">
+<div class="why-card">📍 Jinjiang factory ecosystem advantage</div>
+<div class="why-card">🌏 China + Southeast Asia production network</div>
+<div class="why-card">🛠 OEM / ODM development system</div>
+<div class="why-card">✅ Strict QC inspection flow</div>
+<div class="why-card">🚢 Stable logistics coordination</div>
+<div class="why-card">🤝 Long-term partnership model</div>
+</div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section id="products" class="reveal">
+<h2>Product Categories</h2>
+
+<div class="products-grid">
+
+<a class="product" href="sports.html">
+<img src="images/sports-cover.jpg">
+<div style="padding:18px;"><strong>SPORTS SHOES</strong></div>
+</a>
+
+<a class="product" href="casual.html">
+<img src="images/casual-cover.jpg">
+<div style="padding:18px;"><strong>CASUAL SHOES</strong></div>
+</a>
+
+<a class="product" href="outdoor.html">
+<img src="images/outdoor-cover.jpg">
+<div style="padding:18px;"><strong>OUTDOOR SHOES</strong></div>
+</a>
+
+<a class="product" href="sandals.html">
+<img src="images/sandals-cover.jpg">
+<div style="padding:18px;"><strong>SANDALS</strong></div>
+</a>
+
+</div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section id="blog" class="reveal">
+<h2>Insights</h2>
+
+<div class="blog-grid">
+
+<div class="blog-card">
+<h3>Footwear Sampling Process</h3>
+<p>From sketch to prototype to final approval.</p>
+</div>
+
+<div class="blog-card">
+<h3>OEM vs ODM Explained</h3>
+<p>Understanding manufacturing models in footwear sourcing.</p>
+</div>
+
+<div class="blog-card">
+<h3>2026 Sourcing Trends</h3>
+<p>Material innovation and supply chain shifts.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="reveal">
+<h2>Contact</h2>
+<p>Email: susan@reallyou.cn</p>
+<p>WhatsApp: +86 18659004495</p>
+<p>LinkedIn: linkedin.com/in/elleen-huang-843155387</p>
+<p>Address: Jinjiang, Fujian, China</p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+© 2026 Quanzhou Reallyou Import & Export Co., Ltd.
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+const h = window.innerHeight;
+
+reveals.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if (top < h - 80) {
+el.classList.add('active');
+}
+});
+});
+</script>
+
+</body>
+</html>
