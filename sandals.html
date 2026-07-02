@@ -200,9 +200,6 @@ transition:transform .3s ease;
 }
 
 /* 👉 鼠标放大（核心） */
-.detail-image:hover img{
-transform:scale(1.12);
-}
 
 /* 缩略图 */
 .detail-thumbs{
@@ -571,18 +568,38 @@ SEND INQUIRY
 </div>
 `;
 
+/* ================= ZOOM（新增核心） ================= */
+const boxImg=document.querySelector(".detail-image");
+const img=document.getElementById("detailImg");
+
+boxImg.addEventListener("mousemove",(e)=>{
+
+const rect=boxImg.getBoundingClientRect();
+
+const x=((e.clientX-rect.left)/rect.width)*100;
+const y=((e.clientY-rect.top)/rect.height)*100;
+
+img.style.transformOrigin = `${x}% ${y}%`;
+img.style.transform = "scale(2.4)";
+});
+
+boxImg.addEventListener("mouseleave",()=>{
+img.style.transformOrigin = "center";
+img.style.transform = "scale(1)";
+});
+
 /* thumbnails */
 const box=document.getElementById("detailThumbs");
 
-p.colors.forEach((img,i)=>{
+p.colors.forEach((imgSrc,i)=>{
 
 const t=document.createElement("img");
-t.src=img;
+t.src=imgSrc;
 
 if(i===0) t.classList.add("active");
 
 t.onclick=()=>{
-document.getElementById("detailImg").src=img;
+document.getElementById("detailImg").src=imgSrc;
 
 box.querySelectorAll("img").forEach(x=>x.classList.remove("active"));
 t.classList.add("active");
@@ -592,7 +609,6 @@ box.appendChild(t);
 
 });
 }
-
 function changeDetail(src){
 document.getElementById("detailImg").src=src;
 }
