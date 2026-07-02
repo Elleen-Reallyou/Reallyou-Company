@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+https://elleen-reallyou.github.io/Reallyou-Company/index.html#contact
+Sitemap: https://你的域名.com/sitemap.xml
