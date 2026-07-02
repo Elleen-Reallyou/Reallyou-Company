@@ -17,6 +17,56 @@
 
 <style>
 
+.hero-company {
+font-size: 14px;
+letter-spacing: 2px;
+margin-bottom: 14px;
+
+/* 低调彩色渐变 */
+background: linear-gradient(
+90deg,
+rgba(255,255,255,0.7),
+rgba(200,200,200,0.8),
+rgba(255,255,255,0.6)
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+opacity: 0;
+animation: fadeUp 1s ease forwards;
+}
+
+.hero-sub {
+margin-top: 18px;
+font-size: 15px;
+color: rgba(255,255,255,0.65);
+max-width: 700px;
+
+opacity: 0;
+animation: fadeUp 1s ease forwards 0.3s;
+}
+.logo {
+font-size: 13px;
+letter-spacing: 3px;
+font-weight: 600;
+
+/* 彩色渐变 */
+background: linear-gradient(
+90deg,
+#ff4d4d,
+#ffb84d,
+#4dff88,
+#4dd2ff,
+#b84dff
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+background-size: 300% 100%;
+animation: gradientMove 6s linear infinite;
+}
 /* ================= RESET ================= */
 * {
 margin: 0;
@@ -90,7 +140,7 @@ align-items: center;
 text-align: center;
 
 color: white;
-
+background-attachment: fixed;
 /* 更高级黑层 */
 background:
 linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.65)),
@@ -101,7 +151,7 @@ background-position: center;
 }
 
 .hero h1 {
-font-size: 72px;
+font-size: 48px;
 letter-spacing: 4px;
 
 /* 🌈 淡彩渐变 */
@@ -324,8 +374,17 @@ font-size: 14px;
 
 <!-- ================= HERO ================= -->
 <header class="hero">
+
+<div class="hero-company">
+:contentReference[oaicite:0]{index=0}
+</div>
+
 <h1>Footwear Sourcing & OEM Manufacturing in China</h1>
-<p>Development · Manufacturing · Quality Control · Global Supply Chain Solutions</p>
+
+<p class="hero-sub">
+Development · Manufacturing · Quality Control · Global Supply Chain Solutions
+</p>
+
 </header>
 
 <!-- ================= ABOUT ================= -->
