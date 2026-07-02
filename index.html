@@ -58,12 +58,12 @@ cursor: pointer;
 color: white;
 }
 
-.hero-brand {
+.hero-brand{
+margin-top: 15px;
 font-size: 14px;
 letter-spacing: 3px;
-margin-bottom: 12px;
+text-align: center;
 
-/* 低调渐变（比之前更干净） */
 background: linear-gradient(
 90deg,
 rgba(255,255,255,0.8),
@@ -73,20 +73,23 @@ rgba(255,255,255,0.6)
 
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
+
+opacity: 0;
+animation: fadeUp 1s ease forwards 0.3s;
 }
 
-.hero-title {
-font-size: 48px;
-letter-spacing: 4px;
+.hero-title{
+font-size: 56px;
+letter-spacing: 2px;
+text-align: center;
 
-/* 主标题彩色渐变（你原来 h1 的风格搬过来） */
 background: linear-gradient(
 90deg,
-rgba(255,77,77,0.9),
-rgba(255,184,77,0.8),
-rgba(77,255,136,0.8),
-rgba(77,210,255,0.8),
-rgba(184,77,255,0.8)
+#ff4d4d,
+#ffb84d,
+#4dff88,
+#4dd2ff,
+#b84dff
 );
 
 -webkit-background-clip: text;
@@ -426,13 +429,12 @@ font-size: 14px;
 
 <!-- ================= HERO ================= -->
 <header class="hero">
-
-<h1 class="hero-brand">
-QUANZHOU REALLYOU IMPORT & EXPORT CO., LTD.
+<h1 class="hero-title">
+Footwear Sourcing & OEM Manufacturing in China
 </h1>
 
-<h2 class="hero-title">
-Footwear Sourcing & OEM Manufacturing in China
+<h2 class="hero-brand">
+QUANZHOU REALLYOU IMPORT & EXPORT CO., LTD.
 </h2>
 
 <p class="hero-sub">
