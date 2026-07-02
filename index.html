@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="description" content="Professional footwear sourcing company in Jinjiang, China. OEM & ODM footwear development, manufacturing management, and global supply chain solutions for international brands.">
+<meta name="keywords" content="footwear sourcing, shoe manufacturer China, OEM shoes, ODM footwear, Jinjiang shoe factory, sneaker supplier, casual shoes factory, sports shoes manufacturer">
+<meta name="author" content="Quanzhou Reallyou Import & Export Co., Ltd.">
+
+<!-- Open Graph (LinkedIn / Facebook / WhatsApp preview) -->
+<meta property="og:title" content="REALLYOU | Footwear Sourcing & Manufacturing">
+<meta property="og:description" content="OEM & ODM footwear sourcing from China. Reliable factory network in Jinjiang.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/office-building.jpg">
+<meta property="og:url" content="https://yourdomain.com">
 <meta charset="UTF-8">
 <title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,26 +43,41 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 18px 60px;
-background: rgba(255,255,255,0.75);
-backdrop-filter: blur(14px);
-transition: 0.3s;
+
+/* 🔥 黑色底 */
+background: rgba(0,0,0,0.85);
+backdrop-filter: blur(12px);
 }
 
 .nav h1 {
-font-size: 14px;
-letter-spacing: 2px;
+font-size: 13px;
+letter-spacing: 3px;
+
+/* 🌈 彩色渐变文字 */
+background: linear-gradient(
+90deg,
+#ff4d4d,
+#ffb84d,
+#4dff88,
+#4dd2ff,
+#b84dff
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+background-size: 300% 100%;
+animation: gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+0% { background-position: 0% 50%; }
+100% { background-position: 300% 50%; }
 }
 
 .nav a {
-margin-left: 18px;
-text-decoration: none;
-font-size: 12px;
-color: #111;
-letter-spacing: 1px;
-}
-
-.nav a:hover {
-opacity: 0.5;
+color: #fff;
+opacity: 0.85;
 }
 
 /* ================= HERO (PARALLAX) ================= */
@@ -63,34 +88,58 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 text-align: center;
-color: white;
-position: relative;
 
+color: white;
+
+/* 更高级黑层 */
 background:
-linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.65)),
 url("images/office-building.jpg");
 
 background-size: cover;
 background-position: center;
-background-attachment: fixed;
 }
 
 .hero h1 {
-font-size: 64px;
-letter-spacing: 3px;
+font-size: 72px;
+letter-spacing: 4px;
+
+/* 🌈 淡彩渐变 */
+background: linear-gradient(
+90deg,
+rgba(255,77,77,0.9),
+rgba(255,184,77,0.8),
+rgba(77,255,136,0.8),
+rgba(77,210,255,0.8),
+rgba(184,77,255,0.8)
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+/* ✨ 更柔和质感 */
+filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+
 opacity: 0;
-transform: translateY(30px);
+transform: translateY(40px);
 animation: fadeUp 1s ease forwards;
 }
 
 .hero p {
+margin-top: 20px;
 font-size: 18px;
 max-width: 700px;
-margin-top: 15px;
+
+color: rgba(255,255,255,0.85);
+
+/* ✨ 微弱彩光 */
+text-shadow:
+0 0 20px rgba(77,210,255,0.15),
+0 0 30px rgba(184,77,255,0.1);
+
 opacity: 0;
 animation: fadeUp 1s ease forwards 0.3s;
 }
-
 /* ================= SECTION ================= */
 section {
 max-width: 1200px;
@@ -264,7 +313,7 @@ font-size: 14px;
 
 <!-- ================= NAV ================= -->
 <div class="nav">
-<h1>REALLYOU</h1>
+<div class="logo">REALLYOU</div>
 <div>
 <a href="#about">ABOUT</a>
 <a href="#products">PRODUCTS</a>
@@ -275,7 +324,7 @@ font-size: 14px;
 
 <!-- ================= HERO ================= -->
 <header class="hero">
-<h1>FOOTWEAR SOURCING</h1>
+<h1>Footwear Sourcing & OEM Manufacturing in China</h1>
 <p>Development · Manufacturing · Quality Control · Global Supply Chain Solutions</p>
 </header>
 
@@ -287,7 +336,16 @@ Quanzhou Reallyou Import & Export Co., Ltd. is a professional footwear sourcing 
 We connect global brands with factories across China and Southeast Asia, delivering end-to-end solutions from product development to shipment.
 </p>
 </section>
+  
+<section>
+<h2>Our Services</h2>
 
+<p>
+We provide footwear OEM manufacturing, ODM development, product sourcing,
+factory selection, sampling management, and quality control for global brands.
+</p>
+</section>
+  
 <!-- ================= WHY ================= -->
 <section class="reveal">
 <h2>Why Choose Us</h2>
@@ -309,7 +367,7 @@ We connect global brands with factories across China and Southeast Asia, deliver
 <div class="products-grid">
 
 <a class="product" href="sports.html">
-<img src="images/sports-cover.jpg">
+<img src="images/sports-cover.jpg" alt="Sports shoes OEM manufacturer China">
 <div style="padding:18px;"><strong>SPORTS SHOES</strong></div>
 </a>
 
