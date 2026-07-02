@@ -222,7 +222,6 @@ opacity: 0.85;
   background-size: cover;
   background-position: center;
 
-  /* 关键：不要依赖 fixed */
   background-attachment: scroll;
 }
 .hero p {
@@ -621,6 +620,14 @@ if(e.target.id === "whyModal"){
 document.getElementById('whyModal').style.display = "none";
 }
 }
+const hero = document.getElementById("hero");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  // 背景慢速移动（核心）
+  hero.style.backgroundPosition = `center ${scrollY * 0.4}px`;
+});
 </script>
 
 </body>
