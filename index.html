@@ -17,29 +17,51 @@
 
 <style>
 
-h2 {
-font-size: 28px;
-margin-bottom: 35px;
-letter-spacing: 1px;
-}
-.hero-company {
+.hero-brand {
 font-size: 14px;
-letter-spacing: 2px;
-margin-bottom: 14px;
+letter-spacing: 3px;
+margin-bottom: 12px;
 
-/* 低调彩色渐变 */
+/* 低调渐变（比之前更干净） */
 background: linear-gradient(
 90deg,
-rgba(255,255,255,0.7),
-rgba(200,200,200,0.8),
+rgba(255,255,255,0.8),
+rgba(200,200,200,0.7),
 rgba(255,255,255,0.6)
 );
 
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
+}
+
+.hero-title {
+font-size: 48px;
+letter-spacing: 4px;
+
+/* 主标题彩色渐变（你原来 h1 的风格搬过来） */
+background: linear-gradient(
+90deg,
+rgba(255,77,77,0.9),
+rgba(255,184,77,0.8),
+rgba(77,255,136,0.8),
+rgba(77,210,255,0.8),
+rgba(184,77,255,0.8)
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
 
 opacity: 0;
+transform: translateY(40px);
 animation: fadeUp 1s ease forwards;
+}
+
+h2 {
+font-size: 28px;
+margin-bottom: 35px;
+letter-spacing: 1px;
 }
 
 .hero-sub {
@@ -154,31 +176,6 @@ url("images/office-building.jpg");
 
 background-size: cover;
 background-position: center;
-}
-
-.hero h1 {
-font-size: 48px;
-letter-spacing: 4px;
-
-/* 🌈 淡彩渐变 */
-background: linear-gradient(
-90deg,
-rgba(255,77,77,0.9),
-rgba(255,184,77,0.8),
-rgba(77,255,136,0.8),
-rgba(77,210,255,0.8),
-rgba(184,77,255,0.8)
-);
-
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-
-/* ✨ 更柔和质感 */
-filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
-
-opacity: 0;
-transform: translateY(40px);
-animation: fadeUp 1s ease forwards;
 }
 
 .hero p {
@@ -380,16 +377,18 @@ font-size: 14px;
 <!-- ================= HERO ================= -->
 <header class="hero">
 
-<div class="hero-company">
-QUANZHOU REALLYOU
-IMPORT & EXPORT CO., LTD.
-</div>
+<h1 class="hero-brand">
+QUANZHOU REALLYOU IMPORT & EXPORT CO., LTD.
+</h1>
 
-<h1>Footwear Sourcing & OEM Manufacturing in China</h1>
+<h2 class="hero-title">
+Footwear Sourcing & OEM Manufacturing in China
+</h2>
 
 <p class="hero-sub">
 Development · Manufacturing · Quality Control · Global Supply Chain Solutions
 </p>
+
 
 </header>
 
