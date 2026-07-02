@@ -17,6 +17,24 @@ background:#f5f5f5;
 color:#222;
 }
 
+.back{
+display:inline-flex;
+align-items:center;
+gap:8px;
+
+margin-bottom:26px;
+
+font-size:15px;
+font-weight:600;
+
+cursor:pointer;
+
+color:#111;
+}
+
+.back:hover{
+opacity:.6;
+}
 /* ================= NAV ================= */
 
 .main-nav{
@@ -106,6 +124,7 @@ padding:20px;
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
 gap:28px;
+1.3fr 0.9fr;
 }
 
 .card{
@@ -206,7 +225,7 @@ overflow:hidden;
 cursor:zoom-in;
 background:#fafafa;
 border-radius:14px;
-height:560px;
+height:650px;
 }
 
 .detail-image img{
@@ -227,8 +246,8 @@ flex-wrap:wrap;
 }
 
 .detail-thumbs img{
-width:48px;
-height:48px;
+width:60px;
+height:60px;
 object-fit:contain;
 border:1px solid #ddd;
 border-radius:6px;
@@ -876,6 +895,25 @@ document.getElementById("detailView").style.display="block";
 document.getElementById("detail").innerHTML=`
 <div>
 
+
+<div class="detail-image">
+<img id="detailImg" src="${p.colors[0]}" onclick="openLB(this.src)">
+</div>
+
+<div class="detail-thumbs" id="detailThumbs"></div>
+
+</div>
+
+<div class="detail-info">
+<h1>${p.name}</h1>
+<p>${p.material}</p>
+<p>MOQ: ${p.moq}</p>
+
+<a class="btn" href="https://wa.me/8618659004495" target="_blank">
+SEND INQUIRY
+</a>
+</div>
+`;
 const boxImg=document.querySelector(".detail-image");
 const img=document.getElementById("detailImg");
 
@@ -897,25 +935,6 @@ img.style.transformOrigin="center";
 img.style.transform="scale(1)";
 
 });
-<div class="detail-image">
-<img id="detailImg" src="${p.colors[0]}" onclick="openLB(this.src)">
-</div>
-
-<div class="detail-thumbs" id="detailThumbs"></div>
-
-</div>
-
-<div class="detail-info">
-<h1>${p.name}</h1>
-<p>${p.material}</p>
-<p>MOQ: ${p.moq}</p>
-
-<a class="btn" href="https://wa.me/8618659004495" target="_blank">
-SEND INQUIRY
-</a>
-</div>
-`;
-
 /* thumbnails */
 const box=document.getElementById("detailThumbs");
 
