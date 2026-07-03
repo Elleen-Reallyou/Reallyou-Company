@@ -173,10 +173,12 @@ body {
   scroll-behavior: smooth;
   line-height: 1.6;
 
-  /* 高级暗背景 */
-  background: radial-gradient(circle at 20% 10%, rgba(120,120,120,0.12), transparent 40%),
-              radial-gradient(circle at 80% 30%, rgba(80,80,80,0.10), transparent 45%),
-              linear-gradient(180deg, #0b0b0c, #141416 60%, #0b0b0c);
+  /* 高级浅灰背景 */
+  background: linear-gradient(
+    180deg,
+    #f3f4f6,
+    #e9ecef
+  );
 }
 /* ================= NAV ================= */
 .nav {
@@ -257,14 +259,9 @@ section {
   margin: 50px auto;
   padding: 80px 24px;
 
-  background: rgba(255,255,255,0.035);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 22px;
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  background: transparent; /* 关键：交给body控制背景 */
+  border: none;
+  box-shadow: none;
 }
 /* ================= TEXT REVEAL ================= */
 .reveal {
@@ -307,13 +304,19 @@ transform: translateY(-10px);
 
 /* ================= WHY ================= */
 .why-card {
-  padding: 28px;
-  font-size: 17px;
-  line-height: 1.7;
+  background: #111;
+  color: #fff;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+  transition: all 0.35s ease;
 }
 .why-card:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
   border-color: rgba(255,255,255,0.18);
 }
 /* ================= PRODUCTS ================= */
@@ -324,15 +327,15 @@ gap: 25px;
 }
 
 .product {
-  display: block;
-  text-decoration: none;
+background: #111;
   color: #fff;
-  background: rgba(20,20,20,0.75);
-  border-radius: 16px;
-  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+  transition: all 0.35s ease;
 }
 
 .product img {
@@ -349,8 +352,8 @@ gap: 25px;
 }
 
 .product:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
   border-color: rgba(255,255,255,0.18);
 }
 
@@ -362,20 +365,20 @@ gap: 25px;
 }
 
 .blog-card {
-background: rgba(20,20,20,0.75);
+background: #111;
+  color: #fff;
+
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 18px;
 
-  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-
-  transition: all 0.4s ease;
+  transition: all 0.35s ease;
 }
 
 .blog-card:hover {
- transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+ transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
   border-color: rgba(255,255,255,0.18);
 }
 
@@ -385,12 +388,6 @@ margin-bottom: 10px;
 color: #444;
 }
 
-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 80px 20px;
-  background: transparent; /* 取消原来的浅色层 */
-}
 
 section:nth-of-type(n+3) {
   background: transparent; /* 删除你原来的浅灰渐变 */
