@@ -165,9 +165,16 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
-
+  
+@font-face {
+  font-family: "Univers LT 55 Roman";
+  src: url("/fonts/UniversLT55Roman.woff2") format("woff2"),
+       url("/fonts/UniversLT55Roman.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
 body {
-  font-family: Arial, sans-serif;
+   font-family: "Univers LT 55 Roman", "Univers", Arial, sans-serif;
   color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
