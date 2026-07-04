@@ -112,7 +112,7 @@ h2 {
   font-size: 34px;
   letter-spacing: 1px;
   margin-bottom: 50px;
-  color: #fff;
+  color: #ffffff;
 }
 
 h2::after {
@@ -132,7 +132,7 @@ section h2 {
 .hero-sub {
 margin-top: 18px;
 font-size: 15px;
-color: rgba(255,255,255,0.65);
+color: rgba(255,255,255,0.55);
 max-width: 700px;
 
 opacity: 0;
@@ -173,17 +173,17 @@ body {
   scroll-behavior: smooth;
   line-height: 1.6;
 
-  /* 高级浅灰背景 */
   background: linear-gradient(
     180deg,
-    #f3f4f6,
-    #e9ecef
+    #0b0b0d,
+    #141418,
+    #0b0b0d
   );
 }
 /* ================= NAV ================= */
 .nav {
-  background: rgba(10,10,10,0.6);
-  backdrop-filter: blur(16px);
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -279,7 +279,6 @@ transform: translateY(0);
 .about p {
 max-width: 900px;
 line-height: 1.9;
-color: #444;
 font-size: 16px;
 }
 
@@ -291,22 +290,23 @@ font-size: 16px;
 }
 
 .card {
-background: #1b1b1b;
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+ background: #0f0f12;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 18px;
 }
 
 .card:hover {
-transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+  border-color: rgba(255,255,255,0.12);
 }
 
 /* ================= WHY ================= */
 .why-card {
-  background: linear-gradient(145deg, #111, #1a1a1a);
-  padding: 28px 24px;
-  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.06);
   min-height: 120px;
 
   display: flex;
@@ -331,15 +331,10 @@ gap: 25px;
 }
 
 .product {
-background: #111;
-  color: #fff;
-
-  border: 1px solid rgba(255,255,255,0.08);
+background: #0f0f12;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border-radius: 18px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
-  transition: all 0.35s ease;
 }
 
 .product img {
@@ -356,9 +351,9 @@ background: #111;
 }
 
 .product:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-  border-color: rgba(255,255,255,0.18);
+   transform: translateY(-10px);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+  border-color: rgba(255,255,255,0.12);
 }
 
 /* ================= BLOG ================= */
@@ -369,27 +364,21 @@ gap: 25px;
 }
 
 .blog-card {
-background: #111;
-  color: #fff;
-
-  border: 1px solid rgba(255,255,255,0.08);
+background: #0f0f12;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border-radius: 18px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
-  transition: all 0.35s ease;
 }
 
 .blog-card:hover {
  transform: translateY(-10px);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+  border-color: rgba(255,255,255,0.12);
 }
 
 /* ================= CONTACT ================= */
 .contact p {
 margin-bottom: 10px;
-color: #444;
 }
 
 
@@ -413,12 +402,13 @@ transform: translateY(0);
 
 /* ================= SECTION TITLE LINE ================= */
 h2::after {
-content: "";
-display: block;
-width: 60px;
-height: 2px;
-background: #111;
-margin-top: 12px;
+ content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin-top: 12px;
+  background: linear-gradient(90deg, #ffffff, transparent);
+  opacity: 0.4;
 }
 
 /* ================= MOBILE ================= */
