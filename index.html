@@ -174,17 +174,18 @@ box-sizing: border-box;
   font-style: normal;
 }
 body {
-   font-family: "Univers LT 55 Roman", "Univers", Arial, sans-serif;
+    font-family: "Univers LT 55 Roman", "Univers", Arial, sans-serif;
   color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
   line-height: 1.6;
 
+  /* ⭐关键：上下分区背景 */
   background: linear-gradient(
     180deg,
-    #0b0b0d,
-    #141418,
-    #0b0b0d
+    #0b0b0d 0%,
+    #121217 45%,
+    #1a1a1f 100%
   );
 }
 /* ================= NAV ================= */
@@ -262,13 +263,14 @@ animation: fadeUp 1s ease forwards 0.3s;
 }
 /* ================= SECTION ================= */
 section {
-  max-width: 1200px;
+ max-width: 1200px;
   margin: 50px auto;
   padding: 80px 24px;
 
-  background: transparent; /* 关键：交给body控制背景 */
-  border: none;
-  box-shadow: none;
+  background: rgba(18, 18, 22, 0.72);
+  border-radius: 18px;
+
+  backdrop-filter: blur(10px);
 }
 /* ================= TEXT REVEAL ================= */
 .reveal {
@@ -392,11 +394,12 @@ margin-bottom: 10px;
 
 /* ================= FOOTER ================= */
 footer {
-text-align: center;
-padding: 50px;
-background: #0f0f0f;
-color: white;
-margin-top: 100px;
+ text-align: center;
+  padding: 50px;
+  background: #141418;
+  color: rgba(255,255,255,0.7);
+  margin-top: 100px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* ================= ANIMATION ================= */
@@ -405,17 +408,6 @@ to {
 opacity: 1;
 transform: translateY(0);
 }
-}
-
-/* ================= SECTION TITLE LINE ================= */
-h2::after {
- content: "";
-  display: block;
-  width: 60px;
-  height: 2px;
-  margin-top: 12px;
-  background: linear-gradient(90deg, #ffffff, transparent);
-  opacity: 0.4;
 }
 
 /* ================= MOBILE ================= */
