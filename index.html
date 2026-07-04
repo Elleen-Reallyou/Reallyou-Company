@@ -110,9 +110,9 @@ animation: fadeUp 1s ease forwards;
 
 h2 {
   font-size: 34px;
-  letter-spacing: 1px;
   margin-bottom: 50px;
-  color: #ffffff;
+  color: #f1f3f5;
+  letter-spacing: 1.2px;
 }
 
 h2::after {
@@ -128,6 +128,9 @@ section h2 {
   font-size: 36px;
   margin-bottom: 60px;
   letter-spacing: 1px;
+}
+section h2::after {
+  background: linear-gradient(90deg, #6c7bff, transparent);
 }
 .hero-sub {
 margin-top: 18px;
@@ -175,18 +178,13 @@ box-sizing: border-box;
 }
 body {
     font-family: "Univers LT 55 Roman", "Univers", Arial, sans-serif;
-  color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
   line-height: 1.6;
 
   /* ⭐关键：上下分区背景 */
-  background: linear-gradient(
-    180deg,
-    #0b0b0d 0%,
-    #121217 45%,
-    #1a1a1f 100%
-  );
+  background: #0b0c0f;
+  color: #eaeaea;
 }
 /* ================= NAV ================= */
 .nav {
@@ -267,9 +265,9 @@ section {
   margin: 50px auto;
   padding: 80px 24px;
 
-  background: rgba(18, 18, 22, 0.72);
-  border-radius: 18px;
-
+ background: #12141a;
+  border: 1px solid rgba(255,255,255,0.04);
+ box-shadow: 0 20px 60px rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
 }
 /* ================= TEXT REVEAL ================= */
@@ -299,7 +297,7 @@ font-size: 16px;
 }
 
 .card {
- background: #0f0f12;
+background: #0d0f14;
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border-radius: 18px;
@@ -340,8 +338,7 @@ gap: 25px;
 }
 
 .product {
-background: #0f0f12;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #0d0f14;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border-radius: 18px;
 }
@@ -373,7 +370,7 @@ gap: 25px;
 }
 
 .blog-card {
-background: #0f0f12;
+background: #0d0f14;
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border-radius: 18px;
