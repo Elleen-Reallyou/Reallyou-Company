@@ -17,8 +17,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+.lead-form {
+  background: #0b0c0f;
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-  .product div {
+.lead-form form {
+  display: grid;
+  gap: 14px;
+  max-width: 600px;
+}
+
+.lead-form input,
+.lead-form textarea {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 14px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.lead-form input:focus,
+.lead-form textarea:focus {
+  border-color: #fff;
+}
+
+.lead-form button {
+  background: #fff;
+  color: #000;
+  padding: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.lead-form button:hover {
+  background: #e6e6e6;
+}
+.product div {
   padding: 16px;
   font-size: 14px;
   letter-spacing: 1px;
@@ -336,7 +375,15 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 gap: 25px;
 }
+.products-grid a {
+  color: #eaeaea;
+  text-decoration: none;
+}
 
+.products-grid strong {
+  color: #eaeaea;
+  letter-spacing: 1px;
+}
 .product {
   background: #0d0f14;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -566,7 +613,21 @@ factory selection, sampling management, and quality control for global brands.
 
 </div>
 </section>
+  
+<section class="lead-form reveal" id="lead">
+  <h2>Get in Touch</h2>
 
+  <form>
+    <input type="text" placeholder="Company Name" required>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Country / Region">
+
+    <textarea placeholder="Tell us your project..." rows="5"></textarea>
+
+    <button type="submit">Send Inquiry</button>
+  </form>
+</section>
 <!-- ================= CONTACT ================= -->
 <section id="contact" class="reveal">
 <h2>Contact</h2>
