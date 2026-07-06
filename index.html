@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
+
+<style>
+
+/* ================= RESET ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+font-family:"Univers LT 55 Roman", Arial, sans-serif;
+background:#e9edf3;
+color:#111;
+scroll-behavior:smooth;
+}
+
+/* ================= NAV ================= */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 60px;
+z-index:999;
+background:transparent;
+transition:.35s ease;
+}
+
+.nav.scrolled{
+background:rgba(0,0,0,0.92);
+backdrop-filter:blur(14px);
+}
+
+.nav a{
+color:#111;
+text-decoration:none;
+font-size:12px;
+letter-spacing:2px;
+margin-left:18px;
+}
+
+.nav a:hover{
+opacity:.6;
+}
+
+/* ================= LOGO ================= */
+.logo{
+font-size:13px;
+letter-spacing:3px;
+font-weight:700;
+background:linear-gradient(90deg,#ff3b3b,#ffb84d,#4dff88,#4dd2ff,#b84dff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* ================= HERO（稳定尺寸） ================= */
+.hero{
+height:92vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.65)),
+url("images/office-building.jpg") center/cover no-repeat;
+color:#fff;
+}
+
+.hero-title{
+font-size:58px;
+letter-spacing:4px;
+animation:float 6s ease-in-out infinite;
+}
+
+.hero-sub{
+margin-top:14px;
+font-size:15px;
+color:rgba(255,255,255,0.8);
+}
+
+/* ================= FLOAT ================= */
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+/* ================= SECTION（滑动感修复版） ================= */
+section{
+max-width:1200px;
+margin:80px auto;
+padding:70px 30px;
+
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(20px);
+border-radius:22px;
+
+opacity:0;
+transform:translateY(60px);
+transition:all .9s cubic-bezier(.2,.8,.2,1);
+}
+
+section.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ================= TITLE ================= */
+h2{
+margin-bottom:28px;
+letter-spacing:1px;
+}
+
+/* ================= GRID ================= */
+.grid,.products-grid,.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+}
+
+/* ================= CARD ================= */
+.why-card,.blog-card,.product{
+background:rgba(255,255,255,0.95);
+border-radius:16px;
+padding:18px;
+cursor:pointer;
+transition:.35s ease;
+}
+
+.why-card:hover,.blog-card:hover,.product:hover{
+transform:translateY(-8px);
+box-shadow:0 18px 45px rgba(0,0,0,0.12);
+}
+
+/* ================= PRODUCT ================= */
+.product{
+text-decoration:none;
+color:inherit;
+}
+
+/* ================= FORM ================= */
+input,textarea{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:1px solid rgba(0,0,0,0.15);
+margin-bottom:12px;
+}
+
+button{
+background:#c1121f;
+color:#fff;
+padding:14px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#a10f1a;
+}
+
+/* ================= MODAL（WHY FIX 核心） ================= */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.55);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.modal-content{
+background:#fff;
+width:90%;
+max-width:720px;
+border-radius:18px;
+overflow:hidden;
+}
+
+.modal-content img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.modal-body{
+padding:20px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+text-align:center;
+padding:50px;
+color:#666;
+}
+
+/* ================= RESPONSIVE（防止过大/过小） ================= */
+@media(max-width:768px){
+.hero-title{font-size:36px;}
+section{margin:60px 16px;padding:50px 18px;}
+.nav{padding:14px 20px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+<div class="logo">REALLYOU</div>
+<div class="nav-links">
+<a href="#about">ABOUT</a>
+<a href="#products">PRODUCTS</a>
+<a href="#blog">BLOG</a>
+<a href="#contact">CONTACT</a>
+</div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+<h1 class="hero-title">QUANZHOU REALLYOU</h1>
+<p class="hero-sub">Footwear Sourcing · OEM / ODM Manufacturing · Global Supply Chain</p>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<p>Footwear sourcing company in China.</p>
+</section>
+
+<!-- WHY（已修复点击 + 内容完整） -->
+<section>
+<h2>Why Choose Us</h2>
+
+<div class="grid">
+
+<div class="why-card" onclick="openWhy('experience')">20+ Years Expertise</div>
+<div class="why-card" onclick="openWhy('supplychain')">Supply Chain Control</div>
+<div class="why-card" onclick="openWhy('design')">Design Team</div>
+<div class="why-card" onclick="openWhy('sampling')">Fast Sampling</div>
+<div class="why-card" onclick="openWhy('qc')">QC System</div>
+<div class="why-card" onclick="openWhy('showroom')">Showroom</div>
+
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2>Product Categories</h2>
+
+<div class="products-grid">
+<a class="product" href="sports.html"><img src="images/sports-cover.jpg"><div>SPORTS</div></a>
+<a class="product" href="casual.html"><img src="images/casual-cover.jpg"><div>CASUAL</div></a>
+<a class="product" href="outdoor.html"><img src="images/outdoor-cover.jpg"><div>OUTDOOR</div></a>
+<a class="product" href="sandals.html"><img src="images/sandals-cover.jpg"><div>SANDALS</div></a>
+</div>
+
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+<h2>Insights</h2>
+
+<div class="blog-grid">
+<div class="blog-card">Footwear Sampling Process</div>
+<div class="blog-card">OEM vs ODM Explained</div>
+<div class="blog-card">2026 Sourcing Trends</div>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Get in Touch</h2>
+
+<form action="https://formsubmit.co/sales02@reallyou.cn" method="POST">
+<input type="text" placeholder="Company Name">
+<input type="email" placeholder="Email">
+<textarea rows="5" placeholder="Message"></textarea>
+<button type="submit">Send Inquiry</button>
+</form>
+
+</section>
+
+<footer>© 2026 REALLYOU</footer>
+
+<!-- MODAL -->
+<div class="modal" id="whyModal" onclick="closeWhy(event)">
+<div class="modal-content">
+<img id="whyImg">
+<div class="modal-body">
+<h2 id="whyTitle"></h2>
+<p id="whyText"></p>
+</div>
+</div>
+</div>
+
+<script>
+
+/* NAV SCROLL */
+window.addEventListener("scroll",()=>{
+document.querySelector(".nav")
+.classList.toggle("scrolled",window.scrollY>50);
+});
+
+/* SMOOTH REVEAL（稳定滑动感） */
+const sections=document.querySelectorAll("section");
+
+function reveal(){
+const trigger=window.innerHeight*0.85;
+
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<trigger){
+sec.classList.add("active");
+}
+});
+}
+
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
+
+/* WHY MODAL（完整修复） */
+const whyData={
+experience:{title:"20+ Years Expertise",text:"Experience",img:"images/1.jpg"},
+supplychain:{title:"Supply Chain Control",text:"Control",img:"images/2.jpg"},
+design:{title:"Design Team",text:"Design",img:"images/3.jpg"},
+sampling:{title:"Fast Sampling",text:"Sampling",img:"images/4.jpg"},
+qc:{title:"QC System",text:"Quality",img:"images/5.jpg"},
+showroom:{title:"Showroom",text:"Display",img:"images/6.jpg"}
+};
+
+function openWhy(key){
+document.getElementById("whyTitle").innerText=whyData[key].title;
+document.getElementById("whyText").innerText=whyData[key].text;
+document.getElementById("whyImg").src=whyData[key].img;
+document.getElementById("whyModal").style.display="flex";
+}
+
+function closeWhy(e){
+if(e.target.id==="whyModal"){
+document.getElementById("whyModal").style.display="none";
+}
+}
+
+</script>
+
+</body>
+</html>
