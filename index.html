@@ -188,14 +188,16 @@ transform:scale(0.96);
 
 /* ================= LOGO ================= */
 .logo{
-font-size:13px;
-letter-spacing:3px;
-font-weight:700;
-background:linear-gradient(90deg,#ff3b3b,#ffb84d,#4dff88,#4dd2ff,#b84dff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+ font-size:13px;
+  letter-spacing:3px;
+  font-weight:700;
+  color:#fff;
+  transition:all .3s ease;
 }
-
+.nav.scrolled .logo{
+  color:#ffffff;
+  opacity:0.9;
+}
 /* ================= HERO（稳定尺寸） ================= */
 .hero{
 position: relative;
