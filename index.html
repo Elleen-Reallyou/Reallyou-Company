@@ -15,6 +15,10 @@ font-family:"Univers LT 55 Roman", Arial, sans-serif;
 background:#e9edf3;
 color:#111;
 scroll-behavior:smooth;
+width: 100%;
+min-height: 100%;
+overflow-x: hidden;
+overflow-y: auto;
 }
 
 /* ================= NAV ================= */
@@ -131,8 +135,9 @@ color:rgba(255,255,255,0.8);
 
 /* ================= SECTION（滑动感修复版） ================= */
 section{
+width:100%;
 max-width:1200px;
-margin:80px auto;
+margin:70px auto;
 padding:70px 30px;
 
 background:rgba(255,255,255,0.6);
@@ -180,8 +185,16 @@ box-shadow:0 18px 45px rgba(0,0,0,0.12);
 .product{
 text-decoration:none;
 color:inherit;
+display:block;
+overflow:hidden;
+border-radius:16px;
 }
-
+.product img{
+width:100%;
+height:180px;
+object-fit:cover;
+display:block;
+}
 /* ================= FORM ================= */
 input,textarea{
 width:100%;
