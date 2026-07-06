@@ -32,20 +32,59 @@ transition:.35s ease;
 }
 
 .nav.scrolled{
-background:rgba(0,0,0,0.92);
-backdrop-filter:blur(14px);
+background:rgba(10,10,10,0.75);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
+/* ================= NAV LINKS（金属银效果） ================= */
 .nav a{
-color:#111;
+position:relative;
+color:transparent;
 text-decoration:none;
 font-size:12px;
 letter-spacing:2px;
 margin-left:18px;
+
+/* 银色金属渐变 */
+background:linear-gradient(
+120deg,
+#f5f5f5,
+#bfc3c9,
+#ffffff,
+#9aa0a6,
+#e6e6e6
+);
+
+background-size:200% 200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+/* 动态流动感 */
+animation:metalFlow 6s ease infinite;
+transition:all .35s ease;
 }
 
+/* hover 发光 + 提亮 */
 .nav a:hover{
-opacity:.6;
+transform:translateY(-2px);
+filter:drop-shadow(0 0 6px rgba(255,255,255,0.35));
+background:linear-gradient(120deg,#ffffff,#dcdcdc,#ffffff);
+background-size:200% 200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* active点击效果 */
+.nav a:active{
+transform:scale(0.96);
+}
+
+/* 金属流动动画 */
+@keyframes metalFlow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 /* ================= LOGO ================= */
