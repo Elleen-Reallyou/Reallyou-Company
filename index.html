@@ -7,6 +7,17 @@
 <title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
 
 <style>
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
 .img-box{
 aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -267,7 +278,7 @@ letter-spacing:1px;
 /* ================= GRID ================= */
 .grid,.products-grid,.blog-grid{
 display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns:repeat(3, 1fr);
   gap:26px;
 }
 
@@ -286,6 +297,9 @@ display:grid;
 
   font-size:14px;
   letter-spacing:0.5px;
+  flex-direction:column;
+  text-align:center;
+  gap:6px;
 }
 
 .why-card:hover,.blog-card:hover,.product:hover{
