@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Professional footwear sourcing company in Jinjiang, China. OEM & ODM footwear development, manufacturing management, and global supply chain solutions for international brands.">
+<meta name="keywords" content="footwear sourcing, shoe manufacturer China, OEM shoes, ODM footwear, Jinjiang shoe factory, sneaker supplier, casual shoes factory, sports shoes manufacturer">
+<meta name="author" content="Quanzhou Reallyou Import & Export Co., Ltd.">
+
+<meta property="og:title" content="REALLYOU | Footwear Sourcing & Manufacturing">
+<meta property="og:description" content="OEM & ODM footwear sourcing from China. Reliable factory network in Jinjiang.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/office-building.jpg">
+
+<title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
+
+<style>
+
+/* ================= BASE ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Univers LT 55 Roman", Arial, sans-serif;
+background:#0f1115;
+color:#eaeaea;
+line-height:1.7;
+}
+
+/* ================= NAV ================= */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+z-index:1000;
+transition:.3s ease;
+background:transparent;
+}
+
+.nav.scrolled{
+background:rgba(15,17,21,0.75);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.logo{
+font-size:13px;
+letter-spacing:3px;
+font-weight:600;
+background:linear-gradient(90deg,#ff4d4d,#4dd2ff,#b84dff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+.nav a{
+font-size:12px;
+letter-spacing:2px;
+text-decoration:none;
+color:rgba(255,255,255,0.75);
+transition:.3s;
+position:relative;
+}
+
+.nav a:hover{
+color:#fff;
+}
+
+.nav a::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:0%;
+height:1px;
+background:#fff;
+transition:.3s;
+}
+
+.nav a:hover::after{
+width:100%;
+}
+
+/* ================= HERO ================= */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+
+background:
+linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
+url("images/office-building.jpg");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-title{
+font-size:64px;
+letter-spacing:6px;
+text-transform:uppercase;
+background:linear-gradient(90deg,#fff,#9aa4b2,#fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-sub{
+margin-top:18px;
+font-size:15px;
+color:rgba(255,255,255,0.65);
+max-width:700px;
+}
+
+/* ================= SECTION SYSTEM (UNIFIED) ================= */
+section{
+max-width:1200px;
+margin:60px auto;
+padding:80px 30px;
+background:#161a21;
+border:1px solid rgba(255,255,255,0.06);
+border-radius:18px;
+}
+
+h2{
+font-size:34px;
+margin-bottom:40px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#f1f1f1;
+}
+
+/* ================= GRID ================= */
+.grid,
+.products-grid,
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+/* ================= CARDS (UNIFIED SYSTEM) ================= */
+.card,
+.why-card,
+.product,
+.blog-card{
+background:#1b2029;
+border:1px solid rgba(255,255,255,0.06);
+border-radius:16px;
+padding:20px;
+transition:.3s ease;
+}
+
+.card:hover,
+.why-card:hover,
+.product:hover,
+.blog-card:hover{
+transform:translateY(-6px);
+border-color:rgba(255,255,255,0.15);
+box-shadow:0 20px 50px rgba(0,0,0,0.35);
+}
+
+/* ================= WHY ================= */
+.why-card{
+display:flex;
+align-items:center;
+font-weight:500;
+cursor:pointer;
+}
+
+/* ================= PRODUCTS ================= */
+.product{
+padding:0;
+overflow:hidden;
+}
+
+.product img{
+width:100%;
+height:180px;
+object-fit:cover;
+transition:.4s;
+}
+
+.product:hover img{
+transform:scale(1.05);
+}
+
+.product div{
+padding:16px;
+}
+
+/* ================= BLOG ================= */
+.blog-card h3{
+margin-bottom:10px;
+font-size:16px;
+}
+
+/* ================= FORM ================= */
+.lead-form{
+background:#161a21;
+}
+
+.lead-form form{
+display:grid;
+gap:14px;
+max-width:600px;
+}
+
+input,textarea{
+background:#0f1115;
+border:1px solid rgba(255,255,255,0.12);
+padding:14px;
+color:#fff;
+outline:none;
+border-radius:8px;
+}
+
+button{
+background:#fff;
+color:#000;
+padding:14px;
+font-weight:600;
+border:none;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#dcdcdc;
+}
+
+/* ================= FOOTER ================= */
+footer{
+text-align:center;
+padding:50px;
+color:rgba(255,255,255,0.5);
+}
+
+/* ================= NAV SCROLL ================= */
+.nav.scrolled{
+background:rgba(10,12,16,0.8);
+backdrop-filter:blur(16px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+.hero-title{font-size:36px;}
+.nav{padding:15px 20px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+<div class="logo">REALLYOU</div>
+<div class="nav-links">
+<a href="#about">ABOUT</a>
+<a href="#products">PRODUCTS</a>
+<a href="#blog">BLOG</a>
+<a href="#contact">CONTACT</a>
+</div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+<h1 class="hero-title">QUANZHOU REALLYOU</h1>
+<p class="hero-sub">Footwear Sourcing · OEM / ODM Manufacturing · Global Supply Chain</p>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<p>
+Quanzhou Reallyou Import & Export Co., Ltd. is a professional footwear sourcing company based in Jinjiang, China.
+We connect global brands with factories across China and Southeast Asia, delivering end-to-end solutions.
+</p>
+</section>
+
+<!-- SERVICES -->
+<section>
+<h2>Our Services</h2>
+<p>
+We provide footwear OEM manufacturing, ODM development, sourcing, factory selection, sampling management and QC.
+</p>
+</section>
+
+<!-- WHY -->
+<section>
+<h2>Why Choose Us</h2>
+<div class="grid">
+
+<div class="why-card">👔 20+ Years Footwear Industry Expertise</div>
+<div class="why-card">🏭 End-to-End Supply Chain Control</div>
+<div class="why-card">✏️ In-house Design & Development</div>
+<div class="why-card">⚡ Fast Sampling & MOQ Flexibility</div>
+<div class="why-card">🔍 Strict Quality Control System</div>
+<div class="why-card">🏢 Premium Office & Showroom</div>
+
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2>Product Categories</h2>
+<div class="products-grid">
+
+<a class="product" href="sports.html">
+<img src="images/sports-cover.jpg">
+<div>SPORTS SHOES</div>
+</a>
+
+<a class="product" href="casual.html">
+<img src="images/casual-cover.jpg">
+<div>CASUAL SHOES</div>
+</a>
+
+<a class="product" href="outdoor.html">
+<img src="images/outdoor-cover.jpg">
+<div>OUTDOOR SHOES</div>
+</a>
+
+<a class="product" href="sandals.html">
+<img src="images/sandals-cover.jpg">
+<div>SANDALS</div>
+</a>
+
+</div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+<h2>Insights</h2>
+<div class="blog-grid">
+
+<div class="blog-card">
+<h3>Footwear Sampling Process</h3>
+<p>From sketch to prototype to final approval.</p>
+</div>
+
+<div class="blog-card">
+<h3>OEM vs ODM Explained</h3>
+<p>Understanding manufacturing models.</p>
+</div>
+
+<div class="blog-card">
+<h3>2026 Sourcing Trends</h3>
+<p>Material innovation and supply chain shifts.</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Get in Touch</h2>
+
+<form action="https://formsubmit.co/sales02@reallyou.cn" method="POST">
+<input type="text" name="company" placeholder="Company Name" required>
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" rows="5" placeholder="Project details"></textarea>
+<button type="submit">Send Inquiry</button>
+</form>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Quanzhou Reallyou Import & Export Co., Ltd.
+</footer>
+
+<script>
+window.addEventListener("scroll", () => {
+document.querySelector(".nav")
+.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>
