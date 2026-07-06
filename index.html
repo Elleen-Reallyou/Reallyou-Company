@@ -213,12 +213,22 @@ box-sizing: border-box;
   color: #111;
 }
 /* ================= NAV ================= */
-.nav {
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  padding: 18px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.nav-links{
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
 .nav h1 {
 font-size: 13px;
 letter-spacing: 3px;
@@ -246,8 +256,16 @@ animation: gradientMove 6s linear infinite;
 }
 
 .nav a {
-color: #fff;
-opacity: 0.85;
+color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  transition: 0.3s;
+}
+.nav a:hover{
+  color: #fff;
+  opacity: 1;
 }
 
 /* ================= HERO (PARALLAX) ================= */
@@ -526,13 +544,14 @@ font-size: 14px;
 
 <!-- ================= NAV ================= -->
 <div class="nav">
-<div class="logo">REALLYOU</div>
-<div>
-<a href="#about">ABOUT</a>
-<a href="#products">PRODUCTS</a>
-<a href="#blog">BLOG</a>
-<a href="#contact">CONTACT</a>
-</div>
+  <div class="logo">REALLYOU</div>
+
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#blog">BLOG</a>
+    <a href="#contact">CONTACT</a>
+  </div>
 </div>
 
 <!-- ================= HERO ================= -->
