@@ -61,6 +61,7 @@
   padding: 16px;
   font-size: 14px;
   letter-spacing: 1px;
+  color: #111;
 }
 .modal {
 display: none;
@@ -124,35 +125,29 @@ animation: fadeUp 1s ease forwards 0.3s;
 }
 
 .hero-title{
- font-size: 64px;
-  letter-spacing: 3px;
+  font-size: 72px;
+  letter-spacing: 6px;
   font-weight: 600;
-text-align: center;
+  text-transform: uppercase;
 
-background: linear-gradient(
-90deg,
-#ff4d4d,
-#ffb84d,
-#4dff88,
-#4dd2ff,
-#b84dff
-);
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #bfc7d5,
+    #ffffff
+  );
 
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
-
-opacity: 0;
-transform: translateY(40px);
-animation: fadeUp 1s ease forwards;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
 }
 
 h2 {
-  font-size: 34px;
+ font-size: 34px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #111;
+  color: #f5f5f5;
 }
 
 h2::after {
@@ -286,15 +281,36 @@ opacity: 0.85;
   background: #333;
 }
 .hero{
-  height: 100vh;
+   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background: linear-gradient(180deg, #0a0a0a, #1a1a1a);
-  color: #fff;
   text-align: center;
+  position: relative;
+
+  /* 关键：背景图 + 高级暗化 */
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+    url("images/office-building.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #fff;
+  overflow: hidden;
+}
+.hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(77,210,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(184,77,255,0.12), transparent 45%);
+
+  pointer-events: none;
 }
 .hero p {
 margin-top: 20px;
@@ -317,10 +333,16 @@ section {
   margin: 50px auto;
   padding: 80px 24px;
 
-  background: #f7f8fa;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  background: #1f1f23;   /* 深灰核心 */
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
   border-radius: 18px;
+
+  color: #eaeaea; /* 全局字体变浅 */
+}
+section p {
+  font-size: 18px;
+  line-height: 1.9;
 }
 /* ================= TEXT REVEAL ================= */
 .reveal {
@@ -336,9 +358,10 @@ transform: translateY(0);
 
 /* ================= ABOUT ================= */
 .about p {
-max-width: 900px;
-line-height: 1.9;
-font-size: 16px;
+  max-width: 900px;
+  line-height: 2.0;
+  font-size: 18px;
+  letter-spacing: 0.3px;
 }
 
 /* ================= GRID ================= */
@@ -370,8 +393,14 @@ font-size: 16px;
   display: flex;
   align-items: center;
 
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  padding: 26px 22px;
+
+  display: flex;
+  align-items: center;
 
   cursor: pointer;
   transition: all 0.35s ease;
@@ -388,7 +417,7 @@ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 gap: 25px;
 }
 .products-grid a {
-  color: #eaeaea;
+    color: inherit;
   text-decoration: none;
 }
 
