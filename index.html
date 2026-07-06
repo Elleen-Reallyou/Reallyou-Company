@@ -162,18 +162,31 @@ background:linear-gradient(90deg,#ff3b3b,#ffb84d,#4dff88,#4dd2ff,#b84dff);
 
 /* ================= HERO（稳定尺寸） ================= */
 .hero{
-height:92vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
 position: relative;
-background:
-linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
-url("images/office-building.webp") center/cover no-repeat;
-color: #fff;
-filter: saturate(1.05) contrast(1.05);
+  height:92vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:
+  linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
+  url("images/office-building.webp") center/cover no-repeat;
+}
+/* 👇 加这个 */
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:100%;
+  height:200px;
+  background:
+    linear-gradient(to bottom, transparent, #e9edf3);
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+}
+
+  backdrop-filter: blur(2px);
 }
 .hero-content {
   position: relative;
