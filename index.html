@@ -136,19 +136,26 @@ color:rgba(255,255,255,0.8);
 /* ================= SECTION（滑动感修复版） ================= */
 section{
 width:100%;
-max-width:1200px;
-margin:70px auto;
-padding:70px 30px;
+padding:80px 0;
+display:flex;
+justify-content:center;
+}
 
+.section-inner{
+width:min(1200px, 92%);
 background:rgba(255,255,255,0.6);
 backdrop-filter:blur(20px);
 border-radius:22px;
+padding:70px 30px;
 
 opacity:0;
 transform:translateY(60px);
 transition:all .9s cubic-bezier(.2,.8,.2,1);
 }
-
+section.active .section-inner{
+opacity:1;
+transform:translateY(0);
+}
 section.active{
 opacity:1;
 transform:translateY(0);
@@ -285,10 +292,11 @@ section{margin:60px 16px;padding:50px 18px;}
 
 <!-- ABOUT -->
 <section id="about">
+  <div class="section-inner">
 <h2>About Us</h2>
 <p>Footwear sourcing company in China.</p>
+  </div>
 </section>
-
 <!-- WHY（已修复点击 + 内容完整） -->
 <section>
 <h2>Why Choose Us</h2>
@@ -307,6 +315,7 @@ section{margin:60px 16px;padding:50px 18px;}
 
 <!-- PRODUCTS -->
 <section id="products">
+  <div class="section-inner">
 <h2>Product Categories</h2>
 
 <div class="products-grid">
@@ -320,6 +329,7 @@ section{margin:60px 16px;padding:50px 18px;}
 
 <!-- BLOG -->
 <section id="blog">
+  <div class="section-inner">
 <h2>Insights</h2>
 
 <div class="blog-grid">
@@ -332,6 +342,7 @@ section{margin:60px 16px;padding:50px 18px;}
 
 <!-- CONTACT -->
 <section id="contact">
+  <div class="section-inner">
 <h2>Get in Touch</h2>
 
 <form action="https://formsubmit.co/sales02@reallyou.cn" method="POST">
