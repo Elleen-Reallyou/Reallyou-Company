@@ -7,7 +7,42 @@
 <title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
 
 <style>
+/* ===== STAGGER BASE ===== */
+.grid > * ,
+.products-grid > * ,
+.blog-grid > * {
+opacity: 0;
+transform: translateY(30px);
+transition: all .7s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+/* 激活状态 */
+section.active .grid > * ,
+section.active .products-grid > * ,
+section.active .blog-grid > * {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* stagger延迟 */
+section.active .grid > *:nth-child(1),
+section.active .products-grid > *:nth-child(1),
+section.active .blog-grid > *:nth-child(1) { transition-delay: 0.05s; }
+
+section.active .grid > *:nth-child(2),
+section.active .products-grid > *:nth-child(2),
+section.active .blog-grid > *:nth-child(2) { transition-delay: 0.12s; }
+
+section.active .grid > *:nth-child(3),
+section.active .products-grid > *:nth-child(3),
+section.active .blog-grid > *:nth-child(3) { transition-delay: 0.18s; }
+
+section.active .grid > *:nth-child(4),
+section.active .products-grid > *:nth-child(4),
+section.active .blog-grid > *:nth-child(4) { transition-delay: 0.24s; }
+
+section.active .grid > *:nth-child(5),
+section.active .grid > *:nth-child(6) { transition-delay: 0.3s; }
 /* ================= RESET ================= */
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{
@@ -20,7 +55,16 @@ min-height: 100%;
 overflow-x: hidden;
 overflow-y: auto;
 }
-
+.scroll-bar{
+position:fixed;
+top:0;
+left:0;
+height:2px;
+width:0%;
+background:linear-gradient(90deg,#ffffff,#bfc3c9,#ffffff);
+z-index:99999;
+transition:width .1s linear;
+}
 /* ================= NAV ================= */
 .nav{
 position:fixed;
@@ -140,25 +184,30 @@ padding:80px 0;
 display:flex;
 justify-content:center;
 will-change: transform;
+position:relative;
+overflow:hidden;
 }
 
 .section-inner{
 width:min(1200px, 92%);
-background:rgba(255,255,255,0.6);
-backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.55);
+backdrop-filter:blur(22px);
 border-radius:22px;
 padding:70px 30px;
 
 opacity:0;
-transform:translate3d(0, 80px, 0);
+transform:translate3d(0, 120px, 0) scale(0.98);
+filter:blur(6px);
+
 transition:
-opacity .8s cubic-bezier(0.22, 1, 0.36, 1),
-transform .8s cubic-bezier(0.22, 1, 0.36, 1);
-will-change: transform, opacity;
+opacity .9s cubic-bezier(0.16, 1, 0.3, 1),
+transform .9s cubic-bezier(0.16, 1, 0.3, 1),
+filter .9s ease;
 }
 section.active .section-inner{
 opacity:1;
-transform:translate3d(0, 0, 0);
+transform:translate3d(0, 0, 0) scale(1);
+filter:blur(0);
 }
 section.active{
 opacity:1;
@@ -276,7 +325,7 @@ section{margin:60px 16px;padding:50px 18px;}
 </head>
 
 <body>
-
+<div class="scroll-bar"></div>
 <!-- NAV -->
 <div class="nav">
 <div class="logo">REALLYOU</div>
@@ -303,6 +352,7 @@ section{margin:60px 16px;padding:50px 18px;}
 </section>
 <!-- WHY（已修复点击 + 内容完整） -->
 <section>
+<div class="section-inner">
 <h2>Why Choose Us</h2>
 
 <div class="grid">
@@ -378,23 +428,35 @@ window.addEventListener("scroll",()=>{
 document.querySelector(".nav")
 .classList.toggle("scrolled",window.scrollY>50);
 });
+window.addEventListener("scroll", () => {
+const sections = document.querySelectorAll("section");
 
+sections.forEach((sec) => {
+const rect = sec.getBoundingClientRect();
+const speed = 0.15;
+
+const offset = rect.top * speed;
+
+const inner = sec.querySelector(".section-inner");
+if (inner) {
+inner.style.transform =
+`translate3d(0, ${offset}px, 0)`;
+}
+});
+});
 /* SMOOTH REVEAL（稳定滑动感） */
 const sections = document.querySelectorAll("section");
 
-const observer = new IntersectionObserver(
-(entries) => {
+const observer = new IntersectionObserver((entries) => {
 entries.forEach((entry) => {
 if (entry.isIntersecting) {
 entry.target.classList.add("active");
 }
 });
-},
-{
-threshold: 0.15,
-rootMargin: "0px 0px -10% 0px"
-}
-);
+},{
+threshold: 0.12,
+rootMargin: "0px 0px -15% 0px"
+});
 
 sections.forEach((sec) => observer.observe(sec));
 
@@ -420,7 +482,13 @@ if(e.target.id==="whyModal"){
 document.getElementById("whyModal").style.display="none";
 }
 }
+window.addEventListener("scroll", () => {
+const scrollTop = window.scrollY;
+const docHeight = document.body.scrollHeight - window.innerHeight;
+const progress = (scrollTop / docHeight) * 100;
 
+document.querySelector(".scroll-bar").style.width = progress + "%";
+});
 </script>
 
 </body>
