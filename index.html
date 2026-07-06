@@ -547,13 +547,42 @@ rootMargin: "0px 0px -15% 0px"
 sections.forEach((sec) => observer.observe(sec));
 
 /* WHY MODAL（完整修复） */
-const whyData={
-experience:{title:"20+ Years Expertise",text:"Experience",img:"images/1.webp"},
-supplychain:{title:"Supply Chain Control",text:"Control",img:"images/2.webp"},
-design:{title:"Design Team",text:"Design",img:"images/3.webp"},
-sampling:{title:"Fast Sampling",text:"Sampling",img:"images/4.webp"},
-qc:{title:"QC System",text:"Quality",img:"images/5.webp"},
-showroom:{title:"Showroom",text:"Display",img:"images/6.webp"}
+const whyData = {
+experience: {
+title: "20+ Years Footwear Industry Expertise",
+img: "images/founder.jpg",
+text: "Our founder brings over 20 years of footwear manufacturing experience, with deep expertise in structure engineering, materials selection, and production processes. We understand shoes from inside out, not just sourcing."
+},
+
+supplychain: {
+title: "End-to-End Supply Chain Control",
+img: "images/supplychain.jpg",
+text: "We manage a stable factory network in Jinjiang footwear cluster, covering sampling, production, QC, and shipment. This ensures consistent quality and reliable lead time."
+},
+
+design: {
+title: "In-house Design & Development Team",
+img: "images/design.jpg",
+text: "Our internal design team supports OEM & ODM development, trend adaptation, and custom modifications to turn ideas into production-ready footwear."
+},
+
+sampling: {
+title: "Fast Sampling & Flexible MOQ Support",
+img: "images/sampling.jpg",
+text: "We provide fast sample development and flexible MOQ options, helping brands test products quickly and scale efficiently."
+},
+
+qc: {
+title: "Strict Quality Control System",
+img: "images/qc.jpg",
+text: "We apply multi-stage QC including material inspection, in-line checks, and final pre-shipment inspection to ensure stable quality."
+},
+
+showroom: {
+title: "Office + Showroom in Premium Building",
+img: "images/showroom.jpg",
+text: "We are based in a high-end office building in Jinjiang with a dedicated showroom displaying full footwear categories for client evaluation."
+}
 };
 
 function openWhy(key){
