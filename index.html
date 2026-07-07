@@ -444,7 +444,23 @@ object-fit:cover;
 .modal-body{
 padding:20px;
 }
+.modal-body ul{
+padding-left:20px;
+margin:15px 0;
+}
 
+.modal-body li{
+margin-bottom:12px;
+line-height:1.6;
+}
+
+.highlight{
+margin-top:20px;
+font-size:16px;
+font-weight:600;
+font-style:italic;
+color:#111;
+}
 /* ================= FOOTER ================= */
 footer{
 text-align:center;
@@ -641,43 +657,96 @@ const whyData = {
 experience: {
 title: "20+ Years Footwear Industry Expertise",
 img: "images/founder.jpg",
-text: "Our founder brings over 20 years of footwear manufacturing experience, with deep expertise in structure engineering, materials selection, and production processes. We understand shoes from inside out, not just sourcing."
+text: `
+<ul>
+<li>20+ years footwear manufacturing experience (founder-level expertise)</li>
+<li>Deep knowledge in outsole, upper, materials & structure engineering</li>
+<li>Strong relationships with Jinjiang factories & material suppliers</li>
+</ul>
+
+<p class="highlight">
+“We don’t just source shoes — we understand how shoes are made.”
+</p>
+`
 },
 
 supplychain: {
 title: "End-to-End Supply Chain Control",
 img: "images/supplychain.jpg",
-text: "We manage a stable factory network in Jinjiang footwear cluster, covering sampling, production, QC, and shipment. This ensures consistent quality and reliable lead time."
-},
+text:  `<ul>
+<li>Stable factory network in Jinjiang footwear cluster</li>
+<li>Flexible production capacity across multiple categories</li>
+<li>Strict supplier screening & production tracking system</li>
+</ul>
+
+<p class="highlight">
+“From sampling to shipment, we manage every step of production.”
+</p>
+`},
 
 design: {
 title: "In-house Design & Development Team",
 img: "images/design.jpg",
-text: "Our internal design team supports OEM & ODM development, trend adaptation, and custom modifications to turn ideas into production-ready footwear."
-},
+text:  `<ul>
+<li>In-house designers for style development & modification</li>
+<li>Support OEM & ODM development</li>
+<li>Trend research + fast sampling capability</li>
+</ul>
+
+<p class="highlight">
+“We turn your idea or reference into production-ready footwear.”
+</p>
+`},
 
 sampling: {
 title: "Fast Sampling & Flexible MOQ Support",
 img: "images/sampling.jpg",
-text: "We provide fast sample development and flexible MOQ options, helping brands test products quickly and scale efficiently."
+text: `<ul>
+<li>Fast sample development (7–15 days depending on style)</li>
+<li>Flexible MOQ support for different product categories</li>
+<li>Quick revision system based on client feedback</li>
+</ul>
+
+<p class="highlight">
+“We help brands start small, test fast, and scale confidently.”
+</p>
+`
 },
 
 qc: {
 title: "Strict Quality Control System",
 img: "images/qc.jpg",
-text: "We apply multi-stage QC including material inspection, in-line checks, and final pre-shipment inspection to ensure stable quality."
+text: `<ul>
+<li>Multi-step quality inspection process (material, in-line, final QC)</li>
+<li>Standardized production checkpoints</li>
+<li>Pre-shipment inspection support</li>
+</ul>
+
+<p class="highlight">
+“Every pair is checked before it leaves the factory.”
+</p>
+`
 },
 
 showroom: {
 title: "Office + Showroom in Premium Building",
 img: "images/showroom.jpg",
-text: "We are based in a high-end office building in Jinjiang with a dedicated showroom displaying full footwear categories for client evaluation."
+text: `<ul>
+<li>Located in premium office building (Haixia Petrochemical Tower)</li>
+<li>Dedicated showroom with full footwear categories</li>
+<li>Efficient 10+ team for fast communication & execution</li>
+</ul>
+
+<p class="highlight">
+“We combine factory capability with professional sourcing service.”
+</p>
+`
 }
 };
 
 function openWhy(key){
 document.getElementById("whyTitle").innerText=whyData[key].title;
-document.getElementById("whyText").innerText=whyData[key].text;
+document.getElementById('whyText').innerHTML = whyData[key].text;
 document.getElementById("whyImg").src=whyData[key].img;
 document.getElementById("whyModal").style.display="flex";
 }
