@@ -211,7 +211,6 @@ padding-bottom:120px;
   background:
   linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
   url("images/office-building.webp") center/cover no-repeat;
-  filter:brightness(0) invert(1)
 }
 /* 👇 加这个 */
 .hero::after{
@@ -311,11 +310,12 @@ animation-delay:1.5s;
 animation-delay:2s;
 }
 
-
 .floating-logos img:nth-child(even){
+animation:logoFloat 4s ease-in-out infinite;
+}
 
-transform:translateY(-8px);
-
+.floating-logos img:nth-child(odd){
+animation:logoFloat 5s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
