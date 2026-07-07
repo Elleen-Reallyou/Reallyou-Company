@@ -211,6 +211,7 @@ padding-bottom:120px;
   background:
   linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
   url("images/office-building.webp") center/cover no-repeat;
+  filter:brightness(0) invert(1)
 }
 /* 👇 加这个 */
 .hero::after{
@@ -256,7 +257,7 @@ left:50%;
 
 transform:translateX(-50%);
 
-width:90%;
+width:85%;
 
 display:flex;
 
@@ -264,7 +265,7 @@ justify-content:center;
 
 align-items:center;
 
-gap:55px;
+gap:70px;
 
 z-index:10;
 }
@@ -272,17 +273,26 @@ z-index:10;
 
 .floating-logos img{
 
-height:38px;
-
-max-width:140px;
+height:55px;
+max-width:180px;
 
 object-fit:contain;
 
-filter:brightness(0) invert(1);
+filter:grayscale(100%);
 
-opacity:.65;
+opacity:.75;
 
-mix-blend-mode:screen;
+transition:.35s ease;
+
+}
+
+.floating-logos img:hover{
+
+filter:grayscale(0);
+
+opacity:1;
+
+transform:translateY(-8px) scale(1.08);
 
 }
 
@@ -302,13 +312,6 @@ animation-delay:2s;
 }
 
 
-.floating-logos img:hover{
-
-opacity:1;
-
-transform:translateY(-8px) scale(1.08);
-
-}
 .floating-logos img:nth-child(even){
 
 transform:translateY(-8px);
