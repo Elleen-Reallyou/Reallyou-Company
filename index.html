@@ -200,13 +200,14 @@ transform:scale(0.96);
 }
 /* ================= HERO（稳定尺寸） ================= */
 .hero{
-position: relative;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+position:relative;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding-bottom:120px;
   background:
   linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
   url("images/office-building.webp") center/cover no-repeat;
@@ -224,8 +225,7 @@ position: relative;
   clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
 }
 
-  backdrop-filter: blur(2px);
-}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -250,7 +250,7 @@ color:rgba(255,255,255,0.8);
 
 position:absolute;
 
-bottom:45px;
+bottom:120px;
 
 left:50%;
 
@@ -266,30 +266,23 @@ align-items:center;
 
 gap:55px;
 
-z-index:5;
-
+z-index:10;
 }
 
 
 .floating-logos img{
 
-height:42px;
+height:38px;
 
-max-width:150px;
+max-width:140px;
 
 object-fit:contain;
 
-
-/* 白色高级感 */
-
 filter:brightness(0) invert(1);
 
-opacity:.75;
+opacity:.65;
 
-
-transition:.4s ease;
-
-animation:logoFloat 5s ease-in-out infinite;
+mix-blend-mode:screen;
 
 }
 
@@ -316,7 +309,11 @@ opacity:1;
 transform:translateY(-8px) scale(1.08);
 
 }
+.floating-logos img:nth-child(even){
 
+transform:translateY(-8px);
+
+}
 
 @keyframes logoFloat{
 
@@ -630,35 +627,6 @@ Footwear Sourcing · OEM / ODM Manufacturing · Global Supply Chain
 </header>
 
 
-<!-- BRAND PARTNERS -->
-
-<section class="partners">
-
-<div class="partner-inner">
-
-<h2>Trusted Partners</h2>
-
-<p>
-Long-term cooperation with global footwear brands and industry partners.
-</p>
-
-
-<div class="logo-grid">
-
-<img src="images/brands/logo1.webp">
-<img src="images/brands/logo2.webp">
-<img src="images/brands/logo3.webp">
-<img src="images/brands/logo4.webp">
-<img src="images/brands/logo5.webp">
-<img src="images/brands/logo6.webp">
-<img src="images/brands/logo7.webp">
-<img src="images/brands/logo8.webp">
-
-</div>
-
-</div>
-
-</section>
 
 
 
