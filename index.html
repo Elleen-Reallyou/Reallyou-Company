@@ -310,11 +310,17 @@ display:grid;
 
 /* ================= CARD ================= */
 .why-card,.blog-card,.product{
-  background:rgba(255,255,255,0.85);
+   background:rgba(255,255,255,0.85);
   border:1px solid rgba(0,0,0,0.06);
   border-radius:18px;
-  min-height:160px;
-  padding:28px 24px;
+  min-height:190px;
+  padding:32px 28px;
+
+  font-size:20px;        /* ⭐ 卡片文字变大 */
+  font-weight:500;
+  letter-spacing:1px;
+  line-height:1.5;
+  color:#111;
 
   display:flex;
   flex-direction:column;
@@ -328,6 +334,13 @@ display:grid;
   overflow:hidden;
 
   transition:all .4s ease;
+}
+.why-card{
+  font-size:20px;
+}
+
+.why-card::first-letter{
+  font-size:18px;
 }
 .product:hover .img-box{
   transform: translateY(-4px);
