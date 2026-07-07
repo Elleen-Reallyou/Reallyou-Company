@@ -201,7 +201,7 @@ transform:scale(0.96);
 /* ================= HERO（稳定尺寸） ================= */
 .hero{
 position: relative;
-  height:92vh;
+  height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -244,7 +244,91 @@ margin-top:14px;
 font-size:15px;
 color:rgba(255,255,255,0.8);
 }
+/* ================= FLOATING BRAND LOGOS ================= */
 
+.floating-logos{
+
+position:absolute;
+
+bottom:45px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:90%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:55px;
+
+z-index:5;
+
+}
+
+
+.floating-logos img{
+
+height:42px;
+
+max-width:150px;
+
+object-fit:contain;
+
+
+/* 白色高级感 */
+
+filter:brightness(0) invert(1);
+
+opacity:.75;
+
+
+transition:.4s ease;
+
+animation:logoFloat 5s ease-in-out infinite;
+
+}
+
+
+.floating-logos img:nth-child(2){
+animation-delay:.8s;
+}
+
+
+.floating-logos img:nth-child(3){
+animation-delay:1.5s;
+}
+
+
+.floating-logos img:nth-child(4){
+animation-delay:2s;
+}
+
+
+.floating-logos img:hover{
+
+opacity:1;
+
+transform:translateY(-8px) scale(1.08);
+
+}
+
+
+@keyframes logoFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
 /* ================= FLOAT ================= */
 @keyframes float{
 0%,100%{transform:translateY(0);}
@@ -293,98 +377,6 @@ filter:blur(0);
 section.active{
 opacity:1;
 transform:translateY(0);
-}
-/* ================= PARTNERS ================= */
-
-.partners{
-
-padding:70px 0;
-
-display:flex;
-
-justify-content:center;
-
-}
-
-
-.partner-inner{
-
-width:min(1200px,92%);
-
-background:white;
-
-border-radius:22px;
-
-padding:50px 40px;
-
-text-align:center;
-
-box-shadow:0 15px 40px rgba(0,0,0,.06);
-
-}
-
-
-.partner-inner h2{
-
-font-size:28px;
-
-letter-spacing:2px;
-
-margin-bottom:12px;
-
-}
-
-
-.partner-inner p{
-
-color:#666;
-
-margin-bottom:40px;
-
-}
-
-
-
-.logo-grid{
-
-display:grid;
-
-grid-template-columns:repeat(5,1fr);
-
-gap:35px;
-
-align-items:center;
-
-}
-
-
-
-.logo-grid img{
-
-width:100%;
-
-height:55px;
-
-object-fit:contain;
-
-filter:grayscale(100%);
-
-opacity:.65;
-
-transition:.3s;
-
-}
-
-
-
-.logo-grid img:hover{
-
-filter:grayscale(0);
-
-opacity:1;
-
-transform:scale(1.05);
-
 }
 
 
@@ -608,8 +600,33 @@ section{margin:60px 16px;padding:50px 18px;}
 
 <!-- HERO -->
 <header class="hero">
-<h1 class="hero-title">QUANZHOU REALLYOU</h1>
-<p class="hero-sub">Footwear Sourcing · OEM / ODM Manufacturing · Global Supply Chain</p>
+
+<div class="hero-content">
+
+<h1 class="hero-title">
+QUANZHOU REALLYOU
+</h1>
+
+<p class="hero-sub">
+Footwear Sourcing · OEM / ODM Manufacturing · Global Supply Chain
+</p>
+
+</div>
+
+
+<!-- FLOATING BRAND LOGOS -->
+
+<div class="floating-logos">
+
+<img src="images/brands/logo1.webp">
+<img src="images/brands/logo2.webp">
+<img src="images/brands/logo3.webp">
+<img src="images/brands/logo4.webp">
+<img src="images/brands/logo5.webp">
+
+</div>
+
+
 </header>
 
 
