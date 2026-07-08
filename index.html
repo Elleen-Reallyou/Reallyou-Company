@@ -32,6 +32,18 @@ height:45px;
     grid-template-columns:1fr;
   }
 }
+.why-images{
+display:flex;
+gap:15px;
+padding:20px;
+}
+
+.why-images img{
+width:33.33%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
+}
 .product-info{
 
 text-align:center;
@@ -1104,7 +1116,7 @@ Slides · Beach Sandals · Outdoor Sandals
 <!-- MODAL -->
 <div class="modal" id="whyModal" onclick="closeWhy(event)">
 <div class="modal-content">
-<img id="whyImg">
+<div id="whyImages" class="why-images"></div>
 <div class="modal-body">
 <h2 id="whyTitle"></h2>
 <p id="whyText"></p>
@@ -1229,13 +1241,18 @@ text: `<ul>
 
 showroom: {
 title: "Office + Showroom in Premium Building",
-img: "images/building.webp",
-img: "images/showroom.webp",
-img: "images/office.webp",
-text: `<ul>
-<li>Located in premium office building (Haixia Petrochemical Tower)</li>
-<li>Large showroom with full footwear categories</li>
-<li>Efficient 15+ team for fast communication & execution</li>
+
+images:[
+"images/building.webp",
+"images/showroom.webp",
+"images/office.webp"
+],
+
+text: `
+<ul>
+<li>Premium office building located in Quanzhou</li>
+<li>Professional footwear showroom with full categories</li>
+<li>Efficient team for buyer communication and project execution</li>
 </ul>
 
 <p class="highlight">
@@ -1245,11 +1262,36 @@ text: `<ul>
 }
 };
 
-function openWhy(key){
-document.getElementById("whyTitle").innerText=whyData[key].title;
-document.getElementById('whyText').innerHTML = whyData[key].text;
-document.getElementById("whyImg").src=whyData[key].img;
+ffunction openWhy(key){
+
+document.getElementById("whyTitle").innerText=
+whyData[key].title;
+
+document.getElementById('whyText').innerHTML =
+whyData[key].text;
+
+
+const imgBox=document.getElementById("whyImages");
+
+imgBox.innerHTML="";
+
+
+if(whyData[key].images){
+
+whyData[key].images.forEach(img=>{
+imgBox.innerHTML += `<img src="${img}">`;
+});
+
+}else{
+
+imgBox.innerHTML =
+`<img src="${whyData[key].img}">`;
+
+}
+
+
 document.getElementById("whyModal").style.display="flex";
+
 }
 
 function closeWhy(e){
