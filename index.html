@@ -7,6 +7,20 @@
 <title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
 
 <style>
+@media(max-width:1200px){
+
+.floating-logos{
+gap:30px;
+padding:15px 25px;
+}
+
+
+.floating-logos img{
+width:100px;
+height:45px;
+}
+
+}
 @media(max-width:900px){
   .grid{
     grid-template-columns:repeat(2, 1fr);
@@ -330,17 +344,19 @@ align-items:center;
 
 gap:55px;
 
-flex-wrap:wrap;
-background:
-rgba(255,255,255,0.08);
+flex-wrap:nowrap;   /* 不允许换行 */
 
-backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.08);
 
-padding:22px 35px;
+backdrop-filter:blur(15px);
+
+padding:18px 45px;
 
 border-radius:40px;
 
-border:1px solid rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.18);
+
+white-space:nowrap;
 
 }
 
