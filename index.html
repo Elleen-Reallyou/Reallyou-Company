@@ -39,10 +39,10 @@ height:45px;
     overflow:hidden;
     border-radius:18px;
 }
-.why-slider img{
-position:absolute;
-    inset:0;
-
+..why-slider img{
+    position:absolute;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     object-fit:cover;
@@ -50,9 +50,13 @@ position:absolute;
     opacity:0;
     transform:scale(1);
 
-    transition:
-        opacity .6s ease,
-        transform 4s ease;
+    transition:opacity .8s ease, transform 6s ease;
+}
+
+.why-slider img.active{
+    opacity:1;
+    transform:scale(1.06);
+    z-index:2;
 }
 .why-slider img.active{
 
@@ -1224,22 +1228,7 @@ window.addEventListener("scroll",()=>{
 document.querySelector(".nav")
 .classList.toggle("scrolled",window.scrollY>50);
 });
-window.addEventListener("scroll", () => {
-const sections = document.querySelectorAll("section");
 
-sections.forEach((sec) => {
-const rect = sec.getBoundingClientRect();
-const speed = 0.15;
-
-const offset = rect.top * speed;
-
-const inner = sec.querySelector(".section-inner");
-if (inner) {
-inner.style.transform =
-`translate3d(0, ${offset}px, 0)`;
-}
-});
-});
 /* SMOOTH REVEAL（稳定滑动感） */
 const sections = document.querySelectorAll("section");
 
@@ -1300,7 +1289,7 @@ const allTexts = [
 const cards = document.querySelectorAll(".why-card");
 cards.forEach((card, cardIndex)=>{
 
-    const imgs=card.querySelectorAll("img");
+    const imgs=card.querySelectorAll(".why-slider img");
     const dots=card.querySelectorAll(".why-dots span");
     const caption=card.querySelector(".why-caption");
 
