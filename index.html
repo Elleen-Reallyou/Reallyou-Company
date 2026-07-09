@@ -1016,15 +1016,31 @@ Founder-level manufacturing expertise.
 
 <div class="why-card">
 
+<h3>Jinjiang Supply Chain Network</h3>
 
+<div class="why-slider">
 
-<h3>
-Jinjiang Supply Chain Network
-</h3>
+<img src="images/factory.webp" class="active">
 
-<p>
-Stable factory and supplier resources for flexible production.
+<img src="images/supplier.webp">
+
+<img src="images/container.webp">
+
+</div>
+
+<p class="why-caption">
+
+Integrated factory resources in Jinjiang.
+
 </p>
+
+<div class="why-dots">
+
+<span class="active"></span>
+<span></span>
+<span></span>
+
+</div>
 
 </div>
 
@@ -1032,14 +1048,31 @@ Stable factory and supplier resources for flexible production.
 
 <div class="why-card">
 
+<h3>OEM & ODM Development</h3>
 
-<h3>
-OEM & ODM Development
-</h3>
+<div class="why-slider">
 
-<p>
-From concept, samples to production-ready footwear.
+<img src="images/design.webp" class="active">
+
+<img src="images/sample.webp">
+
+<img src="images/product.webp">
+
+</div>
+
+<p class="why-caption">
+
+From concept to product.
+
 </p>
+
+<div class="why-dots">
+
+<span class="active"></span>
+<span></span>
+<span></span>
+
+</div>
 
 </div>
 
@@ -1047,47 +1080,92 @@ From concept, samples to production-ready footwear.
 
 <div class="why-card">
 
+<h3>Fast Sampling</h3>
 
-<h3>
-Fast Sampling
-</h3>
+<div class="why-slider">
 
-<p>
-Quick sample development and efficient modification process.
-</p>
+<img src="images/pattern.webp" class="active">
+
+<img src="images/sewing.webp">
+
+<img src="images/sample-finished.webp">
 
 </div>
 
+<p class="why-caption">
+
+Quick sample development.
+
+</p>
+
+<div class="why-dots">
+
+<span class="active"></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
 
 
 <div class="why-card">
 
+<h3>Quality Control System</h3>
 
-<h3>
-Quality Control System
-</h3>
+<div class="why-slider">
 
-<p>
-Multi-step inspection before shipment.
-</p>
+<img src="images/qc1.webp" class="active">
+
+<img src="images/qc2.webp">
+
+<img src="images/qc3.webp">
 
 </div>
 
+<p class="why-caption">
 
+Material inspection.
+
+</p>
+
+<div class="why-dots">
+
+<span class="active"></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
 
 <div class="why-card">
 
+<h3>Professional Showroom</h3>
 
-<h3>
-Professional Showroom
-</h3>
+<div class="why-slider">
 
-<p>
-Complete footwear categories for buyer visits.
-</p>
+<img src="images/building.webp" class="active">
+
+<img src="images/showroom.webp">
+
+<img src="images/meeting.webp">
 
 </div>
 
+<p class="why-caption">
+
+Modern office & showroom.
+
+</p>
+
+<div class="why-dots">
+
+<span class="active"></span>
+<span></span>
+<span></span>
+
+</div>
 
 </div>
 </section>
@@ -1253,12 +1331,38 @@ document.querySelectorAll(".why-card").forEach(card=>{
     const imgs=card.querySelectorAll(".why-slider img");
     const dots=card.querySelectorAll(".why-dots span");
     const caption=card.querySelector(".why-caption");
-
-    const texts=[
-        "Founder-level manufacturing expertise.",
-        "20+ years footwear manufacturing.",
-        "Deep knowledge of materials & construction."
-    ];
+const allTexts = [
+[
+"Founder-level manufacturing expertise.",
+"20+ years of footwear manufacturing experience.",
+"Deep knowledge of materials & shoe construction."
+],
+[
+"Integrated factory resources in Jinjiang.",
+"Stable material supplier network.",
+"Reliable global shipment support."
+],
+[
+"From concept to product.",
+"Rapid design & development.",
+"Production-ready solutions."
+],
+[
+"Quick sample development.",
+"Fast revisions.",
+"Efficient sample delivery."
+],
+[
+"Material inspection.",
+"Production quality control.",
+"Final inspection before shipment."
+],
+[
+"Modern office & showroom.",
+"Complete footwear collections.",
+"Professional buyer meetings."
+]
+];
 
     let index=0;
 
