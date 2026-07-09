@@ -36,7 +36,7 @@ height:45px;
 
 position:relative;
 
-height:340px;
+height:360px;
 
 margin:20px 0;
 
@@ -58,7 +58,7 @@ object-fit:cover;
 
 opacity:0;
 
-transition:opacity .8s ease,transform 8s ease;
+transition:opacity .8s ease,transform 5s ease;
 
 transform:scale(1);
 }
@@ -68,7 +68,7 @@ opacity:1;
 
 transform:scale(1.08);
 }
-.why-card:hover img{
+.why-card:hover .why-slider img.active{
 
 transform:scale(1.12);
 
@@ -81,18 +81,8 @@ transform:scale(1.12);
     max-width:650px;
     line-height:1.8;
 }
-.why-images{
-display:flex;
-gap:15px;
-padding:20px;
-}
 
-.why-images img{
-width:33.33%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-}
+
 .product-info{
 
 text-align:center;
@@ -154,16 +144,7 @@ aspect-ratio: 1 / 1;
   );
   pointer-events:none;
 }
-.product div{
-  font-size:12px;
-  letter-spacing:1px;
-  color:#111;
-}
-.product div:last-child{
-  font-size:13px;
-  letter-spacing:1px;
-  text-align:center;
-}
+
 .product img{
  width:100%;
   height:100%;
@@ -635,8 +616,7 @@ display:grid;
   align-items:flex-start;
   justify-content:flex-start;
 
-
-  cursor:pointer;
+cursor:default;
 
   position:relative;
   overflow:hidden;
@@ -655,7 +635,7 @@ display:flex;
 
 flex-direction:column;
 
-height:540px;
+height:560px;
 
 transition:.35s ease;
 
@@ -682,7 +662,6 @@ font-size:22px;
 font-weight:500;
 
 line-height:1.3;
-
 margin-bottom:8px;
 
 }
@@ -701,7 +680,9 @@ color:#555;
 
 text-align:left;
 
-padding-top:10px;
+margin-top:18px;
+
+padding-top:0;
 
 font-size:15px;
 
@@ -746,25 +727,14 @@ background:#111;
   border-color:rgba(0,0,0,0.15);
 }
 
-.why-title{
-  font-size:16px;
-  font-weight:500;
-  letter-spacing:0.6px;
-  color:#111;
-  line-height:1.4;
-}
+
   .modal-content{
   transform:scale(0.96);
   opacity:0;
   animation:popIn .35s ease forwards;
 }
 
-@keyframes popIn{
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
-}
+
 /* ================= PRODUCT ================= */
 .product{
  text-decoration:none;
@@ -799,15 +769,7 @@ background:#a10f1a;
 }
 
 /* ================= MODAL（WHY FIX 核心） ================= */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.55);
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
+
 
 .modal-content{
 background:#fff;
@@ -818,9 +780,7 @@ overflow:hidden;
 }
 
 
-.modal-body{
-padding:20px;
-}
+
 .modal-body ul{
 padding-left:20px;
 margin:15px 0;
@@ -831,13 +791,7 @@ margin-bottom:12px;
 line-height:1.6;
 }
 
-.highlight{
-margin-top:20px;
-font-size:16px;
-font-weight:600;
-font-style:italic;
-color:#111;
-}
+
 /* ================= FOOTER ================= */
 footer{
 text-align:center;
@@ -879,11 +833,11 @@ QUANZHOU REALLYOU
 
 <p class="hero-sub">
 Professional Footwear Manufacturing & Global Sourcing Partner
+</p>
+
 <p class="hero-sub small">
 OEM / ODM Development · China & Bangladesh Supply Chain · Worldwide Export
 </p>
-</p>
-
 </div>
 
 
@@ -1326,11 +1280,6 @@ const progress = (scrollTop / docHeight) * 100;
 
 document.querySelector(".scroll-bar").style.width = progress + "%";
 });
-document.querySelectorAll(".why-card").forEach(card=>{
-
-    const imgs=card.querySelectorAll(".why-slider img");
-    const dots=card.querySelectorAll(".why-dots span");
-    const caption=card.querySelector(".why-caption");
 const allTexts = [
 [
 "Founder-level manufacturing expertise.",
@@ -1364,21 +1313,30 @@ const allTexts = [
 ]
 ];
 
-    let index=0;
+const cards = document.querySelectorAll(".why-card");
 
-    setInterval(()=>{
+cards.forEach((card, cardIndex) => {
+
+    const imgs = card.querySelectorAll(".why-slider img");
+    const dots = card.querySelectorAll(".why-dots span");
+    const caption = card.querySelector(".why-caption");
+
+    let index = 0;
+
+    setInterval(() => {
 
         imgs[index].classList.remove("active");
         dots[index].classList.remove("active");
 
-        index=(index+1)%imgs.length;
+        index = (index + 1) % imgs.length;
 
         imgs[index].classList.add("active");
         dots[index].classList.add("active");
 
-        caption.innerText=texts[index];
+        // 根据当前卡片编号，切换对应的文字
+        caption.innerText = allTexts[cardIndex][index];
 
-    },3000);
+    }, 3000);
 
 });
 </script>
