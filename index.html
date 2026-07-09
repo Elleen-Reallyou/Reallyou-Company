@@ -32,6 +32,50 @@ height:45px;
     grid-template-columns:1fr;
   }
 }
+.why-slider{
+
+position:relative;
+
+height:320px;
+
+margin:20px 0;
+
+overflow:hidden;
+
+border-radius:18px;
+}
+.why-slider img{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+opacity:0;
+
+transition:opacity .8s ease,transform 8s ease;
+
+transform:scale(1);
+}
+.why-slider img.active{
+
+opacity:1;
+
+transform:scale(1.08);
+}
+.section-subtitle{
+    text-align:center;
+    font-size:15px;
+    color:#777;
+    margin:-18px auto 45px;
+    max-width:650px;
+    line-height:1.8;
+}
 .why-images{
 display:flex;
 gap:15px;
@@ -594,13 +638,32 @@ display:grid;
 
   transition:all .4s ease;
 }
-.why-card{
+..why-card{
 
-background:rgba(255,255,255,.9);
+background:#fff;
 
-padding:30px;
+border-radius:22px;
 
-min-height:230px;
+padding:22px;
+
+display:flex;
+
+flex-direction:column;
+
+height:540px;
+
+transition:.35s ease;
+
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+overflow:hidden;
+}
+
+.why-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 45px rgba(0,0,0,.12);
 
 }
 
@@ -616,13 +679,11 @@ margin-bottom:20px;
 
 .why-card h3{
 
-font-size:17px;
+font-size:20px;
 
-font-weight:600;
+font-weight:500;
 
-margin-bottom:12px;
-
-letter-spacing:.5px;
+margin-bottom:5px;
 
 }
 
@@ -636,7 +697,46 @@ line-height:1.7;
 color:#555;
 
 }
+.why-caption{
 
+font-size:15px;
+
+color:#666;
+
+line-height:1.7;
+
+min-height:55px;
+
+text-align:center;
+}
+.why-dots{
+
+display:flex;
+
+justify-content:center;
+
+gap:8px;
+
+margin-top:auto;
+}
+
+.why-dots span{
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:#d2d2d2;
+
+transition:.3s;
+}
+
+.why-dots span.active{
+
+background:#111;
+}
 .why-card::first-letter{
   font-size:18px;
 }
@@ -887,7 +987,11 @@ Brands & Cooperation Experience
 <!-- WHY（已修复点击 + 内容完整） -->
 <section>
 <div class="section-inner">
-<h2>Why Choose Us</h2>
+<h2>Our Capabilities</h2>
+
+<p class="section-subtitle">
+From product development to global delivery, we provide complete footwear solutions.
+</p>
 
 <div class="grid">
 
@@ -1109,15 +1213,7 @@ Sandals · Slippers
 <footer>© 2026 REALLYOU</footer>
 
 <!-- MODAL -->
-<div class="modal" id="whyModal" onclick="closeWhy(event)">
-<div class="modal-content">
-<div id="whyImages" class="why-images"></div>
-<div class="modal-body">
-<h2 id="whyTitle"></h2>
-<p id="whyText"></p>
-</div>
-</div>
-</div>
+
 
 <script>
 
@@ -1309,6 +1405,35 @@ const docHeight = document.body.scrollHeight - window.innerHeight;
 const progress = (scrollTop / docHeight) * 100;
 
 document.querySelector(".scroll-bar").style.width = progress + "%";
+});
+document.querySelectorAll(".why-card").forEach(card=>{
+
+    const imgs=card.querySelectorAll(".why-slider img");
+    const dots=card.querySelectorAll(".why-dots span");
+    const caption=card.querySelector(".why-caption");
+
+    const texts=[
+        "Founder-level manufacturing expertise.",
+        "20+ years footwear manufacturing.",
+        "Deep knowledge of materials & construction."
+    ];
+
+    let index=0;
+
+    setInterval(()=>{
+
+        imgs[index].classList.remove("active");
+        dots[index].classList.remove("active");
+
+        index=(index+1)%imgs.length;
+
+        imgs[index].classList.add("active");
+        dots[index].classList.add("active");
+
+        caption.innerText=texts[index];
+
+    },3000);
+
 });
 </script>
 
