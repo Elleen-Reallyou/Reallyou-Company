@@ -36,7 +36,7 @@ height:45px;
 
 position:relative;
 
-height:320px;
+height:340px;
 
 margin:20px 0;
 
@@ -67,6 +67,11 @@ transform:scale(1);
 opacity:1;
 
 transform:scale(1.08);
+}
+.why-card:hover img{
+
+transform:scale(1.12);
+
 }
 .section-subtitle{
     text-align:center;
@@ -638,7 +643,7 @@ display:grid;
 
   transition:all .4s ease;
 }
-..why-card{
+.why-card{
 
 background:#fff;
 
@@ -668,22 +673,17 @@ box-shadow:0 20px 45px rgba(0,0,0,.12);
 }
 
 
-.why-icon{
-
-font-size:28px;
-
-margin-bottom:20px;
-
-}
 
 
 .why-card h3{
 
-font-size:20px;
+font-size:22px;
 
 font-weight:500;
 
-margin-bottom:5px;
+line-height:1.3;
+
+margin-bottom:8px;
 
 }
 
@@ -699,15 +699,14 @@ color:#555;
 }
 .why-caption{
 
+text-align:left;
+
+padding-top:10px;
+
 font-size:15px;
 
 color:#666;
 
-line-height:1.7;
-
-min-height:55px;
-
-text-align:center;
 }
 .why-dots{
 
@@ -737,31 +736,16 @@ transition:.3s;
 
 background:#111;
 }
-.why-card::first-letter{
-  font-size:18px;
-}
 .product:hover .img-box{
   transform: translateY(-4px);
 }
-.why-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:18px;
-  bottom:18px;
-  width:2px;
-  background:linear-gradient(#111,#888,#111);
-  opacity:0.35;
-}
+
 .why-card:hover,.blog-card:hover,.product:hover{
  transform:translateY(-10px) scale(1.01);
   box-shadow:0 20px 50px rgba(0,0,0,0.12);
   border-color:rgba(0,0,0,0.15);
 }
-.why-card:hover .why-title{
-  transform:translateX(4px);
-  transition:.3s ease;
-}
+
 .why-title{
   font-size:16px;
   font-weight:500;
@@ -996,29 +980,43 @@ From product development to global delivery, we provide complete footwear soluti
 <div class="grid">
 
 
-<div class="why-card" onclick="openWhy('experience')">
+<div class="why-card">
 
-<div class="why-icon">
-🏭
+<h3>20+ Years Footwear Expertise</h3>
+
+<div class="why-slider">
+
+<img src="images/founder.webp" class="active">
+
+<img src="images/factory.webp">
+
+<img src="images/material.webp">
+
 </div>
 
-<h3>
-20+ Years Footwear Expertise
-</h3>
+<p class="why-caption">
 
-<p>
-Founder-level experience in shoe development, materials and construction.
+Founder-level manufacturing expertise.
+
 </p>
 
+<div class="why-dots">
+
+<span class="active"></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
 </div>
 
 
 
-<div class="why-card" onclick="openWhy('supplychain')">
+<div class="why-card">
 
-<div class="why-icon">
-🔗
-</div>
+
 
 <h3>
 Jinjiang Supply Chain Network
@@ -1032,11 +1030,8 @@ Stable factory and supplier resources for flexible production.
 
 
 
-<div class="why-card" onclick="openWhy('design')">
+<div class="why-card">
 
-<div class="why-icon">
-🎨
-</div>
 
 <h3>
 OEM & ODM Development
@@ -1050,11 +1045,8 @@ From concept, samples to production-ready footwear.
 
 
 
-<div class="why-card" onclick="openWhy('sampling')">
+<div class="why-card">
 
-<div class="why-icon">
-⚡
-</div>
 
 <h3>
 Fast Sampling
@@ -1068,11 +1060,8 @@ Quick sample development and efficient modification process.
 
 
 
-<div class="why-card" onclick="openWhy('qc')">
+<div class="why-card">
 
-<div class="why-icon">
-✔
-</div>
 
 <h3>
 Quality Control System
@@ -1086,11 +1075,8 @@ Multi-step inspection before shipment.
 
 
 
-<div class="why-card" onclick="openWhy('showroom')">
+<div class="why-card">
 
-<div class="why-icon">
-🏢
-</div>
 
 <h3>
 Professional Showroom
@@ -1255,150 +1241,6 @@ rootMargin: "0px 0px -15% 0px"
 sections.forEach((sec) => observer.observe(sec));
 
 /* WHY MODAL（完整修复） */
-const whyData = {
-experience: {
-title: "20+ Years Footwear Industry Expertise",
-img: [
-"images/.webp",
-"images/processing.webp",
-"images/supplier.webp"
-],
-
-text: `
-<ul>
-<li>20+ years footwear manufacturing experience (founder-level expertise)</li>
-<li>Deep knowledge in outsole, upper, materials & structure engineering</li>
-<li>Strong relationships with Jinjiang factories & material suppliers</li>
-</ul>
-
-<p class="highlight">
-“We don’t just source shoes — we understand how shoes are made.”
-</p>
-`
-},
-
-supplychain: {
-title: "End-to-End Supply Chain Control",
-img: [
-"images/factory.webp",
-"images/sample.webp",
-"images/shipping.webp"
-],
-text:  `<ul>
-<li>Stable factory network in Jinjiang footwear cluster</li>
-<li>Flexible production capacity across multiple categories</li>
-<li>Strict supplier screening & production tracking system</li>
-</ul>
-
-<p class="highlight">
-“From sampling to shipment, we manage every step of production.”
-</p>
-`},
-
-design: {
-title: "In-house Design & Development Team",
-img: "images/design.jpg",
-text:  `<ul>
-<li>In-house designers for style development & modification</li>
-<li>Support OEM & ODM development</li>
-<li>Trend research + fast sampling capability</li>
-</ul>
-
-<p class="highlight">
-“We turn your idea or reference into production-ready footwear.”
-</p>
-`},
-
-sampling: {
-title: "Fast Sampling & Flexible MOQ Support",
-img: "images/sampling.jpg",
-text: `<ul>
-<li>Fast sample development (7–15 days depending on style)</li>
-<li>Flexible MOQ support for different product categories</li>
-<li>Quick revision system based on client feedback</li>
-</ul>
-
-<p class="highlight">
-“We help brands start small, test fast, and scale confidently.”
-</p>
-`
-},
-
-qc: {
-title: "Strict Quality Control System",
-img: "images/qc.jpg",
-text: `<ul>
-<li>Multi-step quality inspection process (material, in-line, final QC)</li>
-<li>Standardized production checkpoints</li>
-<li>Pre-shipment inspection support</li>
-</ul>
-
-<p class="highlight">
-“Every pair is checked before it leaves the factory.”
-</p>
-`
-},
-
-showroom: {
-title: "Office + Showroom in Premium Building",
-
-images:[
-"images/building.webp",
-"images/showroom.webp",
-"images/office.webp"
-],
-
-text: `
-<ul>
-<li>Premium office building located in Quanzhou</li>
-<li>Professional footwear showroom with full categories</li>
-<li>Efficient team for buyer communication and project execution</li>
-</ul>
-
-<p class="highlight">
-“We combine factory capability with professional sourcing service.”
-</p>
-`
-}
-};
-
-function openWhy(key){
-
-document.getElementById("whyTitle").innerText=
-whyData[key].title;
-
-document.getElementById('whyText').innerHTML =
-whyData[key].text;
-
-
-const imgBox=document.getElementById("whyImages");
-
-imgBox.innerHTML="";
-
-
-if(whyData[key].images){
-
-whyData[key].images.forEach(img=>{
-imgBox.innerHTML += `<img src="${img}">`;
-});
-
-}else{
-
-imgBox.innerHTML =
-`<img src="${whyData[key].img}">`;
-
-}
-
-
-document.getElementById("whyModal").style.display="flex";
-
-}
-
-function closeWhy(e){
-if(e.target.id==="whyModal"){
-document.getElementById("whyModal").style.display="none";
-}
-}
 window.addEventListener("scroll", () => {
 const scrollTop = window.scrollY;
 const docHeight = document.body.scrollHeight - window.innerHeight;
