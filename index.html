@@ -1304,19 +1304,22 @@ card.addEventListener("mouseleave",()=>{
     changeSlide(0);
 });
     function changeSlide(next){
-     if(!imgs[next].src){
-    imgs[next].src = imgs[next].dataset.src;
-}
-        imgs.forEach(img=>img.classList.remove("active"));
-        dots.forEach(dot=>dot.classList.remove("active"));
 
-        imgs[next].classList.add("active");
-        dots[next].classList.add("active");
-
-        caption.textContent=allTexts[cardIndex][next];
-
-        current=next;
+    // 第一次切换才加载图片
+    if(!imgs[next].src){
+        imgs[next].src = imgs[next].dataset.src;
     }
+
+    imgs.forEach(img=>img.classList.remove("active"));
+    dots.forEach(dot=>dot.classList.remove("active"));
+
+    imgs[next].classList.add("active");
+    dots[next].classList.add("active");
+
+    caption.textContent=allTexts[cardIndex][next];
+
+    current=next;
+}
 
 
 });
