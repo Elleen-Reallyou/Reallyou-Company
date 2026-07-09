@@ -49,8 +49,9 @@ height:45px;
 
     opacity:0;
     transform:scale(1);
-
-    transition:opacity .8s ease, transform 6s ease;
+transition:
+opacity .8s ease,
+transform 8s ease;
 }
 
 .why-slider img.active{
@@ -62,10 +63,11 @@ height:45px;
 
     opacity:1;
     z-index:2;
-    transform:scale(1.05);
+
+    transform:scale(1.08);
 }
 .why-card:hover .why-slider img.active{
-    transform:scale(1.1);
+   transform:scale(1.12);
 }
 .section-subtitle{
     text-align:center;
@@ -930,9 +932,9 @@ From product development to global delivery, we provide complete footwear soluti
 
 <img src="images/why/founder.webp" class="active">
 
-<img src="images/why/factory.webp">
+<img data-src="images/why/factory.webp">
 
-<img src="images/why/material.webp">
+<img data-src="images/why/material.webp">
 
 </div>
 
@@ -964,9 +966,9 @@ Founder-level manufacturing expertise.
 
 <img src="images/why/factory.webp" class="active">
 
-<img src="images/why/supplier.webp">
+<img data-src="images/why/supplier.webp">
 
-<img src="images/why/container.webp">
+<img data-src="images/why/container.webp">
 
 </div>
 
@@ -996,9 +998,9 @@ Integrated factory resources in Jinjiang.
 
 <img src="images/why/design.webp" class="active">
 
-<img src="images/why/sample.webp">
+<img data-src="images/why/sample.webp">
 
-<img src="images/why/product.webp">
+<img data-src="images/why/product.webp">
 
 </div>
 
@@ -1028,9 +1030,9 @@ From concept to product.
 
 <img src="images/why/pattern.webp" class="active">
 
-<img src="images/why/sewing.webp">
+<img data-src="images/why/sewing.webp">
 
-<img src="images/why/sample-finished.webp">
+<img data-src="images/why/sample-finished.webp">
 
 </div>
 
@@ -1059,9 +1061,9 @@ Quick sample development.
 
 <img src="images/why/qc1.webp" class="active">
 
-<img src="images/why/qc2.webp">
+<img data-src="images/why/qc2.webp">
 
-<img src="images/why/qc3.webp">
+<img data-src="images/why/qc3.webp">
 
 </div>
 
@@ -1089,9 +1091,9 @@ Material inspection.
 
 <img src="images/why/building.webp" class="active">
 
-<img src="images/why/showroom.webp">
+<img data-src="images/why/showroom.webp">
 
-<img src="images/why/office.webp">
+<img data-src="images/why/office.webp">
 
 </div>
 
@@ -1294,9 +1296,17 @@ cards.forEach((card, cardIndex)=>{
     const caption=card.querySelector(".why-caption");
 
     let current=0;
+card.addEventListener("mouseenter",()=>{
+    changeSlide(1);
+});
 
+card.addEventListener("mouseleave",()=>{
+    changeSlide(0);
+});
     function changeSlide(next){
-
+     if(!imgs[next].src){
+    imgs[next].src = imgs[next].dataset.src;
+}
         imgs.forEach(img=>img.classList.remove("active"));
         dots.forEach(dot=>dot.classList.remove("active"));
 
@@ -1308,13 +1318,6 @@ cards.forEach((card, cardIndex)=>{
         current=next;
     }
 
-    setInterval(()=>{
-
-        let next=(current+1)%imgs.length;
-
-        changeSlide(next);
-
-    },3000);
 
 });
 </script>
