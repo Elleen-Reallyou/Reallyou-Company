@@ -34,37 +34,34 @@ height:45px;
 }
 .why-slider{
 
-position:relative;
-
-height:360px;
-
-margin:20px 0;
-
-overflow:hidden;
-
-border-radius:18px;
-
-background:#ddd;
+ position:relative;
+    height:360px;
+    overflow:hidden;
+    border-radius:18px;
 }
 .why-slider img{
-width:100%;
+position:absolute;
+    inset:0;
 
-height:100%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 
-object-fit:cover;
+    opacity:0;
+    transform:scale(1);
 
-display:block;
+    transition:
+        opacity .6s ease,
+        transform 4s ease;
 }
 .why-slider img.active{
 
-opacity:1;
-
-transform:scale(1.08);
+    opacity:1;
+    z-index:2;
+    transform:scale(1.05);
 }
 .why-card:hover .why-slider img.active{
-
-transform:scale(1.12);
-
+    transform:scale(1.1);
 }
 .section-subtitle{
     text-align:center;
@@ -1301,29 +1298,34 @@ const allTexts = [
 ];
 
 const cards = document.querySelectorAll(".why-card");
+cards.forEach((card, cardIndex)=>{
 
-cards.forEach((card, cardIndex) => {
+    const imgs=card.querySelectorAll("img");
+    const dots=card.querySelectorAll(".why-dots span");
+    const caption=card.querySelector(".why-caption");
 
-    const imgs = card.querySelectorAll(".why-slider img");
-    const dots = card.querySelectorAll(".why-dots span");
-    const caption = card.querySelector(".why-caption");
+    let current=0;
 
-    let index = 0;
+    function changeSlide(next){
 
-    setInterval(() => {
+        imgs.forEach(img=>img.classList.remove("active"));
+        dots.forEach(dot=>dot.classList.remove("active"));
 
-        imgs[index].classList.remove("active");
-        dots[index].classList.remove("active");
+        imgs[next].classList.add("active");
+        dots[next].classList.add("active");
 
-        index = (index + 1) % imgs.length;
+        caption.textContent=allTexts[cardIndex][next];
 
-        imgs[index].classList.add("active");
-        dots[index].classList.add("active");
+        current=next;
+    }
 
-        // 根据当前卡片编号，切换对应的文字
-        caption.innerText = allTexts[cardIndex][index];
+    setInterval(()=>{
 
-    }, 3000);
+        let next=(current+1)%imgs.length;
+
+        changeSlide(next);
+
+    },3000);
 
 });
 </script>
