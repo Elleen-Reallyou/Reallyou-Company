@@ -410,7 +410,7 @@ section.active .grid > *:nth-child(6) { transition-delay: 0.3s; }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{
 font-family:"Univers LT 55 Roman", Arial, sans-serif;
-background:#e9edf3;
+background:#f4f2ed;
 color:#111;
 scroll-behavior:smooth;
 width: 100%;
@@ -722,6 +722,161 @@ transform:translateY(-6px);
 }
 
 /* ================= SECTION（滑动感修复版） ================= */
+/* ================= OUR STORY ================= */
+
+.story-section{
+
+width:100%;
+
+padding:0;
+
+background:
+
+url(images/paper-noise.webp) center/cover repeat,
+
+#f7f5ef;
+
+}
+
+.story-wrap{
+
+width:100%;
+
+max-width:none;
+
+padding:120px 8vw;
+
+position:relative;
+
+}
+
+.story-wrap::before{
+
+content:"";
+
+position:absolute;
+
+top:70px;
+
+right:7%;
+
+width:180px;
+
+height:180px;
+
+background:url(images/story-line1.webp) center/contain no-repeat;
+
+opacity:.8;
+
+}
+
+.story-wrap::after{
+
+content:"";
+
+position:absolute;
+
+bottom:60px;
+
+left:6%;
+
+width:160px;
+
+height:160px;
+
+background:url(images/story-line2.webp) center/contain no-repeat;
+
+opacity:.8;
+
+}
+
+.story-title{
+
+font-size:64px;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+letter-spacing:2px;
+
+}
+
+.story-sub{
+
+font-size:15px;
+
+color:#777;
+
+margin-bottom:70px;
+
+max-width:700px;
+
+line-height:1.8;
+
+}
+
+.story-content{
+
+display:grid;
+
+grid-template-columns:1.1fr .9fr;
+
+gap:100px;
+
+align-items:center;
+
+}
+
+.story-text{
+
+font-size:18px;
+
+line-height:2.1;
+
+color:#444;
+
+}
+
+.story-text p{
+
+margin-bottom:28px;
+
+}
+
+.story-photo{
+
+position:relative;
+
+}
+
+.story-photo img{
+
+width:100%;
+
+border-radius:18px;
+
+display:block;
+
+filter:grayscale(.1);
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.12);
+
+}
+
+.story-note{
+
+margin-top:25px;
+
+font-size:14px;
+
+color:#777;
+
+font-style:italic;
+
+}
 section{
 width:100%;
 padding:80px 0;
@@ -1103,9 +1258,9 @@ Brands We Have Worked With
 
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="story-section">
 
-<div class="story-paper">
+<div class="story-wrap">
 
 <div class="paper-tape tape-left"></div>
 <div class="paper-tape tape-right"></div>
