@@ -55,24 +55,20 @@ align-items:center;
 .why-slider img{
 
 position:absolute;
-
 inset:0;
 
 width:100%;
-
-height:320px;
+height:100%;
 
 object-fit:cover;
 
-padding:0;
+opacity:0;
+
+transition:.6s ease;
+
 }
 
 
-.why-slider img.active{
-    opacity:1;
-    transform:scale(1.06);
-    z-index:2;
-}
 .why-slider img.active{
 
      opacity:1;
@@ -1397,9 +1393,9 @@ From product development to global delivery, we provide complete footwear soluti
 
 <img src="images/why/founder.webp" class="active">
 
-<img data-src="images/why/factory with founder.webp">
+<img data-src="images/why/factorywithfounder.webp">
 
-<img data-src="images/why/highly experience.webp">
+<img data-src="images/why/highlyexperience.webp">
 
 </div>
 
@@ -1755,11 +1751,32 @@ cards.forEach((card, cardIndex)=>{
     const caption=card.querySelector(".why-caption");
 
     let current=0;
+let timer;
+
+
 card.addEventListener("mouseenter",()=>{
 
-    if(current===0){
-        changeSlide(1);
-    }
+timer=setInterval(()=>{
+
+let next=current+1;
+
+if(next>=imgs.length){
+next=0;
+}
+
+changeSlide(next);
+
+},2000);
+
+
+});
+
+
+card.addEventListener("mouseleave",()=>{
+
+clearInterval(timer);
+
+changeSlide(0);
 
 });
 card.addEventListener("mouseleave",()=>{
@@ -1768,8 +1785,11 @@ card.addEventListener("mouseleave",()=>{
     function changeSlide(next){
 
     // 第一次切换才加载图片
-  if(!imgs[next].src){
-    imgs[next].src=imgs[next].dataset.src;
+if(!imgs[next].getAttribute("src")){
+    imgs[next].setAttribute(
+        "src",
+        imgs[next].dataset.src
+    );
 }
 
 const preload=imgs[next+1];
