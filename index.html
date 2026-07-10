@@ -36,35 +36,29 @@ height:45px;
 
 aspect-ratio:4/3;
 
-position:relative;
-
 overflow:hidden;
 
 border-radius:18px;
 
-background:#f8f8f8;
+background:#f3f3f3;
 
-display:flex;
-
-justify-content:center;
-
-align-items:center;
+margin-bottom:22px;
 
 }
 
 .why-slider img{
 
-position:absolute;
-inset:0;
-
 width:100%;
+
 height:100%;
 
 object-fit:cover;
 
-opacity:0;
+transition:
 
-transition:.6s ease;
+transform .8s ease,
+
+opacity .5s;
 
 }
 
@@ -76,7 +70,7 @@ transition:.6s ease;
     transform:scale(1.03);
 }
 .why-card:hover .why-slider img.active{
-  transform:scale(1.06);
+  transform:scale(1.08);
 }
 .section-subtitle{
     text-align:center;
@@ -198,15 +192,22 @@ pointer-events:none;
 }
 .story-text h2{
 
-font-size:42px;
-
-margin-bottom:40px;
+font-size:54px;
 
 font-weight:500;
 
+letter-spacing:2px;
+
+margin-bottom:45px;
+
 position:relative;
 
-display:inline-block;
+}
+.story-text{
+
+padding-right:25px;
+
+z-index:3;
 
 }
 .story-text h2::after{
@@ -217,26 +218,26 @@ position:absolute;
 
 left:0;
 
-bottom:-10px;
+bottom:-16px;
 
 width:90px;
 
-height:3px;
+height:2px;
 
 background:#111;
-
-border-radius:5px;
 
 }
 .story-text p{
 
-font-size:16px;
+font-size:17px;
 
-line-height:2.1;
+line-height:2.2;
 
-margin-bottom:22px;
+margin-bottom:26px;
 
-color:#555;
+color:#4d4d4d;
+
+max-width:640px;
 
 }
 .story-image{
@@ -247,84 +248,140 @@ justify-content:center;
 
 align-items:center;
 
+position:relative;
+
 }
 .story-image img{
 
-width:100%;
+width:92%;
 
-border-radius:18px;
+background:white;
 
-border:10px solid white;
+padding:14px;
+
+border-radius:4px;
+
+transform:rotate(3deg);
 
 box-shadow:
 
-0 30px 60px rgba(0,0,0,.12);
+0 35px 70px rgba(0,0,0,.18);
 
-transform:rotate(2deg);
+transition:.6s;
+
+filter:
+
+contrast(1.04)
+
+brightness(1.02)
+
+saturate(.96);
 
 }
-.paper-pin{
+.story-image:hover img{
+
+transform:
+
+rotate(1deg)
+
+scale(1.02);
+
+}
+.story-image::before{
+
+content:"";
 
 position:absolute;
-
-top:22px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:18px;
-
-height:18px;
-
-background:#222;
-
-border-radius:50%;
-
-box-shadow:
-
-0 4px 10px rgba(0,0,0,.25);
-
-}
-.paper-pin{
-
-position:absolute;
-
-top:22px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:18px;
-
-height:18px;
-
-background:#222;
-
-border-radius:50%;
-
-box-shadow:
-
-0 4px 10px rgba(0,0,0,.25);
-
-}
-.tape-left{
 
 top:-8px;
 
-left:90px;
+left:45%;
+
+width:120px;
+
+height:36px;
+
+background:
+
+rgba(241,228,191,.78);
+
+transform:
+
+translateX(-50%)
+
+rotate(-8deg);
+
+box-shadow:
+
+0 3px 10px rgba(0,0,0,.08);
+
+z-index:10;
+
+}
+
+.story-image::after{
+
+content:"";
+
+position:absolute;
+
+bottom:28px;
+
+right:18px;
+
+width:90px;
+
+height:30px;
+
+background:
+
+rgba(241,228,191,.65);
+
+transform:rotate(16deg);
+
+}
+.paper-pin{
+
+width:16px;
+
+height:16px;
+
+border-radius:50%;
+
+background:#2b2b2b;
+
+position:absolute;
+
+top:22px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+box-shadow:
+
+0 6px 18px rgba(0,0,0,.3);
+
+z-index:40;
+
+}
+
+.tape-left{
+
+top:-18px;
+
+left:120px;
 
 transform:rotate(-8deg);
 
 }
 .tape-right{
 
-top:-8px;
+top:-18px;
 
-right:90px;
+right:120px;
 
-transform:rotate(8deg);
+transform:rotate(9deg);
 
 }
 .product-info{
@@ -366,16 +423,17 @@ opacity:.65;
 
 }
 .img-box{
-aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 14px;
-  background:#faf8f2;
-border:1px solid #eee;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 
-  padding:0; /* ❗关键：去掉padding */
+aspect-ratio:1;
+
+border-radius:18px;
+
+overflow:hidden;
+
+background:#f5f5f5;
+
+margin-bottom:20px;
+
 }
 .img-box::after{
   content:"";
@@ -390,15 +448,16 @@ border:1px solid #eee;
 }
 
 .product img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transform:scale(1);
-    transition:transform .5s ease;
-}
 
+transition:
+
+transform .9s ease;
+
+}
 .product:hover img{
-    transform:scale(1.05);
+
+transform:scale(1.07);
+
 }
 /* ===== STAGGER BASE ===== */
 .grid > * ,
@@ -438,21 +497,109 @@ section.active .grid > *:nth-child(5),
 section.active .grid > *:nth-child(6) { transition-delay: 0.3s; }
 /* ================= RESET ================= */
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{
-font-family:"Univers LT 55 Roman", Arial, sans-serif;
-background:#f6f4ef;
+html,
+body{
+
+font-family:"Univers LT 55 Roman",Arial,sans-serif;
+
+color:#111;
+
+scroll-behavior:smooth;
+
+width:100%;
+
+min-height:100%;
+
+overflow-x:hidden;
+
+background:#f3f1ec;
+
+/* 杂志纸张颜色 */
 
 background-image:
 
-radial-gradient(rgba(0,0,0,.018) 1px, transparent 1px);
+radial-gradient(rgba(0,0,0,.018) 1px,transparent 1px),
 
-background-size:8px 8px;
-color:#111;
-scroll-behavior:smooth;
-width: 100%;
-min-height: 100%;
-overflow-x: hidden;
-overflow-y: auto;
+linear-gradient(
+180deg,
+#faf9f6 0%,
+#f3f0ea 35%,
+#efede8 100%
+);
+
+background-size:
+8px 8px,
+100% 100%;
+
+position:relative;
+
+}
+/* ================================================= */
+/* FILM GRAIN */
+/* ================================================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+opacity:.055;
+
+z-index:999999;
+
+background-image:
+
+url("https://grainy-gradients.vercel.app/noise.svg");
+
+background-size:240px;
+
+mix-blend-mode:soft-light;
+
+animation:grain 7s steps(10) infinite;
+
+}
+
+@keyframes grain{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+25%{
+
+transform:translate(-2%,1%);
+
+}
+
+50%{
+
+transform:translate(2%,-2%);
+
+}
+
+75%{
+
+transform:translate(-1%,2%);
+
+}
+
+100%{
+
+transform:translate(0,0);
+
+}
+
 }
 .scroll-bar{
 position:fixed;
@@ -558,49 +705,125 @@ background:linear-gradient(
 }
 /* ================= HERO（稳定尺寸） ================= */
 .hero{
+
 position:relative;
+
 height:100vh;
+
 display:flex;
-flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
+
 text-align:center;
-padding-bottom:120px;
-  background:
-  linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
-  url("images/office-building.webp") center/cover no-repeat;
+
+overflow:hidden;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(8,8,8,.18),
+
+rgba(8,8,8,.72)
+
+),
+
+url(images/office-building.webp)
+center center/cover no-repeat;
+
 }
 /* 👇 加这个 */
 .hero::after{
-  content:"";
-  position:absolute;
-  bottom:-1px;
-  left:0;
-  width:100%;
-  height:200px;
-  background:
-    linear-gradient(to bottom, transparent, #e9edf3);
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
-}
 
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+
+circle,
+
+transparent 35%,
+
+rgba(0,0,0,.18) 70%,
+
+rgba(0,0,0,.45) 100%
+
+);
+
+mix-blend-mode:multiply;
+
+}
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+130deg,
+
+rgba(255,255,255,.08),
+
+transparent 40%,
+
+transparent 70%,
+
+rgba(255,255,255,.03)
+
+);
+
+pointer-events:none;
+
+}
 
 .hero-content {
   position: relative;
   z-index: 2;
 }
 .hero-title{
-font-size:58px;
-  letter-spacing:4px;
-  animation:float 6s ease-in-out infinite;
 
-  color:#fff;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+font-size:68px;
+
+font-weight:600;
+
+letter-spacing:7px;
+
+color:white;
+
+line-height:1.1;
+
+text-shadow:
+
+0 10px 35px rgba(0,0,0,.45);
+
+margin-bottom:24px;
+
 }
 
 .hero-sub{
-margin-top:14px;
-font-size:15px;
-color:rgba(255,255,255,0.8);
+
+font-size:16px;
+
+letter-spacing:1px;
+
+color:rgba(255,255,255,.82);
+
+line-height:2;
+
 }
 .scroll-down{
 
@@ -669,24 +892,27 @@ justify-content:center;
 
 align-items:center;
 
-gap:55px;
+gap:58px;
 
-flex-wrap:nowrap;   /* 不允许换行 */
+padding:24px 52px;
 
-background:rgba(255,255,255,0.08);
+border-radius:999px;
 
-backdrop-filter:blur(15px);
+background:
 
-padding:18px 45px;
+rgba(255,255,255,.07);
 
-border-radius:40px;
+backdrop-filter:blur(26px);
 
-border:1px solid rgba(255,255,255,.18);
+border:
 
-white-space:nowrap;
+1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 15px 60px rgba(0,0,0,.28);
 
 }
-
 
 .floating-logos img{
 
@@ -701,21 +927,23 @@ object-fit:contain;
 
 filter:none;
 
-opacity:.9;
+opacity:.88;
 
 
-transition:.4s ease;
+transition:.45s;
 
 }
 
 
 .floating-logos img:hover{
 
-transform:translateY(-10px) scale(1.12);
+transform:
+
+translateY(-6px)
+
+scale(1.08);
 
 opacity:1;
-
-filter:drop-shadow(0 10px 20px rgba(255,255,255,.25));
 
 }
 
@@ -759,152 +987,183 @@ transform:translateY(-6px);
 
 /* ================= SECTION（滑动感修复版） ================= */
 /* ================= OUR STORY ================= */
+
+/*================================================*/
+/* MAGAZINE STORY */
+/*================================================*/
+
 .story-section{
+
+padding:160px 0;
 
 background:transparent;
 
-padding:120px 0;
+position:relative;
+
+overflow:visible;
 
 }
+
 .story-wrap{
 
-width:100%;
+width:min(1320px,92%);
 
-max-width:none;
-
-padding:120px 8vw;
+margin:auto;
 
 position:relative;
 
-}
+padding:60px 0;
 
+}
 .story-wrap::before{
 
-content:"";
+opacity:.28;
 
-position:absolute;
+top:20px;
 
-top:70px;
+right:-40px;
 
-right:7%;
+width:240px;
 
-width:180px;
-
-height:180px;
-
-background:url(images/reading.webp) center/contain no-repeat;
-
-opacity:.8;
+height:240px;
 
 }
 
 .story-wrap::after{
 
+opacity:.12;
+
+left:-30px;
+
+bottom:20px;
+
+width:210px;
+
+height:210px;
+
+}
+.story-grid{
+
+display:grid;
+
+grid-template-columns:1.15fr .85fr;
+
+gap:90px;
+
+align-items:center;
+
+background:#fbf8f2;
+
+padding:90px;
+
+border-radius:10px;
+
+position:relative;
+
+box-shadow:
+
+0 40px 100px rgba(0,0,0,.08),
+
+0 8px 20px rgba(0,0,0,.05);
+
+overflow:visible;
+
+transform:rotate(-0.6deg);
+
+}
+.story-grid::before{
+
 content:"";
 
 position:absolute;
 
-bottom:60px;
+inset:0;
 
-left:6%;
+background:
 
-width:160px;
+radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);
 
-height:160px;
+background-size:7px 7px;
 
-background:url(images/shoe.webp) center/contain no-repeat;
+opacity:.45;
 
-opacity:.18;
-
-}
-
-.story-title{
-
-font-size:64px;
-
-font-weight:600;
-
-margin-bottom:18px;
-
-letter-spacing:2px;
+pointer-events:none;
 
 }
 
-.story-sub{
+.story-grid::after{
 
-font-size:15px;
+content:"";
 
-color:#777;
+position:absolute;
 
-margin-bottom:70px;
+inset:0;
 
-max-width:700px;
+background:
 
-line-height:1.8;
+linear-gradient(
 
-}
+180deg,
 
-.story-content{
+rgba(255,255,255,.25),
 
-display:grid;
+transparent 35%,
 
-grid-template-columns:1.1fr .9fr;
+rgba(0,0,0,.02)
 
-gap:100px;
+);
 
-align-items:center;
-
-}
-
-.story-text{
-
-font-size:18px;
-
-line-height:2.1;
-
-color:#444;
+pointer-events:none;
 
 }
+.paper-tape{
 
-.story-text p{
+position:absolute;
 
-margin-bottom:28px;
+width:110px;
 
-}
+height:34px;
 
-.story-photo{
+background:
 
-position:relative;
+rgba(238,227,187,.72);
 
-}
-
-.story-photo img{
-
-width:100%;
-
-border-radius:18px;
-
-display:block;
-
-filter:grayscale(.1);
+backdrop-filter:blur(1px);
 
 box-shadow:
 
-0 30px 80px rgba(0,0,0,.12);
+0 3px 8px rgba(0,0,0,.08);
+
+z-index:30;
 
 }
 
-.story-note{
+.paper-tape::before{
 
-margin-top:25px;
+content:"";
 
-font-size:14px;
+position:absolute;
 
-color:#777;
+inset:0;
 
-font-style:italic;
+opacity:.35;
+
+background:
+
+repeating-linear-gradient(
+
+45deg,
+
+transparent,
+
+transparent 4px,
+
+rgba(255,255,255,.4) 5px
+
+);
 
 }
+
 section{
 width:100%;
 padding:80px 0;
@@ -975,35 +1234,40 @@ grid-template-columns:repeat(2,1fr);
 
 display:grid;
 
-grid-template-columns:repeat(7,1fr);
+grid-template-columns:
 
-gap:35px;
+repeat(4,1fr);
+
+gap:45px;
 
 align-items:center;
 
 }
-
+}
 
 .logo-grid img{
 
-width:100%;
-
-height:45px;
+height:52px;
 
 object-fit:contain;
 
-opacity:.75;
+opacity:.72;
 
-transition:.3s;
+transition:.4s;
+
+filter:
+
+grayscale(.1);
 
 }
-
 
 .logo-grid img:hover{
 
 opacity:1;
 
-transform:scale(1.08);
+transform:
+
+scale(1.08);
 
 }
 /* ================= TITLE ================= */
@@ -1020,7 +1284,7 @@ display:grid;
 }
 
 /* ================= CARD ================= */
-.why-card,.blog-card,.product{
+.why-card,.product{
    background:rgba(255,255,255,0.85);
   border:1px solid rgba(0,0,0,0.06);
   border-radius:18px;
@@ -1045,6 +1309,44 @@ cursor:default;
 
   transition:all .4s ease;
 }
+.blog-card{
+
+background:#fbfaf6;
+
+border-radius:22px;
+
+padding:42px;
+
+min-height:250px;
+
+display:flex;
+
+align-items:flex-end;
+
+font-size:28px;
+
+font-weight:500;
+
+line-height:1.4;
+
+box-shadow:
+
+0 12px 35px rgba(0,0,0,.05);
+
+transition:.45s;
+
+}
+.blog-card:hover{
+
+transform:
+
+translateY(-10px);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.12);
+
+}
 .blog-card:nth-child(2){
 
 transform:rotate(1deg);
@@ -1057,20 +1359,51 @@ transform:rotate(-2deg);
 }
 .why-card{
 
- height:510px;
+background:#fcfaf6;
 
-padding:22px;
+border:1px solid rgba(0,0,0,.05);
+
+border-radius:24px;
+
+padding:26px;
+
+height:540px;
 
 display:flex;
 
 flex-direction:column;
+
+overflow:hidden;
+
+position:relative;
+
+transition:
+
+transform .45s cubic-bezier(.16,1,.3,1),
+
+box-shadow .45s,
+
+border-color .45s;
+
+box-shadow:
+
+0 12px 35px rgba(0,0,0,.05);
+
 }
 
 .why-card:hover{
 
-transform:translateY(-8px);
+transform:
 
-box-shadow:0 20px 45px rgba(0,0,0,.12);
+translateY(-12px);
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.12);
+
+border-color:
+
+rgba(0,0,0,.12);
 
 }
 
@@ -1079,14 +1412,15 @@ box-shadow:0 20px 45px rgba(0,0,0,.12);
 
 .why-card h3{
 
-font-size:20px;
+font-size:22px;
 
 font-weight:600;
 
+margin-bottom:14px;
+
 line-height:1.35;
 
-margin-bottom:6px;
-
+letter-spacing:.3px;
 
 }
 
@@ -1102,16 +1436,13 @@ color:#555;
 }
 .why-caption{
 
-margin-top:12px;
-
 font-size:15px;
 
-line-height:1.6;
+line-height:1.8;
 
 color:#666;
 
-min-height:48px;
-
+margin-top:8px;
 
 }
 .why-dots{
@@ -1147,46 +1478,110 @@ background:#111;
 }
 
 .why-card:hover,.blog-card:hover,.product:hover{
- transform:translateY(-10px) scale(1.01);
-  box-shadow:0 20px 50px rgba(0,0,0,0.12);
-  border-color:rgba(0,0,0,0.15);
+
+transform:
+
+translateY(-10px);
+
+box-shadow:
+
+0 30px 70px rgba(0,0,0,.12);
+
 }
 
 
 
 /* ================= PRODUCT ================= */
 .product{
- text-decoration:none;
-  color:#111;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:center;
+
+background:white;
+
+border-radius:22px;
+
+padding:22px;
+
+text-decoration:none;
+
+color:#111;
+
+overflow:hidden;
+
+transition:
+
+all .45s;
+
+box-shadow:
+
+0 12px 35px rgba(0,0,0,.05);
+
+border:
+
+1px solid rgba(0,0,0,.05);
+
 }
 
 /* ================= FORM ================= */
-input,textarea{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:1px solid rgba(0,0,0,0.15);
-margin-bottom:12px;
-}
+input,
+textarea{
 
+width:100%;
+
+padding:18px 22px;
+
+font-size:15px;
+
+border-radius:16px;
+
+background:white;
+
+border:
+
+1px solid #e3e3e3;
+
+transition:.35s;
+
+outline:none;
+
+}
+input:focus,
+textarea:focus{
+
+border-color:#111;
+
+box-shadow:
+
+0 0 0 5px
+
+rgba(0,0,0,.05);
+
+}
 button{
-background:#c1121f;
-color:#fff;
-padding:14px;
-border:none;
-border-radius:12px;
-cursor:pointer;
-transition:.3s;
+
+padding:18px 38px;
+
+border-radius:16px;
+
+background:#111;
+
+color:white;
+
+font-size:15px;
+
+letter-spacing:1px;
+
+transition:.35s;
+
 }
 
 button:hover{
-background:#a10f1a;
-}
 
+background:#000;
+
+transform:
+
+translateY(-3px);
+
+}
 /* ================= MODAL（WHY FIX 核心） ================= */
 
 
@@ -1288,18 +1683,25 @@ Brands We Have Worked With
 <!-- ABOUT -->
 <section id="about" class="story-section">
 
-<div class="story-wrap">
+<div class="story-paper">
+
+<div class="paper-pin"></div>
 
 <div class="paper-tape tape-left"></div>
 <div class="paper-tape tape-right"></div>
-
-<div class="paper-pin"></div>
 
 <div class="story-grid">
 
 <div class="story-text">
 
-<h2>Our Story</h2>
+<div class="story-label">
+OUR STORY
+</div>
+
+<h2>
+Built from Manufacturing.
+Growing with Trust.
+</h2>
 
 <p>
 Quanzhou Reallyou Import & Export Co., Ltd. is a China-based footwear sourcing and manufacturing team specializing in OEM & ODM development for global brands.
@@ -1330,7 +1732,12 @@ So, please trust us. We are a responsible, efficient, sincere team that is ready
 
 <div class="story-image">
 
-<img src="images/story/story.webp">
+<img
+src="images/story/story.webp"
+loading="eager"
+fetchpriority="high"
+decoding="async"
+alt="Reallyou Story">
 
 </div>
 
