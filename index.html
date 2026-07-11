@@ -761,11 +761,17 @@ pointer-events:none;
 
 .hero-content {
 
-position:relative;
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-55%);
 
 z-index:2;
 
-transform:translateY(-40px);
+width:90%;
 
 }
 .hero-title{
@@ -806,7 +812,7 @@ opacity:.85;
 
 position:absolute;
 
-bottom:25px;
+bottom:20px;
 
 left:50%;
 
@@ -829,10 +835,9 @@ animation:float 2s infinite;
 
 .brand-area{
 
-
 position:absolute;
 
-bottom:35px;
+bottom:90px;
 
 left:50%;
 
@@ -840,7 +845,7 @@ transform:translateX(-50%);
 
 width:90%;
 
-z-index:10;
+z-index:5;
 
 text-align:center;
 
@@ -870,26 +875,19 @@ justify-content:center;
 
 align-items:center;
 
-gap:60px;
+gap:75px;
 
-background:none;
-
-border:none;
-
-box-shadow:none;
-
-padding:0;
 }
 
 .floating-logos img{
 
-height:36px;
+height:45px;
 
-max-width:120px;
+max-width:140px;
 
-opacity:.65;
+opacity:.8;
 
-transition:.35s;
+filter:brightness(1.15);
 
 }
 
@@ -1606,7 +1604,8 @@ padding:14px 20px;
     <h1 class="hero-title canva-text" data-html-import-id="html-import-11" data-template-id="h1-5" >QUANZHOU REALLYOU</h1>
     <p class="hero-sub canva-text" data-html-import-id="html-import-12" data-template-id="p-6" style="color: rgba(255, 255, 255, 0.82); font-weight: 400; font-style: normal; font-size: 20px;">Professional Footwear Manufacturing &amp; Global Sourcing Partner</p>
     <p class="hero-sub small canva-text" data-html-import-id="html-import-13" data-template-id="p-7" style="color: rgba(255, 255, 255, 0.82); font-weight: 400; font-style: normal; font-size: 13px;">OEM / ODM Development · China &amp; Bangladesh Supply Chain · Worldwide Export</p>
- <!-- FLOATING BRAND LOGOS --> <div class="brand-area"> <div class="brand-title"> Brands We Have Worked With </div> <div class="floating-logos"> <img src="images/brands/logo1.webp"> <img src="images/brands/logo2.webp"> <img src="images/brands/logo3.webp"> <img src="images/brands/logo4.webp"> <img src="images/brands/logo5.webp"> <img src="images/brands/logo6.webp"> </div>
+ <!-- FLOATING BRAND LOGOS --> <div class="brand-area"> <div class="brand-title"> Brands We Have Worked With </div> 
+   <div class="floating-logos"> <img src="images/brands/logo1.webp"> <img src="images/brands/logo2.webp"> <img src="images/brands/logo3.webp"> <img src="images/brands/logo4.webp"> <img src="images/brands/logo5.webp"> <img src="images/brands/logo6.webp"> </div>
   </header><!-- ABOUT -->
   <section id="about" class="story-section" data-html-import-id="html-import-23">
    <div class="story-paper canva-container" data-html-import-id="html-import-24" data-template-id="div-16"style="background:linear-gradient(90deg,#111111,#444444,#f3efe8);">
