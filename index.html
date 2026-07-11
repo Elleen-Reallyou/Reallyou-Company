@@ -481,6 +481,30 @@ background-size:
 100% 100%;
 
 }
+/* ===== BELOW STORY WHITE AREA ===== */
+
+#brands,
+#brands + section,
+#products,
+#blog,
+#contact{
+
+background:#ffffff;
+
+}
+
+
+#brands .section-inner,
+#products .section-inner,
+#blog .section-inner,
+#contact .section-inner{
+
+background:#ffffff;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.06);
+
+}
 /* ================================================= */
 /* FILM GRAIN (增强噪点颗粒与杂志印刷感) */
 /* ================================================= */
@@ -1108,23 +1132,30 @@ justify-content:center;
 will-change: transform;
 position:relative;
 overflow:hidden;
+
+background:#ffffff;
 }
 
 .section-inner{
 width:min(1200px, 92%);
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(18px);
+
+background:#ffffff;
+
 border-radius:22px;
+
 padding:70px 30px;
 
 opacity:0;
-transform:translate3d(0, 120px, 0) scale(0.98);
+
+transform:translate3d(0,120px,0) scale(.98);
+
 filter:blur(6px);
 
 transition:
-opacity .9s cubic-bezier(0.16, 1, 0.3, 1),
-transform .9s cubic-bezier(0.16, 1, 0.3, 1),
+opacity .9s cubic-bezier(0.16,1,0.3,1),
+transform .9s cubic-bezier(0.16,1,0.3,1),
 filter .9s ease;
+
 }
 .section-inner h2{
   font-size:28px;
