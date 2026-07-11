@@ -5,6 +5,13 @@
   <title>Quanzhou Reallyou Import &amp; Export Co., Ltd.</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Alex+Brush&family=Fredoka:wght@400;500;600&family=Noto+Serif:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+@media(max-width:768px){
+section{
+height:auto;
+min-height:auto;
+padding:60px 0;
+}
+}
 @font-face{
 
 font-family:'Noto Serif ExtraCondensed';
@@ -60,7 +67,8 @@ height:45px;
 }
 .why-slider{
 
-aspect-ratio:4/3;
+
+height:210px;
 
 overflow:hidden;
 
@@ -177,7 +185,7 @@ rgba(0,0,0,.03)
 
 font-family:'Alex Brush',cursive;
 
-font-size:82px;
+font-size:65px;
 
 font-weight:400;
 
@@ -223,11 +231,10 @@ background:#111;
 
 font-family:'Noto Serif ExtraCondensed';
 
-font-size:15px;
 
-line-height:1.65;
-
-margin-bottom:12px;
+font-size:14px;
+line-height:1.45;
+margin-bottom:8px;
 
 color:#4d4d4d;
 
@@ -387,8 +394,9 @@ opacity:.65;
 
 }
 .img-box{
+height:260px;
 
-aspect-ratio:1;
+aspect-ratio:auto;
 
 border-radius:18px;
 
@@ -947,9 +955,17 @@ transform:translateY(-6px);
 
 .story-section{
 
-font-size:40px;
 
-padding:40px 0;
+height:100vh;
+
+min-height:700px;
+
+display:flex;
+
+align-items:center;
+
+padding:0;
+
 background:transparent;
 
 position:relative;
@@ -969,11 +985,12 @@ linear-gradient(
 
 width:min(1320px,92%);
 
+padding:0;
+
 margin:auto;
 
 position:relative;
 
-padding:60px 0;
 
 }
 .story-wrap::before{
@@ -1014,8 +1031,7 @@ gap:50px;
 align-items:center;
 
 background:#fbf8f2;
-
-padding:45px 60px;
+padding:35px 50px;
 
 border-radius:10px;
 position:relative; box-shadow: 0 40px 100px rgba(0,0,0,.08), 0 8px 20px rgba(0,0,0,.05); overflow:visible; transform:rotate(-0.6deg);}
@@ -1113,36 +1129,46 @@ rgba(255,255,255,.4) 5px
 }
 
 section{
+
 width:100%;
-padding:80px 0;
+
+height:100vh;
+
+min-height:700px;
+
 display:flex;
+
+align-items:center;
+
 justify-content:center;
-will-change: transform;
+
 position:relative;
+
 overflow:hidden;
 
 background:#ffffff;
+
 }
 
 .section-inner{
-width:min(1200px, 92%);
+
+width:min(1200px,92%);
+
+height:85vh;
+
+max-height:850px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
 
 background:#ffffff;
 
 border-radius:22px;
 
-padding:70px 30px;
-
-opacity:0;
-
-transform:translate3d(0,120px,0) scale(.98);
-
-filter:blur(6px);
-
-transition:
-opacity .9s cubic-bezier(0.16,1,0.3,1),
-transform .9s cubic-bezier(0.16,1,0.3,1),
-filter .9s ease;
+padding:50px 40px;
 
 }
 .section-inner h2{
@@ -1271,7 +1297,7 @@ border-radius:22px;
 
 padding:42px;
 
-min-height:250px;
+height:320px;
 
 display:flex;
 
@@ -1321,7 +1347,8 @@ border-radius:24px;
 
 padding:26px;
 
-height:540px;
+
+height:420px;
 
 display:flex;
 
