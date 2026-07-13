@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="REALLYOU sandals and slippers collection — OEM and ODM footwear sourcing, development and manufacturing.">
+<meta name="theme-color" content="#f4f4f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>REALLYOU | Sandals &amp; Slippers</title>
+<style>
+:root{
+  --ink:#151515;
+  --muted:#6f6f6b;
+  --line:#e4e4df;
+  --paper:#fff;
+  --canvas:#f4f4f1;
+  --soft:#f8f8f5;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --shadow:0 18px 55px rgba(20,20,18,.08);
+  --shadow-hover:0 28px 70px rgba(20,20,18,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  background:var(--canvas);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+button,input,select{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%}
+
+/* ================= NAV ================= */
+.main-nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  min-height:72px;
+  padding:14px clamp(20px,4vw,56px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid rgba(20,20,18,.08);
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+}
+.brand-link{
+  display:inline-flex;
+  flex-direction:column;
+  color:var(--ink);
+  text-decoration:none;
+  line-height:1;
+}
+.brand-link strong{font-size:22px;letter-spacing:.18em;font-weight:700}
+.brand-link span{margin-top:6px;font-size:9px;letter-spacing:.24em;color:#8a8a84;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
+.nav-links a{
+  position:relative;
+  padding:10px 0;
+  color:#393936;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;right:100%;bottom:5px;
+  height:1px;
+  background:#111;
+  transition:right .25s ease;
+}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{right:0}
+
+/* ================= PAGE HEADER / FILTER ================= */
+.filter-wrapper{
+  width:min(1240px,calc(100% - 40px));
+  margin:clamp(38px,6vw,76px) auto 26px;
+}
+.eyebrow{
+  margin:0 0 13px;
+  color:#7a7a74;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.page-title{
+  margin:0;
+  max-width:820px;
+  font-size:clamp(38px,5.2vw,68px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  font-weight:600;
+}
+.page-intro{
+  max-width:680px;
+  margin:20px 0 0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.75;
+}
+.collection-meta{
+  margin-top:30px;
+  padding:17px 0;
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:#555550;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.collection-meta span{display:inline-flex;align-items:center;gap:9px}
+.collection-meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:#1a1a19}
+
+.controls-panel{
+  margin-top:28px;
+  padding:20px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(20,20,18,.08);
+  border-radius:20px;
+  box-shadow:0 12px 35px rgba(20,20,18,.045);
+}
+.filter-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:18px;
+}
+.gender-tabs,.tabs{display:flex;gap:9px;flex-wrap:wrap}
+.gender,.tab{
+  min-height:40px;
+  padding:10px 18px;
+  border:1px solid #deded9;
+  border-radius:999px;
+  background:#fff;
+  color:#4b4b47;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.025em;
+  cursor:pointer;
+  transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease;
+  user-select:none;
+}
+.gender:hover,.tab:hover{border-color:#999992;transform:translateY(-1px)}
+.gender.active,.tab.active{background:#171716;color:#fff;border-color:#171716}
+.tools-row{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #e8e8e3;
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) auto auto;
+  align-items:center;
+  gap:14px;
+}
+.search-box{position:relative;max-width:430px}
+.search-box svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:#85857f;pointer-events:none}
+.search-box input{
+  width:100%;height:44px;
+  padding:0 42px;
+  border:1px solid #deded9;
+  border-radius:999px;
+  outline:none;
+  background:#fff;
+  color:#222;
+  font-size:13px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.search-box input:focus{border-color:#888881;box-shadow:0 0 0 4px rgba(20,20,18,.05)}
+.search-clear{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:#777;cursor:pointer;
+  display:none;
+}
+.search-clear.visible{display:grid;place-items:center}
+.result-count{color:#777771;font-size:12px;font-weight:600;white-space:nowrap}
+.sort-select{
+  height:42px;
+  padding:0 34px 0 14px;
+  border:1px solid #deded9;
+  border-radius:12px;
+  background:#fff;
+  color:#333;
+  font-size:12px;
+  font-weight:600;
+  outline:none;
+  cursor:pointer;
+}
+
+/* ================= PRODUCT GRID ================= */
+.container{width:min(1240px,calc(100% - 40px));margin:0 auto;padding:10px 0 70px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(18px,2.2vw,30px);
+}
+.card{
+  min-width:0;
+  overflow:hidden;
+  background:var(--paper);
+  border:1px solid rgba(20,20,18,.08);
+  border-radius:var(--radius-lg);
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(20,20,18,.035);
+  transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease,border-color .35s ease;
+  content-visibility:auto;
+  contain-intrinsic-size:480px;
+}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow-hover);border-color:rgba(20,20,18,.14)}
+.card:focus-visible{outline:2px solid #111;outline-offset:4px}
+.card-media{
+  position:relative;
+  height:clamp(250px,25vw,330px);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%,#fff 0%,#f8f8f5 55%,#f1f1ed 100%);
+}
+.card-media::after{
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.42),transparent 38%,rgba(0,0,0,.018));
+}
+.card-media.is-loading::before,.detail-image.is-loading::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.8) 48%,transparent 76%);
+  transform:translateX(-100%);
+  animation:shimmer 1.2s infinite;
+  z-index:3;
+}
+.card-media.has-error::before,.detail-image.has-error::before{
+  content:"Image unavailable";
+  position:absolute;inset:0;display:grid;place-items:center;
+  color:#999;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  background:#f4f4f1;z-index:4;
+}
+@keyframes shimmer{to{transform:translateX(100%)}}
+.card-main-image{
+  width:100%;height:100%;
+  padding:clamp(20px,2.5vw,34px);
+  object-fit:contain;
+  transition:transform .45s cubic-bezier(.2,.75,.25,1),opacity .25s ease;
+  z-index:1;
+}
+.card:hover .card-main-image{transform:scale(1.035)}
+.card-body{padding:18px 18px 15px}
+.card-kicker{margin:0 0 8px;color:#8a8a84;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+.card-name{margin:0;font-size:17px;line-height:1.35;font-weight:600;letter-spacing:-.015em}
+.card-meta{margin-top:7px;display:flex;justify-content:space-between;gap:12px;align-items:center;color:#767670;font-size:11px}
+.card-arrow{font-size:16px;color:#222;transition:transform .25s ease}
+.card:hover .card-arrow{transform:translateX(4px)}
+.thumbs{
+  min-height:58px;
+  padding:0 18px 18px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.thumb-button{
+  width:46px;height:46px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid #deded9;
+  border-radius:10px;
+  background:#fff;
+  cursor:pointer;
+  opacity:.72;
+  transition:opacity .2s ease,border-color .2s ease,transform .2s ease;
+}
+.thumb-button:hover{opacity:1;transform:translateY(-1px)}
+.thumb-button.active{border-color:#171716;opacity:1;box-shadow:0 0 0 1px #171716}
+.thumb-button img{width:100%;height:100%;padding:4px;object-fit:contain;background:#fff}
+.empty-state{
+  grid-column:1/-1;
+  padding:70px 20px;
+  text-align:center;
+  border:1px dashed #cecec7;
+  border-radius:20px;
+  color:#74746e;
+  background:rgba(255,255,255,.5);
+}
+.empty-state strong{display:block;margin-bottom:8px;color:#292927;font-size:18px}
+
+/* ================= DETAIL ================= */
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin:8px 0 22px;
+  padding:10px 0;
+  border:0;
+  background:transparent;
+  color:#222;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+.back:hover{opacity:.6}
+.detail{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  gap:clamp(28px,4vw,60px);
+  padding:clamp(20px,3vw,38px);
+  background:#fff;
+  border:1px solid rgba(20,20,18,.08);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+.detail-image{
+  position:relative;
+  width:100%;
+  height:min(68vh,660px);
+  min-height:480px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  cursor:zoom-in;
+  background:radial-gradient(circle at 50% 45%,#fff,#f5f5f1 72%);
+  border-radius:20px;
+}
+.detail-image img{
+  width:100%;height:100%;
+  padding:clamp(18px,3vw,42px);
+  object-fit:contain;
+  transform-origin:center center;
+  transform:scale(1);
+  transition:transform .30s cubic-bezier(.2,.75,.25,1),opacity .2s ease;
+  will-change:transform,transform-origin;
+  backface-visibility:hidden;
+}
+.detail-image.is-zooming{
+  cursor:zoom-out;
+}
+.detail-image.is-zooming img{
+  transition:transform .08s linear,opacity .2s ease;
+}
+.detail-thumbs{display:flex;gap:9px;margin-top:13px;flex-wrap:wrap}
+.detail-thumbs button{
+  width:64px;height:64px;padding:0;overflow:hidden;
+  border:1px solid #dddcd6;border-radius:10px;background:#fff;cursor:pointer;opacity:.68;
+  transition:opacity .2s ease,border-color .2s ease,transform .2s ease;
+}
+.detail-thumbs button:hover{opacity:1;transform:translateY(-1px)}
+.detail-thumbs button.active{border-color:#111;box-shadow:0 0 0 1px #111;opacity:1}
+.detail-thumbs img{width:100%;height:100%;padding:5px;object-fit:contain}
+.detail-info{padding:clamp(8px,2vw,24px) 0;align-self:center}
+.detail-label{margin:0 0 14px;color:#7f7f79;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.detail-info h1{margin:0 0 26px;font-size:clamp(34px,4.2vw,58px);line-height:1.04;letter-spacing:-.045em;font-weight:600}
+.detail-specs{margin:0;border-top:1px solid var(--line)}
+.detail-specs div{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.detail-specs dt{color:#8a8a84;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.detail-specs dd{margin:0;color:#393936;font-size:14px;line-height:1.65}
+.btn{
+  width:100%;
+  min-height:52px;
+  margin-top:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 24px;
+  border-radius:12px;
+  background:#171716;
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.1em;
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.btn:hover{background:#000;transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.17)}
+.detail-note{margin:15px 0 0;color:#85857f;font-size:11px;line-height:1.6;text-align:center}
+
+/* ================= LIGHTBOX / UTILITIES ================= */
+.lightbox{
+  position:fixed;inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+  background:rgba(9,9,9,.94);
+  backdrop-filter:blur(12px);
+  z-index:9999;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,88vw);max-height:82vh;object-fit:contain}
+.lightbox-actions{position:absolute;top:22px;right:24px;display:flex;gap:10px}
+.lightbox-actions button,.download{
+  min-width:42px;height:42px;padding:0 15px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.24);border-radius:999px;
+  background:rgba(255,255,255,.1);color:#fff;text-decoration:none;cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+.scroll-top{
+  position:fixed;right:22px;bottom:22px;z-index:900;
+  width:44px;height:44px;border:1px solid rgba(20,20,18,.1);border-radius:50%;
+  background:rgba(255,255,255,.9);box-shadow:0 10px 28px rgba(0,0,0,.12);
+  display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);
+  transition:opacity .25s ease,transform .25s ease;
+}
+.scroll-top.visible{opacity:1;pointer-events:auto;transform:none}
+.footer{padding:26px 20px 42px;text-align:center;color:#898983;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:980px){
+  .nav-links{gap:14px;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .detail{grid-template-columns:1fr}
+  .detail-image{height:56vh;min-height:420px;cursor:zoom-in}
+  .detail-info{padding:8px 2px 4px}
+}
+@media(max-width:720px){
+  .main-nav{min-height:64px;padding:12px 18px;align-items:flex-start}
+  .brand-link strong{font-size:18px}
+  .brand-link span{display:none}
+  .nav-links{max-width:68%;justify-content:flex-start}
+  .nav-links a{font-size:10px;white-space:nowrap}
+  .filter-wrapper,.container{width:min(100% - 28px,1240px)}
+  .filter-wrapper{margin-top:34px}
+  .page-title{font-size:42px}
+  .collection-meta{gap:14px 20px}
+  .controls-panel{padding:15px}
+  .tools-row{grid-template-columns:1fr auto}
+  .search-box{grid-column:1/-1;max-width:none}
+  .result-count{justify-self:start}
+  .grid{grid-template-columns:1fr;gap:18px}
+  .card-media{height:310px}
+  .detail{padding:14px;border-radius:20px;gap:22px}
+  .detail-image{height:430px;min-height:0;border-radius:15px}
+  .detail-specs div{grid-template-columns:82px 1fr}
+  .lightbox{padding:18px}
+}
+@media(max-width:430px){
+  .page-title{font-size:36px}
+  .page-intro{font-size:14px}
+  .gender,.tab{padding:9px 14px}
+  .sort-select{max-width:150px}
+  .card-media{height:280px}
+  .detail-image{height:360px}
+}
+@media(hover:none){
+  .card:hover{transform:none;box-shadow:0 6px 20px rgba(20,20,18,.035)}
+  .card:hover .card-main-image{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* Standardized trade style numbering */
+.card-kicker{
+  letter-spacing:.12em;
+  font-variant-numeric:tabular-nums;
+}
+.detail-specs dd{
+  font-variant-numeric:tabular-nums;
+}
+
+</style>
+</head>
+<body>
+<nav class="main-nav" aria-label="Main navigation">
+  <a class="brand-link" href="index.html" aria-label="REALLYOU home">
+    <strong>REALLYOU</strong>
+    <span>Footwear Sourcing</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">HOME</a>
+    <a href="sports.html">SPORTS</a>
+    <a href="casual.html">CASUAL</a>
+    <a href="outdoor.html">OUTDOOR</a>
+    <a href="sandals.html" aria-current="page">SANDALS</a>
+    <a href="kids.html">KIDS</a>
+  </div>
+</nav>
+
+<header class="filter-wrapper">
+  <p class="eyebrow">Product Collection</p>
+  <h1 class="page-title">SANDALS &amp; SLIPPERS</h1>
+  <p class="page-intro">Explore our sandals and slippers range for OEM and ODM development, with flexible color options, materials and production solutions for global markets.</p>
+  <div class="collection-meta" aria-label="Service highlights">
+    <span>OEM / ODM Development</span>
+    <span>Global Sourcing</span>
+    <span>Quality Control</span>
+  </div>
+
+  <div class="controls-panel">
+    <div class="filter-row">
+      <div class="gender-tabs" aria-label="Filter by gender">
+        <button class="gender active" type="button" data-gender="all">All</button>
+        <button class="gender" type="button" data-gender="men">Men</button>
+        <button class="gender" type="button" data-gender="women">Women</button>
+      </div>
+      <div class="tabs" aria-label="Filter by category">
+        <button class="tab active" type="button" data-tab="all">All</button>
+        <button class="tab" type="button" data-tab="sandal">Sandals</button>
+        <button class="tab" type="button" data-tab="slipper">Slippers</button>
+      </div>
+    </div>
+
+    <div class="tools-row">
+      <label class="search-box" aria-label="Search products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input id="searchInput" type="search" placeholder="Search product name or style number" autocomplete="off">
+        <button id="clearSearch" class="search-clear" type="button" aria-label="Clear search">×</button>
+      </label>
+      <div id="resultCount" class="result-count" aria-live="polite"></div>
+      <select id="sortSelect" class="sort-select" aria-label="Sort products">
+        <option value="number-asc">Style No. 001–011</option>
+        <option value="number-desc">Style No. 011–001</option>
+        <option value="az">Name A–Z</option>
+        <option value="za">Name Z–A</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="listView" aria-label="Sandals and slippers products">
+    <div class="container">
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="detailView" hidden aria-label="Product details">
+    <div class="container">
+      <button class="back" type="button" id="backButton">← Back to collection</button>
+      <div class="detail" id="detail"></div>
+    </div>
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image preview">
+  <img id="lbImg" alt="Large product preview">
+  <div class="lightbox-actions">
+    <a id="downloadImage" class="download" download aria-label="Download image">Download</a>
+    <button id="closeLightbox" type="button" aria-label="Close image preview">×</button>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollTop" type="button" aria-label="Back to top">↑</button>
+<footer class="footer">© 2026 REALLYOU · Professional Footwear Sourcing & Manufacturing</footer>
+
+<script>
+const products = [
+
+{
+id:"sandal1",
+name:"Men Sandal Type1",
+tab:"sandal",
+gender:"men",
+moq:"600 pairs/color",
+material:"PU+ Phylon Sole",
+colors:[
+"images/sandals/M/sandal1-black.webp",
+"images/sandals/M/sandal1-green.webp",
+]
+},
+{
+id:"slipper1",
+name:"Slipper Type1",
+tab:"slipper",
+gender:"all",
+moq:"600 pairs/color",
+material:"EVA",
+colors:[
+"images/sandals/A/slipper1-black.webp",
+"images/sandals/A/slipper1-green.webp",
+"images/sandals/A/slipper1-Dgreen.webp",
+"images/sandals/A/slipper1-blue.webp",
+"images/sandals/A/slipper1-Dblue.webp",
+"images/sandals/A/slipper1-pink.webp",
+"images/sandals/A/slipper1-beige.webp",
+"images/sandals/A/slipper1-yellow.webp",
+]
+},
+{
+id:"slipper2",
+name:"Slipper Type2",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"Umbrella fabric+ EVA Sole",
+colors:[
+"images/sandals/W/slipper2-black.webp",
+"images/sandals/W/slipper2-white.webp"
+]
+},
+{
+id:"slipper3",
+name:"Slipper Type3",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"Umbrella fabric+ EVA Sole",
+colors:[
+"images/sandals/W/slipper3-black.webp"
+]
+},
+{
+id:"slipper4",
+name:"Slipper Type4",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"30% leather&PU+ TPR Sole",
+colors:[
+"images/sandals/W/slipper4-Lbrown.webp",
+"images/sandals/W/slipper4-Dbrown.webp"
+]
+},
+{
+id:"slipper5",
+name:"Slipper Type5",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"30% leather&PU+ EVA Sole",
+colors:[
+"images/sandals/W/slipper5-Lbrown.jpg",
+"images/sandals/W/slipper5-Dbrown.jpg"
+]
+},
+{
+id:"slipper6",
+name:"Slipper Type6",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"30% leather&PU+ EVA Sole",
+colors:[
+"images/sandals/W/slipper6-Lbrown.webp",
+"images/sandals/W/slipper6-Dbrown.webp",
+"images/sandals/W/slipper6-Black.webp"
+]
+},
+{
+id:"slipper7",
+name:"Slipper Type7",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"leather&PU+ EVA Sole",
+colors:[
+"images/sandals/W/slipper7-Dbrown.webp"
+]
+},
+{
+id:"slipper8",
+name:"Slipper Type8",
+tab:"slipper",
+gender:"all",
+moq:"600 pairs/color",
+material:"EVA",
+colors:[
+"images/sandals/A/slipper8-beige.webp",
+"images/sandals/A/slipper8-pink.webp"
+]
+},
+{
+id:"slipper9",
+name:"Slipper Type9",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"30% leather+ EVA Sole",
+colors:[
+"images/sandals/W/slipper9-brown.webp",
+"images/sandals/W/slipper9-black.webp"
+]
+},
+{
+id:"slipper10",
+name:"Slipper Type10",
+tab:"slipper",
+gender:"women",
+moq:"600 pairs/color",
+material:"PU+ EVA Sole",
+colors:[
+"images/sandals/W/slipper10-black.webp"
+]
+},
+];
+
+/* Standardized customer-facing product names and style numbers.
+   Existing image filenames and paths remain unchanged. */
+products.forEach((product, index) => {
+  const genderCode = product.gender === "women" ? "W" : product.gender === "men" ? "M" : "U";
+  product.catalogNumber = index + 1;
+  product.styleNo = `RY-SA-${genderCode}-${String(product.catalogNumber).padStart(3,"0")}`;
+});
+
+let currentGender = "all";
+let currentTab = "all";
+let searchTerm = "";
+let sortMode = "number-asc";
+let renderToken = 0;
+let listScrollY = 0;
+
+const grid = document.getElementById("grid");
+const listView = document.getElementById("listView");
+const detailView = document.getElementById("detailView");
+const detail = document.getElementById("detail");
+const resultCount = document.getElementById("resultCount");
+const searchInput = document.getElementById("searchInput");
+const clearSearch = document.getElementById("clearSearch");
+const sortSelect = document.getElementById("sortSelect");
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const downloadImage = document.getElementById("downloadImage");
+
+const supportsObserver = "IntersectionObserver" in window;
+const imageObserver = supportsObserver ? new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    loadDeferredImage(entry.target);
+    observer.unobserve(entry.target);
+  });
+}, { rootMargin: "360px 0px", threshold: 0.01 }) : null;
+
+function loadDeferredImage(img){
+  const source = img.dataset.src;
+  if (!source || img.hasAttribute("src")) return;
+  img.src = source;
+  img.removeAttribute("data-src");
+}
+
+function observeImage(img){
+  if (!img.dataset.src) return;
+  if (imageObserver) imageObserver.observe(img);
+  else loadDeferredImage(img);
+}
+
+function setImageState(img, shell){
+  const finish = () => {
+    shell?.classList.remove("is-loading");
+    img.style.opacity = "1";
+  };
+  const fail = () => {
+    shell?.classList.remove("is-loading");
+    shell?.classList.add("has-error");
+    img.style.opacity = "0";
+  };
+  img.addEventListener("load", finish, { once:true });
+  img.addEventListener("error", fail, { once:true });
+  if (img.complete && img.naturalWidth) finish();
+}
+
+function createImage({src, alt, className="", eager=false, width=720, height=520}){
+  const img = document.createElement("img");
+  img.className = className;
+  img.alt = alt;
+  img.width = width;
+  img.height = height;
+  img.decoding = "async";
+  img.style.opacity = "0";
+  if (eager){
+    img.src = src;
+    img.loading = "eager";
+    img.fetchPriority = "high";
+  }else{
+    img.dataset.src = src;
+    img.loading = "lazy";
+  }
+  return img;
+}
+
+const naturalNameCollator = new Intl.Collator("en", {
+  numeric:true,
+  sensitivity:"base"
+});
+
+function getProductNumber(product){
+  return Number.isFinite(product.catalogNumber) ? product.catalogNumber : Number.MAX_SAFE_INTEGER;
+}
+
+function getVisibleProducts(){
+  const query = searchTerm.trim().toLowerCase();
+  let visible = products.filter(product => {
+    if (currentGender !== "all" && product.gender !== currentGender && product.gender !== "all") return false;
+    if (currentTab !== "all" && product.tab !== currentTab) return false;
+    if (!query) return true;
+    return `${product.name} ${product.styleNo} ${product.moq}`.toLowerCase().includes(query);
+  });
+
+  visible = [...visible].sort((a,b) => {
+    if (sortMode === "number-desc") return getProductNumber(b) - getProductNumber(a);
+    if (sortMode === "az") {
+      return naturalNameCollator.compare(a.name,b.name) || getProductNumber(a) - getProductNumber(b);
+    }
+    if (sortMode === "za") {
+      return naturalNameCollator.compare(b.name,a.name) || getProductNumber(b) - getProductNumber(a);
+    }
+    return getProductNumber(a) - getProductNumber(b);
+  });
+
+  return visible;
+}
+
+function renderList(){
+  if (imageObserver) imageObserver.disconnect();
+  const token = ++renderToken;
+  const visible = getVisibleProducts();
+  grid.replaceChildren();
+  resultCount.textContent = `${visible.length} ${visible.length === 1 ? "style" : "styles"}`;
+
+  if (!visible.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = "<strong>No matching styles</strong>Try another gender, category or search term.";
+    grid.appendChild(empty);
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  visible.forEach((product, index) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `View ${product.name}, style ${product.styleNo}`);
+
+    const media = document.createElement("div");
+    media.className = "card-media is-loading";
+    const mainImage = createImage({
+      src:product.colors[0],
+      alt:`${product.name} ${product.styleNo}`,
+      className:"card-main-image",
+      eager:index < 4,
+      width:760,
+      height:560
+    });
+    setImageState(mainImage, media);
+    media.appendChild(mainImage);
+
+    const body = document.createElement("div");
+    body.className = "card-body";
+    body.innerHTML = `
+      <p class="card-kicker">${product.styleNo}</p>
+      <h2 class="card-name">${product.name}</h2>
+      <div class="card-meta"><span>MOQ: ${product.moq}</span><span class="card-arrow" aria-hidden="true">→</span></div>
+    `;
+
+    const thumbs = document.createElement("div");
+    thumbs.className = "thumbs";
+    product.colors.forEach((source, colorIndex) => {
+      const button = document.createElement("button");
+      button.className = `thumb-button${colorIndex === 0 ? " active" : ""}`;
+      button.type = "button";
+      button.setAttribute("aria-label", `Show color ${colorIndex + 1} of ${product.name}`);
+      const thumb = createImage({src:source,alt:"",className:"",eager:false,width:92,height:92});
+      thumb.style.opacity = "1";
+      button.appendChild(thumb);
+      button.addEventListener("click", event => {
+        event.stopPropagation();
+        if (thumb.dataset.src) loadDeferredImage(thumb);
+        const sourceToUse = thumb.currentSrc || thumb.src || source;
+        swapCardImage(mainImage, media, sourceToUse);
+        thumbs.querySelectorAll(".thumb-button").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+      });
+      thumbs.appendChild(button);
+      observeImage(thumb);
+    });
+
+    const open = () => openDetail(product);
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " "){
+        event.preventDefault();
+        open();
+      }
+    });
+
+    card.append(media, body, thumbs);
+    fragment.appendChild(card);
+    observeImage(mainImage);
+  });
+
+  if (token === renderToken) grid.appendChild(fragment);
+}
+
+function swapCardImage(img, shell, source){
+  shell.classList.remove("has-error");
+  shell.classList.add("is-loading");
+  img.style.opacity = "0";
+  img.src = source;
+  img.removeAttribute("data-src");
+  setImageState(img, shell);
+}
+
+function openDetail(product, updateHash=true){
+  if (!listView.hidden) listScrollY = window.scrollY;
+  listView.hidden = true;
+  detailView.hidden = false;
+  document.title = `${product.styleNo} · ${product.name} | REALLYOU`;
+  if (updateHash) history.pushState({product:product.id}, "", `#${product.id}`);
+
+  const encodedMessage = encodeURIComponent(`Hello REALLYOU, I am interested in ${product.name} (${product.styleNo}). Please send me more information.`);
+  detail.innerHTML = `
+    <div>
+      <div class="detail-image is-loading" id="detailImageShell">
+        <img id="detailImg" src="${product.colors[0]}" alt="${product.name} ${product.styleNo}" width="1000" height="760" decoding="async">
+      </div>
+      <div class="detail-thumbs" id="detailThumbs"></div>
+    </div>
+    <div class="detail-info">
+      <p class="detail-label">Sandals &amp; Slippers · OEM / ODM</p>
+      <h1>${product.name}</h1>
+      <dl class="detail-specs">
+        <div><dt>Style No.</dt><dd>${product.styleNo}</dd></div>
+        <div><dt>Material</dt><dd>${product.material}</dd></div>
+        <div><dt>MOQ</dt><dd>${product.moq}</dd></div>
+        <div><dt>Available Colors</dt><dd>${product.colors.length} option${product.colors.length === 1 ? "" : "s"}</dd></div>
+      </dl>
+      <a class="btn" href="https://wa.me/8618659004495?text=${encodedMessage}" target="_blank" rel="noopener">SEND INQUIRY <span aria-hidden="true">↗</span></a>
+      <p class="detail-note">Contact us for customization options, color development and sampling support.</p>
+    </div>
+  `;
+
+  const shell = document.getElementById("detailImageShell");
+  const image = document.getElementById("detailImg");
+  setImageState(image, shell);
+  image.addEventListener("click", () => openLightbox(image.currentSrc || image.src));
+  setupDetailZoom(shell, image);
+
+  const thumbnailBox = document.getElementById("detailThumbs");
+  product.colors.forEach((source,index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = index === 0 ? "active" : "";
+    button.setAttribute("aria-label", `View color ${index + 1}`);
+    const thumb = createImage({src:source,alt:"",eager:index < 3,width:128,height:128});
+    thumb.style.opacity = "1";
+    button.appendChild(thumb);
+    button.addEventListener("click", () => {
+      if (thumb.dataset.src) loadDeferredImage(thumb);
+      shell.classList.remove("has-error", "is-zooming");
+      shell.classList.add("is-loading");
+      image.style.transformOrigin = "center center";
+      image.style.transform = "scale(1)";
+      image.style.opacity = "0";
+      image.src = source;
+      setImageState(image, shell);
+      thumbnailBox.querySelectorAll("button").forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+    });
+    thumbnailBox.appendChild(button);
+    observeImage(thumb);
+  });
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function setupDetailZoom(shell, image){
+  if (!window.matchMedia("(hover:hover) and (min-width:981px)").matches) return;
+
+  let frame = 0;
+  let targetX = 50;
+  let targetY = 50;
+  const zoomScale = 2.18;
+
+  const renderZoom = () => {
+    frame = 0;
+    image.style.transformOrigin = `${targetX}% ${targetY}%`;
+    image.style.transform = `scale(${zoomScale})`;
+  };
+
+  const updateZoomPosition = event => {
+    const rect = shell.getBoundingClientRect();
+    const rawX = ((event.clientX - rect.left) / rect.width) * 100;
+    const rawY = ((event.clientY - rect.top) / rect.height) * 100;
+
+    // Keep the focal point slightly inside the edges for a steadier zoom.
+    targetX = Math.min(96, Math.max(4, rawX));
+    targetY = Math.min(96, Math.max(4, rawY));
+
+    if (!frame) frame = requestAnimationFrame(renderZoom);
+  };
+
+  shell.addEventListener("pointerenter", event => {
+    shell.classList.add("is-zooming");
+    updateZoomPosition(event);
+  });
+
+  shell.addEventListener("pointermove", updateZoomPosition);
+
+  shell.addEventListener("pointerleave", () => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0;
+    shell.classList.remove("is-zooming");
+    image.style.transformOrigin = "center center";
+    image.style.transform = "scale(1)";
+  });
+}
+
+function closeDetail({replaceHash=true}={}){
+  detailView.hidden = true;
+  listView.hidden = false;
+  document.title = "REALLYOU | Sandals & Slippers";
+  if (replaceHash && location.hash) history.pushState({}, "", location.pathname + location.search);
+  requestAnimationFrame(() => window.scrollTo({top:listScrollY,behavior:"smooth"}));
+}
+
+function openLightbox(source){
+  lbImg.src = source;
+  downloadImage.href = source;
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox(){
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function debounce(fn, delay=140){
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
+function activateFilter(selector, element){
+  document.querySelectorAll(selector).forEach(item => item.classList.remove("active"));
+  element.classList.add("active");
+}
+
+document.querySelectorAll(".gender").forEach(button => {
+  button.addEventListener("click", () => {
+    currentGender = button.dataset.gender;
+    activateFilter(".gender", button);
+    renderList();
+  });
+});
+document.querySelectorAll(".tab").forEach(button => {
+  button.addEventListener("click", () => {
+    currentTab = button.dataset.tab;
+    activateFilter(".tab", button);
+    renderList();
+  });
+});
+searchInput.addEventListener("input", debounce(() => {
+  searchTerm = searchInput.value;
+  clearSearch.classList.toggle("visible", Boolean(searchTerm));
+  renderList();
+}));
+clearSearch.addEventListener("click", () => {
+  searchInput.value = "";
+  searchTerm = "";
+  clearSearch.classList.remove("visible");
+  searchInput.focus();
+  renderList();
+});
+sortSelect.addEventListener("change", () => {
+  sortMode = sortSelect.value;
+  renderList();
+});
+document.getElementById("backButton").addEventListener("click", () => closeDetail());
+document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
+downloadImage.addEventListener("click", event => event.stopPropagation());
+
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  if (lightbox.classList.contains("open")) closeLightbox();
+  else if (!detailView.hidden) closeDetail();
+});
+
+const scrollTopButton = document.getElementById("scrollTop");
+window.addEventListener("scroll", () => {
+  scrollTopButton.classList.toggle("visible", window.scrollY > 700);
+}, {passive:true});
+scrollTopButton.addEventListener("click", () => window.scrollTo({top:0,behavior:"smooth"}));
+
+window.addEventListener("popstate", () => {
+  const id = location.hash.slice(1);
+  const product = products.find(item => item.id === id);
+  if (product) openDetail(product,false);
+  else if (!detailView.hidden) closeDetail({replaceHash:false});
+});
+
+renderList();
+const initialProduct = products.find(item => item.id === location.hash.slice(1));
+if (initialProduct) openDetail(initialProduct,false);
+</script>
+</body>
+</html>
