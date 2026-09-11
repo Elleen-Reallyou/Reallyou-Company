@@ -1,0 +1,5040 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta name="theme-color" content="#111111"/>
+
+<title>Quanzhou Reallyou Import & Export Co., Ltd.</title>
+
+<style>
+
+/* =========================================================
+   ROOT / FONTS
+========================================================= */
+
+:root{
+  --font-sans: Arial, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
+  --font-script: "Segoe Script", "Brush Script MT", "STKaiti", cursive;
+  --font-rounded: "Trebuchet MS", Arial, "PingFang SC", sans-serif;
+  --font-serif: Georgia, "Times New Roman", "Songti SC", serif;
+}
+
+@font-face{
+  font-family:'Noto Serif ExtraCondensed';
+  src:
+    local('Noto Serif ExtraCondensed'),
+    url('./images/fonts/NotoSerifExtraCondensed.woff2') format('woff2'),
+    url('./images/fonts/NotoSerifExtraCondensed.woff') format('woff'),
+    url('./images/fonts/NotoSerifExtraCondensed.ttf') format('truetype'),
+    url('./images/fonts/NotoSerif_ExtraCondensed-Regular.ttf') format('truetype');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:'Telegraf';
+  src:
+    local('Telegraf Regular'),
+    local('Telegraf'),
+    url('./images/fonts/Telegraf-Regular.woff2') format('woff2'),
+    url('./images/fonts/Telegraf-Regular.woff') format('woff'),
+    url('./images/fonts/Telegraf-Regular.ttf') format('truetype');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:'Aperture';
+  src:
+    local('Aperture Regular'),
+    local('Aperture'),
+    url('./images/fonts/Aperture-Regular.woff2') format('woff2'),
+    url('./images/fonts/Aperture-Regular.woff') format('woff'),
+    url('./images/fonts/Aperture-Regular.ttf') format('truetype');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-width:320px;
+  overflow-x:hidden;
+  color:#111;
+  font-family:var(--font-sans);
+
+  background:
+    linear-gradient(
+      90deg,
+      #3a3a3a 0%,
+      #777777 35%,
+      #cfcfcf 70%,
+      #f5f5f5 100%
+    );
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+
+/* =========================================================
+   FILM GRAIN
+========================================================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.08;
+  z-index:99999;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+
+  background-size:150px;
+  mix-blend-mode:multiply;
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+.scroll-bar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:0;
+  height:2px;
+  z-index:99999;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #bfc3c9,
+      #ffffff
+    );
+
+  transition:width .1s linear;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:22px 45px;
+
+  z-index:999;
+
+  background:transparent;
+
+  transition:
+    background .35s ease,
+    backdrop-filter .35s ease,
+    border-color .35s ease;
+}
+
+.nav.scrolled{
+  background:rgba(10,10,10,.75);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  color:#fff;
+
+  font-size:18px;
+  font-weight:700;
+
+  letter-spacing:5px;
+
+  line-height:1;
+
+  flex-shrink:0;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+
+  gap:18px;
+}
+
+.nav a{
+  position:relative;
+
+  color:transparent;
+
+  text-decoration:none;
+
+  font-size:12px;
+
+  letter-spacing:2px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #f5f5f5,
+      #bfc3c9,
+      #ffffff,
+      #9aa0a6,
+      #e6e6e6
+    );
+
+  background-size:200% 200%;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:
+    metalFlow 6s ease infinite;
+
+  transition:
+    transform .3s ease,
+    filter .3s ease;
+}
+
+.nav a:hover{
+  transform:translateY(-2px);
+
+  filter:
+    drop-shadow(
+      0 0 6px rgba(255,255,255,.35)
+    );
+}
+
+@keyframes metalFlow{
+  0%{background-position:0 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0 50%;}
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  position:relative;
+
+  width:100%;
+
+  height:100svh;
+
+  min-height:680px;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  overflow:hidden;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,8,8,.15),
+      rgba(8,8,8,.34)
+    ),
+    url("./images/office-building.webp")
+    center center / cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.16) 0%,
+      rgba(0,0,0,.035) 34%,
+      rgba(0,0,0,.015) 68%,
+      rgba(0,0,0,.12) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.10) 0%,
+      transparent 40%,
+      transparent 100%
+    );
+}
+
+.hero::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3a3a3a 0%,
+      #777777 35%,
+      #cfcfcf 70%,
+      #f5f5f5 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 70%,
+      rgba(0,0,0,.06) 76%,
+      rgba(0,0,0,.24) 85%,
+      rgba(0,0,0,.58) 93%,
+      #000 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 70%,
+      rgba(0,0,0,.06) 76%,
+      rgba(0,0,0,.24) 85%,
+      rgba(0,0,0,.58) 93%,
+      #000 100%
+    );
+}
+
+.hero-content{
+  position:absolute;
+
+  top:46%;
+  left:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  width:90%;
+
+  z-index:2;
+}
+
+.hero-title{
+  margin-bottom:24px;
+
+  color:#fff;
+
+  font-family:
+    var(--font-display);
+
+  font-size:72px;
+
+  font-weight:400;
+
+  line-height:1.05;
+
+  letter-spacing:7px;
+
+  text-shadow:
+    0 10px 35px rgba(0,0,0,.45);
+}
+
+.hero-sub{
+  color:
+    rgba(255,255,255,.87);
+
+  font-size:20px;
+
+  line-height:1.6;
+
+  letter-spacing:2px;
+
+  text-shadow:
+    0 3px 14px rgba(0,0,0,.42);
+}
+
+.hero-sub.small{
+  margin-top:10px;
+
+  font-size:13px;
+
+  letter-spacing:1px;
+
+  opacity:.78;
+}
+
+
+/* =========================================================
+   HERO BRANDS
+========================================================= */
+
+.brand-area{
+  position:absolute;
+
+  left:50%;
+  bottom:
+    clamp(34px,6.8vh,78px);
+
+  transform:
+    translateX(-50%);
+
+  width:
+    min(1240px,92%);
+
+  z-index:5;
+
+  text-align:center;
+}
+
+.brand-title{
+  margin-bottom:18px;
+
+  color:
+    rgba(255,255,255,.93);
+
+  font-size:11px;
+
+  font-weight:500;
+
+  letter-spacing:3.6px;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.68),
+    0 5px 16px rgba(0,0,0,.28);
+}
+
+.floating-logos{
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  gap:
+    clamp(28px,3.4vw,54px);
+}
+
+.brand-logo-item{
+  min-width:0;
+
+  margin:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+}
+
+.hero
+.floating-logos
+.brand-logo-item{
+  flex:0 1 172px;
+
+  max-width:172px;
+
+  gap:8px;
+}
+
+.hero
+.floating-logos img{
+  width:auto;
+
+  max-width:172px;
+
+  height:
+    clamp(46px,5.7vh,62px);
+
+  object-fit:contain;
+
+  opacity:.97;
+
+  filter:
+    drop-shadow(0 1px 1px rgba(255,255,255,.72))
+    drop-shadow(0 3px 7px rgba(0,0,0,.54))
+    drop-shadow(0 11px 22px rgba(0,0,0,.18))
+    saturate(.96)
+    contrast(1.14)
+    brightness(1.08);
+
+  animation:
+    partnerLogoFloat 5.6s ease-in-out infinite;
+
+  transition:
+    filter .32s ease,
+    transform .32s ease,
+    opacity .32s ease;
+}
+
+.hero .brand-logo-item:nth-child(2) img{
+  animation-delay:-.8s;
+}
+
+.hero .brand-logo-item:nth-child(3) img{
+  animation-delay:-1.6s;
+}
+
+.hero .brand-logo-item:nth-child(4) img{
+  animation-delay:-2.4s;
+}
+
+.hero .brand-logo-item:nth-child(5) img{
+  animation-delay:-3.2s;
+}
+
+.hero .brand-logo-item:nth-child(6) img{
+  animation-delay:-4s;
+}
+
+.hero
+.floating-logos img:hover{
+  opacity:1;
+
+  transform:
+    translateY(-5px)
+    scale(1.04);
+
+  filter:
+    drop-shadow(0 1px 1px rgba(255,255,255,.84))
+    drop-shadow(0 4px 8px rgba(0,0,0,.60))
+    drop-shadow(0 14px 26px rgba(0,0,0,.22))
+    saturate(1)
+    contrast(1.18)
+    brightness(1.11);
+}
+
+.hero .brand-name{
+  min-height:13px;
+
+  color:
+    rgba(255,255,255,.9);
+
+  font-size:9px;
+
+  font-weight:500;
+
+  line-height:1.25;
+
+  letter-spacing:1.2px;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.72);
+}
+
+@keyframes partnerLogoFloat{
+
+  0%,100%{
+    transform:
+      translateY(0);
+  }
+
+  50%{
+    transform:
+      translateY(-4px);
+  }
+
+}
+
+
+/* =========================================================
+   BASE SECTIONS
+========================================================= */
+
+section{
+  position:relative;
+
+  width:100%;
+
+  padding:80px 0;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3a3a3a 0%,
+      #777777 35%,
+      #cfcfcf 70%,
+      #f5f5f5 100%
+    );
+}
+
+.section-inner{
+  width:
+    min(1280px,92%);
+
+  padding:
+    64px 60px;
+
+  border-radius:28px;
+
+  background:
+    rgba(255,255,255,.76);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.15);
+}
+
+.section-inner > h2,
+.section-inner
+.contact-heading h2{
+  color:#111;
+
+  font-family:
+    'Aperture',
+    var(--font-sans);
+
+  font-size:28px;
+
+  font-weight:500;
+
+  line-height:1.25;
+
+  letter-spacing:2px;
+}
+
+.section-inner > h2{
+  margin-bottom:36px;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.logo-grid > *,
+.factory-grid > *,
+.compliance-grid > *,
+.process-grid > *,
+.products-grid > *,
+.blog-grid > *{
+  opacity:0;
+
+  transform:
+    translateY(28px);
+
+  transition:
+    opacity .7s cubic-bezier(.16,1,.3,1),
+    transform .7s cubic-bezier(.16,1,.3,1);
+}
+
+section.active .logo-grid > *,
+section.active .factory-grid > *,
+section.active .compliance-grid > *,
+section.active .process-grid > *,
+section.active .products-grid > *,
+section.active .blog-grid > *{
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+section.active
+.process-grid > *:nth-child(2),
+section.active
+.products-grid > *:nth-child(2),
+section.active
+.factory-grid > *:nth-child(2){
+  transition-delay:.07s;
+}
+
+section.active
+.process-grid > *:nth-child(3),
+section.active
+.products-grid > *:nth-child(3),
+section.active
+.factory-grid > *:nth-child(3){
+  transition-delay:.14s;
+}
+
+section.active
+.process-grid > *:nth-child(4),
+section.active
+.products-grid > *:nth-child(4),
+section.active
+.factory-grid > *:nth-child(4){
+  transition-delay:.21s;
+}
+
+section.active
+.process-grid > *:nth-child(5),
+section.active
+.products-grid > *:nth-child(5),
+section.active
+.factory-grid > *:nth-child(5){
+  transition-delay:.28s;
+}
+
+section.active
+.process-grid > *:nth-child(6){
+  transition-delay:.35s;
+}
+
+
+/* =========================================================
+   OUR STORY
+========================================================= */
+
+.story-section{
+  min-height:100svh;
+
+  padding:
+    78px 0 24px;
+
+  overflow:hidden;
+}
+
+.story-paper{
+  position:relative;
+
+  width:
+    min(1760px,96%);
+
+  margin:auto;
+
+  padding:
+    clamp(18px,2.4vh,28px)
+    clamp(20px,2vw,34px);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #030303 0%,
+      #151515 48%,
+      #484848 100%
+    );
+
+  box-shadow:
+    0 36px 95px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.story-grid{
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1.25fr)
+    minmax(320px,.75fr);
+
+  gap:
+    clamp(34px,3.6vw,64px);
+
+  align-items:center;
+
+  padding:
+    clamp(34px,4.4vh,52px)
+    clamp(38px,4.4vw,76px);
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      118deg,
+      #f9f5ec 0%,
+      #fffdf8 48%,
+      #f8f3e9 100%
+    );
+
+  box-shadow:
+    0 22px 58px rgba(0,0,0,.24),
+    inset 0 0 70px rgba(118,91,53,.035);
+}
+
+.story-grid::before{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.26'/%3E%3C/svg%3E");
+
+  background-size:180px;
+
+  opacity:.08;
+
+  mix-blend-mode:multiply;
+}
+
+.story-grid::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      103deg,
+      transparent 0 19%,
+      rgba(91,72,48,.025) 19.5%,
+      rgba(255,255,255,.18) 20.1%,
+      transparent 20.8% 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.16),
+      transparent 22%,
+      transparent 82%,
+      rgba(90,68,40,.025)
+    );
+}
+
+.story-grid > *{
+  position:relative;
+
+  z-index:2;
+}
+
+.story-text{
+  max-width:760px;
+}
+
+.story-title{
+  position:relative;
+
+  margin-bottom:
+    clamp(25px,3.2vh,38px);
+
+  font-family:
+    var(--font-script);
+
+  font-size:
+    clamp(64px,8vh,84px);
+
+  font-weight:400;
+
+  line-height:.98;
+}
+
+.story-title::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-12px;
+
+  width:70px;
+  height:2px;
+
+  background:#111;
+}
+
+.story-text p{
+  max-width:760px;
+
+  margin-bottom:
+    clamp(6px,.82vh,9px);
+
+  color:#4d4d4d;
+
+  font-family:
+    'Noto Serif ExtraCondensed',
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(15px,2vh,18px);
+
+  line-height:1.52;
+}
+
+
+/* STORY FLOW */
+
+.story-flow{
+  position:relative;
+
+  width:100%;
+
+  max-width:450px;
+
+  justify-self:end;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+
+  padding:
+    clamp(20px,2.8vh,30px)
+    clamp(20px,2vw,28px);
+
+  border:
+    2px solid #111;
+
+  border-radius:17px;
+
+  background:#faf7f2;
+
+  box-shadow:
+    6px 6px 0 #111;
+}
+
+.flow-step{
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:14px;
+}
+
+.flow-badge{
+  flex-shrink:0;
+
+  width:28px;
+
+  height:28px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  border-radius:50%;
+
+  background:#111;
+
+  color:#fff;
+
+  font-size:13px;
+
+  font-weight:700;
+}
+
+.flow-content{
+  flex:1;
+}
+
+.flow-title{
+  margin-bottom:4px;
+
+  color:#111;
+
+  font-family:
+    var(--font-rounded);
+
+  font-size:
+    clamp(16px,2.05vh,19px);
+
+  font-weight:500;
+
+  line-height:1.25;
+}
+
+.flow-desc{
+  color:#555;
+
+  font-family:
+    'Telegraf',
+    var(--font-sans);
+
+  font-size:
+    clamp(13px,1.7vh,15.5px);
+
+  line-height:1.43;
+}
+
+.flow-arrow{
+  display:flex;
+
+  justify-content:center;
+
+  margin:-5px 0;
+}
+
+.flow-arrow svg{
+  width:44px;
+
+  height:28px;
+}
+
+
+/* =========================================================
+   BRAND WALL
+========================================================= */
+
+.logo-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+  gap:
+    34px 42px;
+
+  align-items:center;
+}
+
+#brands .brand-logo-item{
+  gap:10px;
+}
+
+.logo-grid img{
+  width:100%;
+
+  max-width:180px;
+
+  height:52px;
+
+  margin:auto;
+
+  object-fit:contain;
+
+  opacity:.75;
+
+  filter:
+    grayscale(.08);
+
+  transition:
+    transform .4s ease,
+    opacity .4s ease;
+}
+
+.logo-grid img:hover{
+  opacity:1;
+
+  transform:
+    scale(1.07);
+}
+
+#brands .brand-name{
+  min-height:26px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:#4f4f4f;
+
+  font-size:10px;
+
+  font-weight:500;
+
+  line-height:1.3;
+
+  letter-spacing:.8px;
+}
+
+
+/* =========================================================
+   PARTNER FACTORIES
+========================================================= */
+
+#factories,
+#partner-certifications,
+.process-section,
+#products{
+  height:auto;
+
+  min-height:0;
+
+  overflow:visible;
+}
+
+.factory-intro,
+.certificate-intro{
+  max-width:780px;
+
+  margin:
+    -18px auto 42px;
+
+  color:#666;
+
+  font-size:14px;
+
+  line-height:1.8;
+
+  text-align:center;
+}
+
+.factory-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(6,minmax(0,1fr));
+
+  gap:26px;
+}
+
+.factory-card{
+  grid-column:
+    span 2;
+
+  min-width:0;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(17,17,17,.06);
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.92);
+
+  box-shadow:
+    0 14px 38px rgba(0,0,0,.07);
+
+  transition:
+    transform .4s cubic-bezier(.16,1,.3,1),
+    box-shadow .4s ease,
+    border-color .4s ease;
+}
+
+.factory-card:nth-child(4){
+  grid-column:
+    2 / span 2;
+}
+
+.factory-card:nth-child(5){
+  grid-column:
+    4 / span 2;
+}
+
+.factory-card:hover{
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(17,17,17,.12);
+
+  box-shadow:
+    0 26px 60px rgba(0,0,0,.12);
+}
+
+.factory-image{
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:100%;
+
+  aspect-ratio:4 / 3;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ececec,
+      #d8d8d8
+    );
+}
+
+.factory-image::before{
+  content:
+    attr(data-placeholder);
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:24px;
+
+  color:#777;
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  line-height:1.5;
+
+  text-align:center;
+
+  text-transform:uppercase;
+}
+
+.factory-image img{
+  position:relative;
+
+  z-index:1;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+.factory-card:hover
+.factory-image img{
+  transform:
+    scale(1.045);
+}
+
+.factory-copy{
+  padding:
+    24px 24px 27px;
+}
+
+.factory-index{
+  display:block;
+
+  margin-bottom:10px;
+
+  color:#888;
+
+  font-size:10px;
+
+  letter-spacing:2px;
+}
+
+.factory-copy h3{
+  margin-bottom:12px;
+
+  color:#111;
+
+  font-family:
+    'Aperture',
+    var(--font-sans);
+
+  font-size:19px;
+
+  font-weight:500;
+
+  line-height:1.35;
+}
+
+.factory-copy p{
+  color:#626262;
+
+  font-size:13px;
+
+  line-height:1.75;
+}
+
+
+/* =========================================================
+   COMPLIANCE
+========================================================= */
+
+#partner-certifications{
+  padding-top:0;
+}
+
+.certification-note{
+  max-width:900px;
+
+  margin:
+    -14px auto 34px;
+
+  padding:
+    17px 20px;
+
+  border:
+    1px solid rgba(17,17,17,.08);
+
+  border-radius:14px;
+
+  background:
+    rgba(255,255,255,.62);
+
+  color:#555;
+
+  font-size:12px;
+
+  line-height:1.75;
+
+  text-align:center;
+}
+
+.certification-note strong{
+  color:#111;
+}
+
+.compliance-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:20px;
+}
+
+.compliance-card{
+  position:relative;
+
+  overflow:hidden;
+
+  min-width:0;
+
+  padding:
+    30px 28px 28px;
+
+  border:
+    1px solid rgba(17,17,17,.07);
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(245,245,245,.88)
+    );
+
+  box-shadow:
+    0 12px 34px rgba(0,0,0,.06);
+
+  transition:
+    transform .35s cubic-bezier(.16,1,.3,1),
+    box-shadow .35s ease;
+}
+
+.compliance-card::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #222,
+      #a3a3a3,
+      #efefef
+    );
+}
+
+.compliance-card:hover{
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 22px 48px rgba(0,0,0,.11);
+}
+
+.compliance-mark{
+  width:70px;
+
+  height:70px;
+
+  margin-bottom:25px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1b1b1b,
+      #555
+    );
+
+  color:#fff;
+
+  font-family:
+    'Aperture',
+    var(--font-sans);
+
+  font-size:18px;
+
+  letter-spacing:1.4px;
+
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.14);
+}
+
+.compliance-type{
+  display:block;
+
+  margin-bottom:9px;
+
+  color:#8a8a8a;
+
+  font-size:9px;
+
+  letter-spacing:1.75px;
+
+  text-transform:uppercase;
+}
+
+.compliance-card h3{
+  margin-bottom:12px;
+
+  color:#222;
+
+  font-family:
+    'Aperture',
+    var(--font-sans);
+
+  font-size:19px;
+
+  font-weight:500;
+
+  line-height:1.4;
+}
+
+.compliance-card p{
+  color:#626262;
+
+  font-size:12px;
+
+  line-height:1.75;
+}
+
+.certificate-footnote{
+  margin:
+    26px auto 0;
+
+  color:#777;
+
+  font-size:11px;
+
+  line-height:1.6;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-section{
+  padding:
+    clamp(60px,7vh,90px) 0;
+}
+
+.process-section
+.section-inner{
+  padding:
+    clamp(44px,5vw,68px)
+    clamp(36px,4.4vw,60px);
+}
+
+.process-heading{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  gap:50px;
+
+  margin-bottom:44px;
+}
+
+.process-heading > div{
+  flex-shrink:0;
+}
+
+.process-eyebrow{
+  display:block;
+
+  margin-bottom:10px;
+
+  color:#858585;
+
+  font-size:10px;
+
+  font-weight:600;
+
+  letter-spacing:2.8px;
+}
+
+.process-heading h2{
+  margin:0;
+
+  color:#111;
+
+  font-family:
+    'Aperture',
+    var(--font-sans);
+
+  font-size:32px;
+
+  font-weight:500;
+
+  letter-spacing:1.2px;
+}
+
+.process-heading > p{
+  max-width:540px;
+
+  color:#606060;
+
+  font-size:14px;
+
+  line-height:1.72;
+}
+
+
+/* 3 x 2 layout on desktop */
+
+.process-grid{
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:
+    24px;
+
+  align-items:stretch;
+}
+
+.process-card{
+  position:relative;
+
+  z-index:1;
+
+  overflow:hidden;
+
+  min-width:0;
+
+  border:
+    1px solid rgba(17,17,17,.065);
+
+  border-radius:20px;
+
+  background:#fbfaf7;
+
+  box-shadow:
+    0 12px 32px rgba(0,0,0,.055);
+
+  transition:
+    transform .4s cubic-bezier(.16,1,.3,1),
+    box-shadow .4s ease,
+    border-color .4s ease;
+}
+
+.process-card:hover{
+  transform:
+    translateY(-7px);
+
+  border-color:
+    rgba(17,17,17,.13);
+
+  box-shadow:
+    0 24px 52px rgba(0,0,0,.11);
+}
+
+.process-image{
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:4 / 3;
+
+  overflow:hidden;
+
+  background:#eee;
+}
+
+.process-image img{
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  transition:
+    transform .7s cubic-bezier(.16,1,.3,1);
+}
+
+.process-card:hover
+.process-image img{
+  transform:
+    scale(1.035);
+}
+
+.process-number{
+  position:absolute;
+
+  top:14px;
+
+  left:14px;
+
+  z-index:4;
+
+  width:40px;
+
+  height:40px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  border:
+    1px solid rgba(255,255,255,.28);
+
+  border-radius:50%;
+
+  background:
+    rgba(14,14,14,.88);
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  color:#fff;
+
+  font-size:11px;
+
+  font-weight:600;
+
+  letter-spacing:1px;
+
+  box-shadow:
+    0 5px 14px rgba(0,0,0,.18);
+}
+
+.process-copy{
+  padding:
+    22px 22px 26px;
+}
+
+.process-copy h3{
+  margin-bottom:10px;
+
+  color:#111;
+
+  font-family:
+    'Aperture',
+    var(--font-sans);
+
+  font-size:
+    clamp(17px,1.5vw,20px);
+
+  font-weight:500;
+
+  line-height:1.35;
+}
+
+.process-copy p{
+  color:#666;
+
+  font-family:
+    'Telegraf',
+    var(--font-sans);
+
+  font-size:12px;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   NEGOTIATION DOUBLE IMAGE
+========================================================= */
+
+.process-image.dual-image{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:2px;
+
+  background:#ddd;
+}
+
+.process-image.dual-image
+.dual-photo{
+  position:relative;
+
+  overflow:hidden;
+
+  min-width:0;
+}
+
+.process-image.dual-image
+.dual-photo:first-child::after{
+  content:"CUSTOMER";
+
+  position:absolute;
+
+  bottom:12px;
+
+  left:12px;
+
+  z-index:2;
+
+  padding:
+    6px 9px;
+
+  border-radius:7px;
+
+  background:
+    rgba(0,0,0,.70);
+
+  color:#fff;
+
+  font-size:8px;
+
+  font-weight:600;
+
+  letter-spacing:1.3px;
+}
+
+.process-image.dual-image
+.dual-photo:last-child::after{
+  content:"SUPPLIER";
+
+  position:absolute;
+
+  bottom:12px;
+
+  left:12px;
+
+  z-index:2;
+
+  padding:
+    6px 9px;
+
+  border-radius:7px;
+
+  background:
+    rgba(0,0,0,.70);
+
+  color:#fff;
+
+  font-size:8px;
+
+  font-weight:600;
+
+  letter-spacing:1.3px;
+}
+
+.process-image.dual-image img{
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+#products{
+  padding:
+    clamp(60px,7vh,90px) 0;
+}
+
+.products-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(6,minmax(0,1fr));
+
+  gap:
+    clamp(18px,2vw,28px);
+}
+
+.product{
+  grid-column:
+    span 2;
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-width:0;
+
+  overflow:hidden;
+
+  padding:18px;
+
+  border:
+    1px solid rgba(0,0,0,.05);
+
+  border-radius:22px;
+
+  background:#fff;
+
+  color:#111;
+
+  text-decoration:none;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.05);
+
+  transition:
+    transform .45s cubic-bezier(.16,1,.3,1),
+    box-shadow .45s ease;
+}
+
+.product:nth-child(4){
+  grid-column:
+    2 / span 2;
+}
+
+.product:nth-child(5){
+  grid-column:
+    4 / span 2;
+}
+
+.product:hover{
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 28px 64px rgba(0,0,0,.12);
+}
+
+.img-box{
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:4 / 3;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  overflow:hidden;
+
+  margin-bottom:20px;
+
+  border-radius:18px;
+
+  background:#f5f5f5;
+}
+
+.img-box::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.28),
+      transparent
+    );
+}
+
+.img-box img{
+  width:100%;
+
+  height:100%;
+
+  object-fit:contain;
+
+  object-position:center;
+
+  opacity:1;
+
+  visibility:visible;
+}
+
+.img-box.image-missing::before{
+  content:
+    "Product image file not found";
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:3;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:20px;
+
+  color:#777;
+
+  font-size:12px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7f7f7,
+      #ececec
+    );
+}
+
+.product-info{
+  margin-top:auto;
+
+  text-align:center;
+}
+
+.product-info h3{
+  min-height:23px;
+
+  margin-top:8px;
+
+  font-size:16px;
+
+  letter-spacing:1px;
+}
+
+.product-info p{
+  min-height:36px;
+
+  margin-top:8px;
+
+  color:#666;
+
+  font-family:
+    'Telegraf',
+    var(--font-sans);
+
+  font-size:12px;
+
+  line-height:1.5;
+}
+
+
+/* =========================================================
+   BLOG
+========================================================= */
+
+.blog-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:28px;
+}
+
+.blog-card{
+  height:260px;
+
+  padding:35px;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  border-radius:22px;
+
+  background:#fbfaf6;
+
+  color:#111;
+
+  font-size:28px;
+
+  font-weight:500;
+
+  line-height:1.4;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.05);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease;
+}
+
+.blog-card:hover{
+  transform:
+    translateY(-10px);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+#contact
+.section-inner{
+  position:relative;
+
+  overflow:hidden;
+}
+
+.contact-heading{
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:space-between;
+
+  gap:24px;
+
+  margin-bottom:30px;
+}
+
+.contact-kicker{
+  max-width:520px;
+
+  color:#5f5f5f;
+
+  font-size:14px;
+
+  line-height:1.75;
+}
+
+.contact-layout{
+  display:grid;
+
+  grid-template-columns:
+    minmax(240px,.72fr)
+    minmax(0,1.28fr);
+
+  gap:28px;
+}
+
+.contact-panel,
+.inquiry-form{
+  border:
+    1px solid rgba(17,17,17,.08);
+
+  border-radius:22px;
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.06);
+}
+
+.contact-panel{
+  padding:30px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,17,17,.96),
+      rgba(55,55,55,.93)
+    );
+
+  color:#fff;
+}
+
+.contact-panel-label{
+  margin-bottom:14px;
+
+  color:
+    rgba(255,255,255,.58);
+
+  font-size:11px;
+
+  letter-spacing:2.4px;
+
+  text-transform:uppercase;
+}
+
+.contact-panel h3{
+  max-width:320px;
+
+  margin-bottom:18px;
+
+  font-size:28px;
+
+  font-weight:500;
+
+  line-height:1.18;
+}
+
+.contact-panel p{
+  color:
+    rgba(255,255,255,.72);
+
+  font-size:13px;
+
+  line-height:1.7;
+}
+
+.contact-details{
+  display:grid;
+
+  gap:14px;
+
+  margin-top:34px;
+}
+
+.contact-detail{
+  padding-top:14px;
+
+  border-top:
+    1px solid rgba(255,255,255,.14);
+}
+
+.contact-detail span{
+  display:block;
+
+  margin-bottom:5px;
+
+  color:
+    rgba(255,255,255,.48);
+
+  font-size:10px;
+
+  letter-spacing:1.6px;
+
+  text-transform:uppercase;
+}
+
+.contact-detail a,
+.contact-detail strong{
+  color:#fff;
+
+  font-size:14px;
+
+  font-weight:500;
+
+  text-decoration:none;
+
+  overflow-wrap:anywhere;
+}
+
+.inquiry-form{
+  position:relative;
+
+  padding:28px;
+
+  display:grid;
+
+  gap:18px;
+
+  background:
+    rgba(255,255,255,.88);
+}
+
+.form-row{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:16px;
+}
+
+.form-field{
+  display:grid;
+
+  gap:8px;
+}
+
+.form-field label{
+  color:#303030;
+
+  font-size:12px;
+
+  font-weight:600;
+}
+
+.form-field label span{
+  color:#b00000;
+}
+
+#contact input,
+#contact select,
+#contact textarea{
+  width:100%;
+
+  min-width:0;
+
+  border:
+    1px solid #dedede;
+
+  border-radius:13px;
+
+  background:#fff;
+
+  color:#111;
+
+  font-family:inherit;
+
+  font-size:14px;
+
+  outline:none;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+#contact input,
+#contact select{
+  min-height:50px;
+
+  padding:
+    13px 15px;
+}
+
+#contact textarea{
+  min-height:128px;
+
+  padding:
+    14px 15px;
+
+  resize:vertical;
+}
+
+#contact input:focus,
+#contact select:focus,
+#contact textarea:focus{
+  border-color:#111;
+
+  box-shadow:
+    0 0 0 4px rgba(17,17,17,.075);
+}
+
+.inquiry-actions{
+  display:flex;
+
+  align-items:center;
+
+  gap:16px;
+
+  flex-wrap:wrap;
+}
+
+.inquiry-submit{
+  position:relative;
+
+  min-width:178px;
+
+  min-height:52px;
+
+  padding:
+    15px 26px;
+
+  border:0;
+
+  border-radius:14px;
+
+  background:#111;
+
+  color:#fff;
+
+  cursor:pointer;
+
+  font-size:13px;
+
+  font-weight:600;
+
+  letter-spacing:1.1px;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    opacity .25s ease;
+}
+
+.inquiry-submit:hover{
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 26px rgba(0,0,0,.18);
+}
+
+.inquiry-submit:disabled{
+  cursor:wait;
+
+  opacity:.68;
+}
+
+.inquiry-submit.is-loading
+.button-label{
+  opacity:0;
+}
+
+.inquiry-submit.is-loading::after{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:50%;
+
+  width:18px;
+
+  height:18px;
+
+  margin:
+    -10px 0 0 -10px;
+
+  border:
+    2px solid rgba(255,255,255,.35);
+
+  border-top-color:#fff;
+
+  border-radius:50%;
+
+  animation:
+    inquirySpin .75s linear infinite;
+}
+
+@keyframes inquirySpin{
+  to{
+    transform:
+      rotate(360deg);
+  }
+}
+
+.form-status{
+  display:none;
+
+  flex:
+    1 1 260px;
+
+  min-height:48px;
+
+  padding:
+    12px 14px;
+
+  border-radius:12px;
+
+  font-size:13px;
+
+  line-height:1.55;
+}
+
+.form-status.is-visible{
+  display:block;
+}
+
+.form-status.is-success{
+  border:
+    1px solid #cbe8d2;
+
+  background:#edf8f0;
+
+  color:#176b31;
+}
+
+.form-status.is-error{
+  border:
+    1px solid #f0cece;
+
+  background:#fff1f1;
+
+  color:#9b2020;
+}
+
+.form-note{
+  color:#777;
+
+  font-size:11px;
+
+  line-height:1.55;
+}
+
+.honeypot-field{
+  position:absolute !important;
+
+  left:-9999px !important;
+
+  width:1px !important;
+
+  height:1px !important;
+
+  overflow:hidden !important;
+}
+
+.contact-fallback{
+  margin-top:14px;
+
+  color:#666;
+
+  font-size:13px;
+
+  line-height:1.6;
+}
+
+.contact-fallback a{
+  color:#111;
+
+  font-weight:600;
+
+  text-underline-offset:3px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  padding:50px;
+
+  color:#666;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+  .story-section{
+    min-height:0;
+
+    padding:
+      90px 16px 44px;
+  }
+
+  .story-paper{
+    width:
+      min(780px,100%);
+
+    padding:12px;
+
+    border-radius:20px;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+
+    gap:32px;
+
+    padding:
+      36px 28px;
+
+    border-radius:14px;
+  }
+
+  .story-text{
+    max-width:none;
+  }
+
+  .story-text p{
+    max-width:none;
+  }
+
+  .story-flow{
+    max-width:none;
+
+    justify-self:stretch;
+  }
+
+
+  .factory-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  .factory-card,
+  .factory-card:nth-child(4),
+  .factory-card:nth-child(5){
+    grid-column:auto;
+  }
+
+  .factory-card:last-child{
+    grid-column:
+      1 / -1;
+
+    width:
+      calc(50% - 13px);
+
+    justify-self:center;
+  }
+
+
+  .compliance-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  .compliance-card:last-child{
+    grid-column:
+      1 / -1;
+
+    width:
+      calc(50% - 10px);
+
+    justify-self:center;
+  }
+
+
+  .process-heading{
+    align-items:flex-start;
+
+    flex-direction:column;
+
+    gap:15px;
+  }
+
+  .process-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+
+  .products-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  .product,
+  .product:nth-child(4),
+  .product:nth-child(5){
+    grid-column:auto;
+  }
+
+  .product:last-child{
+    grid-column:
+      1 / -1;
+
+    width:
+      calc(50% - 14px);
+
+    justify-self:center;
+  }
+
+}
+
+
+@media(max-width:900px){
+
+  .section-inner{
+    padding:
+      54px 36px;
+  }
+
+  .logo-grid{
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+  }
+
+  .blog-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+
+  .hero .brand-area{
+    width:
+      min(820px,92%);
+  }
+
+  .hero .floating-logos{
+    display:grid;
+
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+
+    column-gap:26px;
+
+    row-gap:16px;
+  }
+
+  .hero
+  .floating-logos
+  .brand-logo-item{
+    width:100%;
+
+    max-width:138px;
+
+    justify-self:center;
+  }
+
+  .hero
+  .floating-logos img{
+    max-width:138px;
+
+    height:46px;
+  }
+
+
+  .contact-heading{
+    display:block;
+  }
+
+  .contact-kicker{
+    margin-top:12px;
+  }
+
+  .contact-layout{
+    grid-template-columns:1fr;
+  }
+
+  .contact-panel{
+    min-height:300px;
+  }
+
+}
+
+
+@media(max-width:700px){
+
+  body::before{
+    display:none;
+  }
+
+  section{
+    padding:
+      58px 16px;
+  }
+
+  .section-inner{
+    width:100%;
+
+    padding:
+      44px 24px;
+
+    border-radius:22px;
+  }
+
+
+  .nav{
+    gap:8px;
+
+    padding:
+      12px 12px;
+  }
+
+  .logo{
+    font-size:13px;
+
+    letter-spacing:2.5px;
+  }
+
+  .nav-links{
+    gap:7px;
+  }
+
+  .nav a{
+    font-size:8px;
+
+    letter-spacing:.55px;
+
+    white-space:nowrap;
+  }
+
+
+  .hero{
+    min-height:720px;
+  }
+
+  .hero-content{
+    top:40%;
+  }
+
+  .hero-title{
+    font-size:42px;
+
+    letter-spacing:4px;
+  }
+
+  .hero-sub{
+    font-size:15px;
+  }
+
+  .hero-sub.small{
+    font-size:11px;
+  }
+
+  .hero .brand-area{
+    bottom:24px;
+  }
+
+  .hero .brand-title{
+    margin-bottom:12px;
+
+    font-size:9px;
+
+    letter-spacing:2.2px;
+  }
+
+  .hero .floating-logos{
+    column-gap:18px;
+
+    row-gap:12px;
+  }
+
+  .hero
+  .floating-logos
+  .brand-logo-item{
+    max-width:112px;
+
+    gap:6px;
+  }
+
+  .hero
+  .floating-logos img{
+    max-width:112px;
+
+    height:38px;
+  }
+
+  .hero .brand-name{
+    max-width:112px;
+
+    font-size:7.5px;
+
+    letter-spacing:.5px;
+  }
+
+
+  .story-section{
+    padding:
+      94px 14px 42px;
+  }
+
+  .story-grid{
+    padding:
+      32px 24px;
+  }
+
+  .story-title{
+    font-size:
+      clamp(48px,12vw,66px);
+  }
+
+  .story-text p{
+    font-size:15px;
+
+    line-height:1.62;
+  }
+
+
+  .logo-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:
+      26px 22px;
+  }
+
+
+  .factory-grid,
+  .compliance-grid,
+  .process-grid,
+  .products-grid,
+  .blog-grid{
+    grid-template-columns:1fr;
+  }
+
+  .factory-card:last-child,
+  .compliance-card:last-child,
+  .product:last-child{
+    grid-column:auto;
+
+    width:100%;
+  }
+
+
+  .process-heading{
+    margin-bottom:30px;
+  }
+
+  .process-heading h2{
+    font-size:28px;
+  }
+
+
+  .process-image.dual-image{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+
+  .blog-card{
+    height:200px;
+
+    font-size:23px;
+  }
+
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .contact-panel,
+  .inquiry-form{
+    padding:22px;
+
+    border-radius:18px;
+  }
+
+  .contact-heading{
+    margin-bottom:22px;
+  }
+
+  .inquiry-actions{
+    align-items:stretch;
+  }
+
+  .inquiry-submit{
+    width:100%;
+  }
+
+  .form-status{
+    flex-basis:100%;
+  }
+
+  .contact-fallback{
+    text-align:center;
+  }
+
+}
+
+
+@media(max-width:520px){
+
+  .nav{
+    flex-direction:column;
+
+    align-items:stretch;
+
+    gap:7px;
+
+    padding:
+      9px 12px 10px;
+  }
+
+  .logo{
+    align-self:flex-start;
+
+    font-size:12px;
+
+    letter-spacing:2.5px;
+  }
+
+  .nav-links{
+    width:100%;
+
+    justify-content:space-between;
+
+    gap:3px;
+  }
+
+  .nav a{
+    font-size:7.5px;
+
+    letter-spacing:.32px;
+  }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    transition-duration:.01ms !important;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="scroll-bar"></div>
+
+
+<!-- =======================================================
+     NAV
+======================================================= -->
+
+<div class="nav">
+
+  <div class="logo">
+    REALLYOU
+  </div>
+
+
+  <div class="nav-links">
+
+    <a href="#about">
+      ABOUT
+    </a>
+
+    <a href="#factories">
+      FACTORIES
+    </a>
+
+    <a href="#process">
+      PROCESS
+    </a>
+
+    <a href="#products">
+      PRODUCTS
+    </a>
+
+    <a href="#blog">
+      BLOG
+    </a>
+
+    <a href="#contact">
+      CONTACT
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <h1 class="hero-title">
+      QUANZHOU REALLYOU
+    </h1>
+
+    <p class="hero-sub">
+      Professional Footwear Manufacturing & Global Sourcing Partner
+    </p>
+
+    <p class="hero-sub small">
+      OEM / ODM Development · China & Bangladesh Supply Chain · Worldwide Export
+    </p>
+
+  </div>
+
+
+  <div class="brand-area">
+
+    <div class="brand-title">
+      Brands We Have Worked With
+    </div>
+
+
+    <div class="floating-logos">
+
+
+      <figure class="brand-logo-item">
+
+        <img
+          src="images/brands/logo1.webp"
+          alt="Fila logo"
+          decoding="async"
+        />
+
+        <figcaption class="brand-name">
+          Fila
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="brand-logo-item">
+
+        <img
+          src="images/brands/logo2.webp"
+          alt="Lidl logo"
+          decoding="async"
+        />
+
+        <figcaption class="brand-name">
+          Lidl
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="brand-logo-item">
+
+        <img
+          src="images/brands/logo3.webp"
+          alt="Mexx logo"
+          decoding="async"
+        />
+
+        <figcaption class="brand-name">
+          Mexx
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="brand-logo-item">
+
+        <img
+          src="images/brands/logo4.webp"
+          alt="Guess logo"
+          decoding="async"
+        />
+
+        <figcaption class="brand-name">
+          Guess
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="brand-logo-item">
+
+        <img
+          src="images/brands/logo5.webp"
+          alt="Nine West logo"
+          decoding="async"
+        />
+
+        <figcaption class="brand-name">
+          Nine West
+        </figcaption>
+
+      </figure>
+
+
+      <figure class="brand-logo-item">
+
+        <img
+          src="images/brands/logo6.webp"
+          alt="Juicy Couture logo"
+          decoding="async"
+        />
+
+        <figcaption class="brand-name">
+          Juicy Couture
+        </figcaption>
+
+      </figure>
+
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     OUR STORY
+======================================================= -->
+
+<section
+  class="story-section"
+  id="about"
+>
+
+  <div class="story-paper">
+
+    <div class="story-grid">
+
+
+      <div class="story-text">
+
+        <h2 class="story-title">
+          Our Story
+        </h2>
+
+        <p>
+          Quanzhou Reallyou Import & Export Co., Ltd. is a China-based footwear sourcing and manufacturing team specializing in OEM & ODM development for global brands.
+        </p>
+
+        <p>
+          I believe every company has its history... So how was our company built?
+        </p>
+
+        <p>
+          Initially, our founder worked across every stage of footwear manufacturing and mastered every process. In her 30s, she had already become an expert in footwear production. She is a typical Chinese power woman — highly responsible, detail-oriented and extremely strict about quality.
+        </p>
+
+        <p>
+          Later, she brought together a group of professional friends from the footwear industry and founded Reallyou over six years ago. Since then, we have worked with many international brands. While doing our best to provide excellent service, we have continued to grow together with our customers.
+        </p>
+
+        <p>
+          Of course, we faced many challenges along the way, but we overcame every one of them and always delivered satisfying results for our clients.
+        </p>
+
+        <p>
+          So, please trust us. We are a responsible, efficient and sincere team that is ready to help your business grow.
+        </p>
+
+      </div>
+
+
+      <div class="story-flow">
+
+
+        <div class="flow-step">
+
+          <div class="flow-badge">
+            1
+          </div>
+
+          <div class="flow-content">
+
+            <div class="flow-title">
+              Master Process
+            </div>
+
+            <div class="flow-desc">
+              Deep factory practice and technical expertise.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            viewBox="0 0 100 40"
+          >
+
+            <path
+              d="M 50 5 Q 75 18 50 25 Q 35 32 50 38"
+              stroke-dasharray="3 3"
+            ></path>
+
+            <path
+              d="M 46 33 L 50 38 L 54 33"
+            ></path>
+
+          </svg>
+
+        </div>
+
+
+        <div class="flow-step">
+
+          <div class="flow-badge">
+            2
+          </div>
+
+          <div class="flow-content">
+
+            <div class="flow-title">
+              Build Reallyou
+            </div>
+
+            <div class="flow-desc">
+              A professional team established with experienced footwear specialists.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            viewBox="0 0 100 40"
+          >
+
+            <path
+              d="M 50 5 Q 25 18 50 25 Q 75 32 50 38"
+              stroke-dasharray="3 3"
+            ></path>
+
+            <path
+              d="M 46 33 L 50 38 L 54 33"
+            ></path>
+
+          </svg>
+
+        </div>
+
+
+        <div class="flow-step">
+
+          <div class="flow-badge">
+            3
+          </div>
+
+          <div class="flow-content">
+
+            <div class="flow-title">
+              Global Partner
+            </div>
+
+            <div class="flow-desc">
+              Long-term cooperation experience with international customers and brands.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            viewBox="0 0 100 40"
+          >
+
+            <path
+              d="M 50 5 Q 75 18 50 25 Q 35 32 50 38"
+              stroke-dasharray="3 3"
+            ></path>
+
+            <path
+              d="M 46 33 L 50 38 L 54 33"
+            ></path>
+
+          </svg>
+
+        </div>
+
+
+        <div class="flow-step">
+
+          <div class="flow-badge">
+            4
+          </div>
+
+          <div class="flow-content">
+
+            <div class="flow-title">
+              Growing Business
+            </div>
+
+            <div class="flow-desc">
+              Reliable service and product development support drive mutual growth.
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     BRANDS
+======================================================= -->
+
+<section id="brands">
+
+  <div class="section-inner">
+
+    <h2>
+      Brands & Cooperation Experience
+    </h2>
+
+
+    <div class="logo-grid">
+
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo7.webp" alt="Kangaroos logo" loading="lazy"/>
+        <figcaption class="brand-name">Kangaroos</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo8.webp" alt="Ducati logo" loading="lazy"/>
+        <figcaption class="brand-name">Ducati</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo9.webp" alt="Roxy logo" loading="lazy"/>
+        <figcaption class="brand-name">Roxy</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo10.webp" alt="Jackson logo" loading="lazy"/>
+        <figcaption class="brand-name">Jackson</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo11.webp" alt="U.S. POLO ASSN. logo" loading="lazy"/>
+        <figcaption class="brand-name">U.S. POLO ASSN.</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo12.webp" alt="Pantofola d'Oro logo" loading="lazy"/>
+        <figcaption class="brand-name">Pantofola d'Oro</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo13.webp" alt="Gaelle logo" loading="lazy"/>
+        <figcaption class="brand-name">Gaelle</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo14.webp" alt="Altınyıldız Classics logo" loading="lazy"/>
+        <figcaption class="brand-name">Altınyıldız Classics</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo15.webp" alt="Tonino Lamborghini logo" loading="lazy"/>
+        <figcaption class="brand-name">Tonino Lamborghini</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo16.webp" alt="Leaf logo" loading="lazy"/>
+        <figcaption class="brand-name">Leaf</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo17.webp" alt="NAUTICA logo" loading="lazy"/>
+        <figcaption class="brand-name">NAUTICA</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo18.webp" alt="McGregor logo" loading="lazy"/>
+        <figcaption class="brand-name">McGregor</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo19.webp" alt="Norway Originals logo" loading="lazy"/>
+        <figcaption class="brand-name">Norway Originals</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo20.webp" alt="Australian logo" loading="lazy"/>
+        <figcaption class="brand-name">Australian</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo21.webp" alt="Goodyear logo" loading="lazy"/>
+        <figcaption class="brand-name">Goodyear</figcaption>
+      </figure>
+
+      <figure class="brand-logo-item">
+        <img src="images/brands/logo22.webp" alt="Sprint logo" loading="lazy"/>
+        <figcaption class="brand-name">Sprint</figcaption>
+      </figure>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     FACTORIES
+======================================================= -->
+
+<section id="factories">
+
+  <div class="section-inner">
+
+    <h2>
+      Partner Factories
+    </h2>
+
+
+    <p class="factory-intro">
+      Our specialized manufacturing network helps us match each program with the right process, location and production capacity. Reallyou coordinates development, production follow-up and quality control across the network.
+    </p>
+
+
+    <div class="factory-grid">
+
+
+      <article class="factory-card">
+
+        <div
+          class="factory-image"
+          data-placeholder="Factory image · Cemented footwear"
+        >
+
+          <img
+            src="images/factories/cemented.webp"
+            alt="Selected cemented shoes manufacturing partner"
+            loading="lazy"
+          />
+
+        </div>
+
+        <div class="factory-copy">
+
+          <span class="factory-index">
+            01 · CEMENTED CONSTRUCTION
+          </span>
+
+          <h3>
+            Cemented Shoes Factories in China & Bangladesh
+          </h3>
+
+          <p>
+            Flexible sourcing across China and Bangladesh for sports, casual, fashion and outdoor programs, selected according to construction, target price, order volume and lead time.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="factory-card">
+
+        <div
+          class="factory-image"
+          data-placeholder="Factory image · Injection footwear"
+        >
+
+          <img
+            src="images/factories/injection.webp"
+            alt="Selected injection shoes manufacturing partner"
+            loading="lazy"
+          />
+
+        </div>
+
+        <div class="factory-copy">
+
+          <span class="factory-index">
+            02 · INJECTION MOLDING
+          </span>
+
+          <h3>
+            Injection Shoes Factories
+          </h3>
+
+          <p>
+            Specialized partners for direct-injection and molded constructions, supporting durable and efficient production for casual, work and functional footwear.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="factory-card">
+
+        <div
+          class="factory-image"
+          data-placeholder="Factory image · EVA slippers"
+        >
+
+          <img
+            src="images/factories/eva.webp"
+            alt="Selected EVA slippers manufacturing partner"
+            loading="lazy"
+          />
+
+        </div>
+
+        <div class="factory-copy">
+
+          <span class="factory-index">
+            03 · EVA MOLDING
+          </span>
+
+          <h3>
+            EVA Slippers Factories
+          </h3>
+
+          <p>
+            Dedicated EVA molding resources for lightweight slippers, slides and sandals, with support for compound selection, color development, tooling and logo details.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="factory-card">
+
+        <div
+          class="factory-image"
+          data-placeholder="Factory image · Jelly shoes"
+        >
+
+          <img
+            src="images/factories/jelly.webp"
+            alt="Selected jelly shoes manufacturing partner"
+            loading="lazy"
+          />
+
+        </div>
+
+        <div class="factory-copy">
+
+          <span class="factory-index">
+            04 · PVC / JELLY MOLDING
+          </span>
+
+          <h3>
+            Jelly Shoes Factories
+          </h3>
+
+          <p>
+            Experienced PVC and jelly footwear partners for transparent, colored and fashion-led styles, with careful control of molding, finish and appearance.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="factory-card">
+
+        <div
+          class="factory-image"
+          data-placeholder="Factory image · Bags and accessories"
+        >
+
+          <img
+            src="images/factories/bags.webp"
+            alt="Selected bags manufacturing partner"
+            loading="lazy"
+          />
+
+        </div>
+
+        <div class="factory-copy">
+
+          <span class="factory-index">
+            05 · BAGS & ACCESSORIES
+          </span>
+
+          <h3>
+            Bags Factories
+          </h3>
+
+          <p>
+            Selected bag-making partners for coordinated backpacks, travel bags and accessories, giving buyers a practical option for cross-category sourcing.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     COMPLIANCE
+======================================================= -->
+
+<section id="partner-certifications">
+
+  <div class="section-inner">
+
+    <h2>
+      Compliance Across Our Manufacturing Network
+    </h2>
+
+
+    <p class="certificate-intro">
+      Selected partner factories maintain social compliance audits, management-system certifications and destination-market approvals relevant to different production programs.
+    </p>
+
+
+    <div class="certification-note">
+
+      <strong>
+        Partner-factory credentials:
+      </strong>
+
+      All audits, certifications and licences referenced below are held by selected partner factories / manufacturing partners, not by Quanzhou Reallyou Import & Export Co., Ltd. Availability, product scope and validity vary by facility.
+
+    </div>
+
+
+    <div class="compliance-grid">
+
+
+      <article class="compliance-card">
+
+        <div class="compliance-mark">
+          BSCI
+        </div>
+
+        <span class="compliance-type">
+          Social compliance
+        </span>
+
+        <h3>
+          amfori BSCI Social Audit
+        </h3>
+
+        <p>
+          Available through selected manufacturing partners. Current monitoring status and audit details are confirmed for the proposed production facility when required.
+        </p>
+
+      </article>
+
+
+      <article class="compliance-card">
+
+        <div class="compliance-mark">
+          ISO
+        </div>
+
+        <span class="compliance-type">
+          Management system
+        </span>
+
+        <h3>
+          EACC-Issued Management System Certification
+        </h3>
+
+        <p>
+          EACC is the issuing certification body. The applicable ISO standard, certified scope and current validity are verified against each selected partner factory's supporting document.
+        </p>
+
+      </article>
+
+
+      <article class="compliance-card">
+
+        <div class="compliance-mark">
+          BIS
+        </div>
+
+        <span class="compliance-type">
+          India market access
+        </span>
+
+        <h3>
+          BIS Licensed Manufacturing
+        </h3>
+
+        <p>
+          Available through selected Bangladesh manufacturing partners for specific footwear categories supplied to India.
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+    <p class="certificate-footnote">
+      Full documentation is available on request, subject to current validity and partner-factory authorization.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROCESS
+======================================================= -->
+
+<section
+  class="process-section"
+  id="process"
+>
+
+  <div class="section-inner">
+
+
+    <div class="process-heading">
+
+      <div>
+
+        <span class="process-eyebrow">
+          HOW WE WORK
+        </span>
+
+        <h2>
+          From Idea to Delivery
+        </h2>
+
+      </div>
+
+
+      <p>
+        We connect buyers, materials, factories and production into one coordinated process — from the first discussion to final shipment.
+      </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+      <!-- 01 -->
+
+      <article class="process-card">
+
+        <div class="process-image">
+
+          <img
+            src="images/why/design.webp"
+            alt="Footwear product development"
+            loading="lazy"
+          />
+
+          <span class="process-number">
+            01
+          </span>
+
+        </div>
+
+
+        <div class="process-copy">
+
+          <h3>
+            Product Development
+          </h3>
+
+          <p>
+            We review the design, target customer, construction, expected price range and technical requirements before development begins.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- 02 NEGOTIATION -->
+
+      <article class="process-card">
+
+        <div class="process-image dual-image">
+
+
+          <div class="dual-photo">
+
+            <img
+              src="images/why/customer-meeting.webp"
+              alt="Communication and negotiation with footwear customers"
+              loading="lazy"
+            />
+
+          </div>
+
+
+          <div class="dual-photo">
+
+            <img
+              src="images/why/supplier-meeting.webp"
+              alt="Negotiation with footwear material suppliers"
+              loading="lazy"
+            />
+
+          </div>
+
+
+          <span class="process-number">
+            02
+          </span>
+
+        </div>
+
+
+        <div class="process-copy">
+
+          <h3>
+            Negotiation & Coordination
+          </h3>
+
+          <p>
+            We communicate with customers and negotiate with suppliers on materials, pricing, construction, quantities, lead times and practical production solutions.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- 03 -->
+
+      <article class="process-card">
+
+        <div class="process-image">
+
+          <img
+            src="images/why/material.webp"
+            alt="Footwear material sourcing and sample development"
+            loading="lazy"
+          />
+
+          <span class="process-number">
+            03
+          </span>
+
+        </div>
+
+
+        <div class="process-copy">
+
+          <h3>
+            Material & Sampling
+          </h3>
+
+          <p>
+            Materials, colors and components are sourced and evaluated before prototypes, fitting samples and development revisions are completed.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- 04 -->
+
+      <article class="process-card">
+
+        <div class="process-image">
+
+          <img
+            src="images/why/sample-finished.webp"
+            alt="Footwear pre production sample confirmation"
+            loading="lazy"
+          />
+
+          <span class="process-number">
+            04
+          </span>
+
+        </div>
+
+
+        <div class="process-copy">
+
+          <h3>
+            Pre-Production
+          </h3>
+
+          <p>
+            Fit, materials, colors, workmanship and production specifications are confirmed before bulk manufacturing starts.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- 05 -->
+
+      <article class="process-card">
+
+        <div class="process-image">
+
+          <img
+            src="images/why/qc.webp"
+            alt="Footwear production and quality control"
+            loading="lazy"
+          />
+
+          <span class="process-number">
+            05
+          </span>
+
+        </div>
+
+
+        <div class="process-copy">
+
+          <h3>
+            Production & QC
+          </h3>
+
+          <p>
+            Our team follows production progress and checks critical quality points during manufacturing and before shipment.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- 06 -->
+
+      <article class="process-card">
+
+        <div class="process-image">
+
+          <img
+            src="images/why/container.webp"
+            alt="Footwear packing and international delivery"
+            loading="lazy"
+          />
+
+          <span class="process-number">
+            06
+          </span>
+
+        </div>
+
+
+        <div class="process-copy">
+
+          <h3>
+            Packing & Delivery
+          </h3>
+
+          <p>
+            Final inspection, packing and shipment are coordinated according to your delivery schedule and destination requirements.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     PRODUCTS
+======================================================= -->
+
+<section id="products">
+
+  <div class="section-inner">
+
+    <h2>
+      Product Categories
+    </h2>
+
+
+    <div class="products-grid">
+
+
+      <a class="product" href="sports.html">
+
+        <div class="img-box">
+
+          <img
+            src="./images/sports-cover.webp"
+            alt="Sports shoes category"
+            loading="lazy"
+            width="1600"
+            height="1200"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            SPORTS FOOTWEAR
+          </h3>
+
+          <p>
+            Sneakers · Football Shoes · Basketball Shoes
+          </p>
+
+        </div>
+
+      </a>
+
+
+      <a class="product" href="casual.html">
+
+        <div class="img-box">
+
+          <img
+            src="./images/casual-cover.webp"
+            alt="Casual shoes category"
+            loading="lazy"
+            width="1600"
+            height="1200"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            CASUAL FOOTWEAR
+          </h3>
+
+          <p>
+            Skate · Vulcanized · Slip-on
+          </p>
+
+        </div>
+
+      </a>
+
+
+      <a class="product" href="outdoor.html">
+
+        <div class="img-box">
+
+          <img
+            src="./images/outdoor-cover.webp"
+            alt="Outdoor shoes category"
+            loading="lazy"
+            width="1600"
+            height="1200"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            OUTDOOR FOOTWEAR
+          </h3>
+
+          <p>
+            Water Shoes · Hiking Shoes & Boots · Winter & Snow Boots
+          </p>
+
+        </div>
+
+      </a>
+
+
+      <a class="product" href="sandals.html">
+
+        <div class="img-box">
+
+          <img
+            src="./images/sandals-cover.webp"
+            alt="Sandals category"
+            loading="lazy"
+            width="1600"
+            height="1200"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            SANDALS
+          </h3>
+
+          <p>
+            Sandals · Slippers
+          </p>
+
+        </div>
+
+      </a>
+
+
+      <a class="product" href="kids.html">
+
+        <div class="img-box">
+
+          <img
+            src="./images/kids-cover.webp"
+            alt="Kids footwear category"
+            loading="lazy"
+            width="1600"
+            height="1200"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            KIDS FOOTWEAR
+          </h3>
+
+          <p>
+            Kids Sneakers · School Shoes · Sandals
+          </p>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     BLOG
+======================================================= -->
+
+<section id="blog">
+
+  <div class="section-inner">
+
+    <h2>
+      Insights
+    </h2>
+
+
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        Footwear Sampling Process
+      </div>
+
+      <div class="blog-card">
+        OEM vs ODM Explained
+      </div>
+
+      <div class="blog-card">
+        2026 Sourcing Trends
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section id="contact">
+
+  <div class="section-inner">
+
+
+    <div class="contact-heading">
+
+      <h2>
+        Start Your Footwear Project
+      </h2>
+
+      <p class="contact-kicker">
+        Tell us what you are sourcing. Our team will review your request and reply with the next practical step for development, sampling or quotation.
+      </p>
+
+    </div>
+
+
+    <div class="contact-layout">
+
+
+      <aside class="contact-panel">
+
+        <div>
+
+          <p class="contact-panel-label">
+            OEM / ODM INQUIRY
+          </p>
+
+          <h3>
+            From idea to production-ready footwear.
+          </h3>
+
+          <p>
+            Share your target category, quantity and requirements. Clear project details help us respond faster and more accurately.
+          </p>
+
+        </div>
+
+
+        <div class="contact-details">
+
+
+          <div class="contact-detail">
+
+            <span>
+              Email
+            </span>
+
+            <a href="mailto:sales02@reallyou.cn">
+              sales02@reallyou.cn
+            </a>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <span>
+              Typical response
+            </span>
+
+            <strong>
+              Within 1 business day
+            </strong>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <span>
+              Specialization
+            </span>
+
+            <strong>
+              Sports · Casual · Outdoor · Sandals · Kids
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </aside>
+
+
+      <form
+        id="inquiryForm"
+        class="inquiry-form"
+        action="https://formsubmit.co/sales02@reallyou.cn"
+        method="POST"
+        target="inquirySubmissionFrame"
+        accept-charset="UTF-8"
+      >
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="New footwear inquiry from reallyouglobal.com"
+        />
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        />
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        />
+
+        <input
+          type="hidden"
+          name="_url"
+          value="https://reallyouglobal.com/#contact"
+        />
+
+        <input
+          type="hidden"
+          name="_next"
+          value="https://reallyouglobal.com/?inquiry=sent#contact"
+        />
+
+
+        <div class="honeypot-field">
+
+          <label for="companyWebsite">
+            Website
+          </label>
+
+          <input
+            id="companyWebsite"
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
+        </div>
+
+
+        <div class="form-row">
+
+
+          <div class="form-field">
+
+            <label for="contactName">
+              Contact Name
+              <span>*</span>
+            </label>
+
+            <input
+              id="contactName"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              required
+            />
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="companyName">
+              Company Name
+              <span>*</span>
+            </label>
+
+            <input
+              id="companyName"
+              name="company"
+              type="text"
+              placeholder="Your company"
+              required
+            />
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-row">
+
+
+          <div class="form-field">
+
+            <label for="inquiryEmail">
+              Business Email
+              <span>*</span>
+            </label>
+
+            <input
+              id="inquiryEmail"
+              name="email"
+              type="email"
+              placeholder="name@company.com"
+              required
+            />
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="countryRegion">
+              Country / Region
+            </label>
+
+            <input
+              id="countryRegion"
+              name="country_region"
+              type="text"
+              placeholder="e.g. Germany"
+            />
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-row">
+
+
+          <div class="form-field">
+
+            <label for="productCategory">
+              Product Category
+              <span>*</span>
+            </label>
+
+            <select
+              id="productCategory"
+              name="product_category"
+              required
+            >
+
+              <option value="" selected disabled>
+                Select a category
+              </option>
+
+              <option>
+                Sports Footwear
+              </option>
+
+              <option>
+                Casual Footwear
+              </option>
+
+              <option>
+                Outdoor Footwear
+              </option>
+
+              <option>
+                Sandals & Slippers
+              </option>
+
+              <option>
+                Kids Footwear
+              </option>
+
+              <option>
+                Multiple Categories
+              </option>
+
+              <option>
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="orderQuantity">
+              Estimated Quantity
+            </label>
+
+            <select
+              id="orderQuantity"
+              name="estimated_quantity"
+            >
+
+              <option selected>
+                Not decided yet
+              </option>
+
+              <option>
+                Below 1,000 pairs
+              </option>
+
+              <option>
+                1,000–3,000 pairs
+              </option>
+
+              <option>
+                3,000–10,000 pairs
+              </option>
+
+              <option>
+                10,000+ pairs
+              </option>
+
+            </select>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-field">
+
+          <label for="inquiryMessage">
+            Project Details
+            <span>*</span>
+          </label>
+
+          <textarea
+            id="inquiryMessage"
+            name="message"
+            rows="5"
+            placeholder="Please describe the shoe type, target market, materials, price range, quantity and expected timeline."
+            required
+            minlength="20"
+          ></textarea>
+
+        </div>
+
+
+        <div class="inquiry-actions">
+
+          <button
+            id="inquirySubmit"
+            class="inquiry-submit"
+            type="submit"
+          >
+
+            <span class="button-label">
+              SEND INQUIRY
+            </span>
+
+          </button>
+
+
+          <div
+            id="formStatus"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+        </div>
+
+
+        <p class="form-note">
+          By submitting this form, you agree that REALLYOU may contact you regarding this inquiry. Your information will only be used for business communication.
+        </p>
+
+
+      </form>
+
+
+      <iframe
+        id="inquirySubmissionFrame"
+        name="inquirySubmissionFrame"
+        title="Inquiry submission response"
+        hidden
+      ></iframe>
+
+
+    </div>
+
+
+    <p class="contact-fallback">
+
+      If the form does not complete, email us directly at
+
+      <a href="mailto:sales02@reallyou.cn">
+        sales02@reallyou.cn
+      </a>.
+
+    </p>
+
+
+  </div>
+
+</section>
+
+
+<footer>
+  © 2026 REALLYOU
+</footer>
+
+
+<script>
+
+/* =========================================================
+   NAV + SCROLL PROGRESS
+========================================================= */
+
+const nav =
+  document.querySelector(".nav");
+
+const scrollBar =
+  document.querySelector(".scroll-bar");
+
+
+function updateScrollUI(){
+
+  const scrollTop =
+    window.scrollY ||
+    document.documentElement.scrollTop;
+
+  const scrollable =
+    document.documentElement.scrollHeight -
+    window.innerHeight;
+
+
+  if(nav){
+
+    nav.classList.toggle(
+      "scrolled",
+      scrollTop > 50
+    );
+
+  }
+
+
+  if(scrollBar){
+
+    const progress =
+      scrollable > 0
+      ? (scrollTop / scrollable) * 100
+      : 0;
+
+    scrollBar.style.width =
+      `${progress}%`;
+
+  }
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  updateScrollUI,
+  {passive:true}
+);
+
+window.addEventListener(
+  "resize",
+  updateScrollUI
+);
+
+updateScrollUI();
+
+
+/* =========================================================
+   SECTION REVEAL
+========================================================= */
+
+const sections =
+  document.querySelectorAll("section");
+
+
+if("IntersectionObserver" in window){
+
+  const observer =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if(entry.isIntersecting){
+
+            entry.target.classList.add(
+              "active"
+            );
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold:.1,
+        rootMargin:"0px 0px -10% 0px"
+      }
+
+    );
+
+
+  sections.forEach(section => {
+
+    observer.observe(section);
+
+  });
+
+}else{
+
+  sections.forEach(section => {
+
+    section.classList.add("active");
+
+  });
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const inquiryForm =
+  document.getElementById(
+    "inquiryForm"
+  );
+
+const inquirySubmit =
+  document.getElementById(
+    "inquirySubmit"
+  );
+
+const inquiryFrame =
+  document.getElementById(
+    "inquirySubmissionFrame"
+  );
+
+const formStatus =
+  document.getElementById(
+    "formStatus"
+  );
+
+
+let inquirySubmitting = false;
+
+let inquiryTimeoutId = null;
+
+
+function showFormStatus(
+  message,
+  type
+){
+
+  if(!formStatus){
+    return;
+  }
+
+  formStatus.textContent =
+    message;
+
+  formStatus.className =
+    `form-status is-visible ${
+      type === "success"
+      ? "is-success"
+      : "is-error"
+    }`;
+
+}
+
+
+function setInquiryLoading(
+  isLoading
+){
+
+  if(!inquirySubmit){
+    return;
+  }
+
+  inquirySubmit.disabled =
+    isLoading;
+
+  inquirySubmit.classList.toggle(
+    "is-loading",
+    isLoading
+  );
+
+}
+
+
+if(inquiryForm){
+
+  inquiryForm.addEventListener(
+    "submit",
+    event => {
+
+      if(
+        !inquiryForm.checkValidity()
+      ){
+
+        event.preventDefault();
+
+        inquiryForm.reportValidity();
+
+        return;
+
+      }
+
+
+      inquirySubmitting = true;
+
+      setInquiryLoading(true);
+
+
+      inquiryTimeoutId =
+        window.setTimeout(
+          () => {
+
+            if(!inquirySubmitting){
+              return;
+            }
+
+            inquirySubmitting = false;
+
+            setInquiryLoading(false);
+
+            showFormStatus(
+              "The submission service is taking too long. Please try again or email us directly.",
+              "error"
+            );
+
+          },
+          25000
+        );
+
+    }
+  );
+
+}
+
+
+if(inquiryFrame){
+
+  inquiryFrame.addEventListener(
+    "load",
+    () => {
+
+      if(!inquirySubmitting){
+        return;
+      }
+
+
+      inquirySubmitting = false;
+
+      clearTimeout(
+        inquiryTimeoutId
+      );
+
+      setInquiryLoading(false);
+
+
+      inquiryForm.reset();
+
+
+      showFormStatus(
+        "Thank you. Your inquiry has been submitted. We will reply within 1 business day.",
+        "success"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   QUERY CONFIRMATION
+========================================================= */
+
+const inquiryQuery =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+if(
+  inquiryQuery.get("inquiry") ===
+  "sent"
+){
+
+  showFormStatus(
+    "Thank you. Your inquiry has been submitted.",
+    "success"
+  );
+
+
+  history.replaceState(
+    null,
+    "",
+    `${window.location.pathname}#contact`
+  );
+
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE FALLBACK
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    document
+    .querySelectorAll(
+      "#products .img-box img"
+    )
+    .forEach(img => {
+
+      const original =
+        img.getAttribute("src");
+
+      if(!original){
+        return;
+      }
+
+
+      const clean =
+        original.split("?")[0];
+
+      const dot =
+        clean.lastIndexOf(".");
+
+      const base =
+        dot > -1
+        ? clean.slice(0,dot)
+        : clean;
+
+
+      const extensions = [
+        ".webp",
+        ".png",
+        ".jpg",
+        ".jpeg"
+      ];
+
+
+      const candidates = [];
+
+      extensions.forEach(ext => {
+
+        const candidate =
+          base + ext;
+
+        if(
+          !candidates.includes(
+            candidate
+          )
+        ){
+
+          candidates.push(candidate);
+
+        }
+
+      });
+
+
+      let index = 0;
+
+
+      img.addEventListener(
+        "error",
+        () => {
+
+          index += 1;
+
+
+          if(
+            index <
+            candidates.length
+          ){
+
+            img.src =
+              candidates[index];
+
+          }else{
+
+            img
+            .closest(".img-box")
+            ?.classList
+            .add(
+              "image-missing"
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+  }
+);
+
+</script>
+
+</body>
+</html>
